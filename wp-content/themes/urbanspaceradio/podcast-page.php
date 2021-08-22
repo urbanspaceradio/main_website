@@ -35,65 +35,17 @@ get_header();
           <img alt="1" src="assets/img/temp/podcasts/1.png">
           <p>сезон 1</p>
         </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/1.png">
-          <p>сезон 2</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/1.png">
-          <p>сезон 3</p>
-        </a>
       </div>
       <div class="podcasts-seasons">
         <a class="podcastCart" href="single-podcast.html">
           <img alt="1" src="assets/img/temp/podcasts/2.png">
           <p>сезон 1</p>
         </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/3.png">
-          <p>сезон 2</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/4.png">
-          <p>сезон 3</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/4.png">
-          <p>сезон 3</p>
-        </a>
       </div>
       <div class="podcasts-seasons">
         <a class="podcastCart" href="single-podcast.html">
           <img alt="1" src="assets/img/temp/podcasts/2.png">
           <p>сезон 1</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/3.png">
-          <p>сезон 2</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/4.png">
-          <p>сезон 3</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/4.png">
-          <p>сезон 3</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/2.png">
-          <p>сезон 1</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/3.png">
-          <p>сезон 2</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/6.png">
-          <p>сезон 3</p>
-        </a>
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/5.png">
-          <p>сезон 3</p>
         </a>
       </div>
       <div class="podcasts-seasons">

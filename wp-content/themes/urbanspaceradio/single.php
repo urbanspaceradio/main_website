@@ -29,42 +29,12 @@ get_header();
         <img alt="1" src="assets/img/temp/podcasts/1.png">
         <p>podcast</p>
       </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/2.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/3.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/4.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/5.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/6.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/1.png">
-        <p>podcast</p>
-      </a>
-      <a class="podcastCart" href="episode.html">
-        <img alt="1" src="assets/img/temp/podcasts/3.png">
-        <p>podcast</p>
-      </a>
     </div>
   </section>
   <section class="singlePodcast-descriptions">
     <div class="singlePodcast-descriptions_text">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
         Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
-      <p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan ac
-        elementum ac, varius nec purus.</p>
     </div>
     <div class="btn-green btn-green-main">
       <a href="#">перейти до наступного сезону</a>

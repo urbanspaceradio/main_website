@@ -19,7 +19,8 @@ function my_scripts_and_styles() {
 
 function register_menu() {
   register_nav_menus( [
-    'menu_header'      => 'Головне меню'
+    'menu_header'      => 'Головне меню',
+    'menu_footer'      => 'Футер меню'
   ] );
 }
 
@@ -97,6 +98,7 @@ function be_register_blocks() {
     'category'        => 'formatting',
     'icon'            => 'format-aside'
   ] );
+  // podcast page
 }
 function getBlock_mostPopular() {
   return get_field( 'block_mostPopular' );
@@ -123,5 +125,5 @@ function getBlock_partners() {
   return get_field( 'block_partners' );
 }
 function getBlock_subscribe() {
-  return get_field( 'block_subscribe' );
+  return get_field( 'subscribe_desc' );
 }
