@@ -36,24 +36,6 @@ get_header();
           <p>сезон 1</p>
         </a>
       </div>
-      <div class="podcasts-seasons">
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/2.png">
-          <p>сезон 1</p>
-        </a>
-      </div>
-      <div class="podcasts-seasons">
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/2.png">
-          <p>сезон 1</p>
-        </a>
-      </div>
-      <div class="podcasts-seasons">
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/4.png">
-          <p>сезон 1</p>
-        </a>
-      </div>
     </section>
   </div>
 <?php get_footer();?>

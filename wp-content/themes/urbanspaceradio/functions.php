@@ -99,6 +99,14 @@ function be_register_blocks() {
     'icon'            => 'format-aside'
   ] );
   // podcast page
+//  acf_register_block( [
+//    'name'            => 'block_podcastPage',
+//    'title'           => 'Блок - Кнопка "долучитись"',
+//    'render_template' => 'template-parts/blocks/block_subscribe.php',
+//    'category'        => 'formatting',
+//    'icon'            => 'format-aside'
+//  ] );
+
 }
 function getBlock_mostPopular() {
   return get_field( 'block_mostPopular');
