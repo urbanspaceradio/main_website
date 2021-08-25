@@ -1,6 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 $mostPopular = getBlock_mostPopular();
+
 ?>
 <section class="mostPopular">
   <h2><?php echo $mostPopular['mostPopular-title']; ?></h2>

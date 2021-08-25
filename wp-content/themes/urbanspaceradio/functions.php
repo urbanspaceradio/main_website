@@ -101,7 +101,7 @@ function be_register_blocks() {
   // podcast page
 }
 function getBlock_mostPopular() {
-  return get_field( 'block_mostPopular' );
+  return get_field( 'block_mostPopular');
 }
 function getBlock_aboutUSR() {
   return get_field( 'block_aboutUSR' );
