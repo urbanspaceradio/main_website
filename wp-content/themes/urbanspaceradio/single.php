@@ -18,7 +18,7 @@ get_header();
         <div class="podcasts-filter_type">
           <div class="btn-green"><a href="#">за жанрами</a></div>
           <div class="btn-green"><a href="#">за авторами</a></div>
-          <div class="btn-green active"><a href="#">пошук</a></div>
+          <div class="btn-green search"><a href="#">пошук</a></div>
         </div>
       </div>
     </div>

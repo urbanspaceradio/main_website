@@ -19,5 +19,5 @@ $Block_authors_1 = getBlock_authors();
         </div>
       </div>
     </div>
-  <? endforeach; ?>
+  <?php endforeach; ?>
 </section>

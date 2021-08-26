@@ -13,7 +13,7 @@ $mostPopular = getBlock_mostPopular();
       </a>
     </div>
   <?php endforeach; ?>
-  <div class="btn mostPopular-btn">
+  <div class="btn-greenHover mostPopular-btn">
     <a href="#">переглянути усі наші подкасти</a>
   </div>
 </section>

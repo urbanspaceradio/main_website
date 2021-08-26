@@ -21,7 +21,7 @@ $block_ourTeam_1 = getBlock_ourTeam();
         </div>
       <?php endforeach; ?>
     </div>
-    <div class="btn-green bottomBtn">
+    <div class="btn-greenHover bottomBtn">
       <a href="#">стати членом команди</a>
     </div>
   </section>

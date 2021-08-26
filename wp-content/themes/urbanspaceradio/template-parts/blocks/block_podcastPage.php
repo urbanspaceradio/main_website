@@ -22,9 +22,9 @@ print_r( $posts );
           <li><a href="#">2017</a></li>
         </ul>
         <div class="podcasts-filter_type">
-          <div class="btn-green"><a href="#">за жанрами</a></div>
-          <div class="btn-green"><a href="#">за авторами</a></div>
-          <div class="btn-green active"><a href="#">пошук</a></div>
+          <div class="btn-greenHover"><a href="#">за жанрами</a></div>
+          <div class="btn-greenHover"><a href="#">за авторами</a></div>
+          <div class="btn-greenHover search"><a href="#">пошук</a></div>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ $block_radaUSR_1 = getBlock_radaUSR();
       <p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan ac
         elementum ac, varius nec purus.</p>
     </div>
-    <div class="btn-green bottomBtn">
+    <div class="btn-greenHover bottomBtn">
       <a href="#">написати</a>
     </div>
   </section>

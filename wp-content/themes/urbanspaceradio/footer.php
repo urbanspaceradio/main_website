@@ -47,7 +47,13 @@ defined('ABSPATH') || exit;
       </div>
     </div>
     <div class="footer-rights">
-      Made in Ivano-Frankivsk<br/>© 2021 Urban Space Radio. All Rights Reserved
+      Made in Ivano-Frankivsk<br/>© 2021 Urban Space Radio. All Rights Reserved <br/>
+		 <span class="developed">Developed by
+			<a href="https://www.facebook.com/nazar.meInychenko/"
+				target="_blank">Nazar Melnychenko</a> &
+			<a href="https://www.facebook.com/roman.korvackiy/"
+				target="_blank">Roman Korvatskyi</a>
+		</span>
     </div>
   </div>
 </footer>

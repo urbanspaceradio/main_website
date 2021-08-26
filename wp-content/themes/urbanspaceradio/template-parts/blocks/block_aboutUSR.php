@@ -17,7 +17,7 @@ $Block_aboutUSR_1 = getBlock_aboutUSR();
       <div class="aboutUSR-mainText">
         <p><?php echo $Block_aboutUSR_1['aboutUSR-text']; ?></p>
       </div>
-      <div class="btn-green btn-green-main">
+      <div class="btn-greenHover btn-green-main">
         <a href="#">підтримати проект</a>
       </div>
     </div>

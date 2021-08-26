@@ -11,7 +11,7 @@ $Block_partners = getBlock_partners();
     <?php foreach ($Block_partners['items-partners'] as $Block_partners_1) : ?>
       <div class="partners-items_partner">
         <div class="img"><img alt="1" src="<?php echo $Block_partners_1['photo_items-partners']; ?>"></div>
-        <div class="btn-green partners-btn"><a href="#"><?php echo $Block_partners_1['name_items-partners']; ?></a></div>
+        <div class="btn-greenHover partners-btn"><a href="#"><?php echo $Block_partners_1['name_items-partners']; ?></a></div>
       </div>
     <?php endforeach; ?>
   </section>
