@@ -1,10 +1,13 @@
 <?php
 defined('ABSPATH') || exit;
 $block_podcastPage = getBlock_podcastPage();
+$args = array(
+  'posts_per_page' => 7,
+  'orderby' => 'post_modified_gmt',
+  'post_type' => 'podcast',
+);
 $posts = new WP_Query($args);
-
-global $wp_query;
-print_r( $posts );
+print_r($posts);
 ?>
 <div class="podcasts">
   <section class="podcasts-divider">
@@ -30,23 +33,19 @@ print_r( $posts );
     </div>
   </section>
   <section class="siteWrapper">
-    <?php if ($posts->have_posts()){ while ($posts->have_posts()){
-      $posts->the_post(); ?>
-      <div class="podcasts-seasons">
-        <a class="podcastCart" href="single-podcast.html">
-          <img alt="1" src="assets/img/temp/podcasts/1.png">
-          <p><?php the_title(); ?></p>
-        </a>
-      </div>
-      <?php
-    }}
-    wp_reset_postdata();
-      ?>
     <div class="podcasts-seasons">
-      <a class="podcastCart" href="single-podcast.html">
-        <img alt="1" src="assets/img/temp/podcasts/1.png">
-        <p>сезон 1</p>
-      </a>
+      <?php if ($posts->have_posts()) {
+        while ($posts->have_posts()) {
+          $posts->the_post(); ?>
+          <a class="podcastCart" href="<?php echo get_post_permalink($posts->ID); ?>">
+            <img src="<?php echo get_the_post_thumbnail_url($posts->ID); ?>" alt="picture"/>
+            <p><?php the_title(); ?></p>
+          </a>
+          <?php
+        }
+      }
+      wp_reset_postdata();
+      ?>
     </div>
   </section>
 </div>
