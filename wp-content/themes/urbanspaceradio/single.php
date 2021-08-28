@@ -2,43 +2,81 @@
 /* Template name: Single Podcast Page */
 defined('ABSPATH') || exit;
 get_header();
+$args = array(
+  'taxonomy' => 'series',
+  'post_type' => 'podcast',
+  'meta_query' => array(
+    array(
+      'key' => 'audio_file'
+    ),
+  ),);
+$query = new WP_Query($args);
 ?>
-<div class="podcasts singlePodcast">
-	<section class="podcasts-divider">
-		<div class="siteWrapper">
-			<div class="header-mainText">
-				<h1>2020 РІК З URBAN SPACE RADIO</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
-					Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
-				<p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan ac
-					elementum ac, varius nec purus.</p>
-			</div>
-			<div class="podcasts-filter singlePodcast-filter">
-				<h2>Сезон 2</h2>
-				<div class="podcasts-filter_type">
-					<div class="btn-green"><a href="#">за жанрами</a></div>
-					<div class="btn-green"><a href="#">за авторами</a></div>
-					<div class="btn-green search"><a href="#">пошук</a></div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="siteWrapper">
-		<div class="singlePodcast-items">
-			<a class="podcastCart" href="episode.html">
-				<img alt="1" src="assets/img/temp/podcasts/1.png">
-				<p>podcast</p>
-			</a>
-		</div>
-	</section>
-	<section class="singlePodcast-descriptions">
-		<div class="singlePodcast-descriptions_text">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
-				Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
-		</div>
-		<div class="btn-green btn-green-main">
-			<a href="#">перейти до наступного сезону</a>
-		</div>
-	</section>
+<div class="episode">
+  <div class="siteWrapper">
+    <div class="slick">
+
+          <div>
+            <section class="episode-slider">
+              <div class="episode-slider_description">
+                <h2></h2>
+                <p></p>
+                <div class="btn-greenHover">
+                  <a href="#">слухати</a>
+                </div>
+              </div>
+              <div class="episode-slider_img">
+                <div class="podcastCart episodeCart">
+                  <img alt="1" src="">
+                </div>
+              </div>
+            </section>
+            <section class="episode-items">
+              <h2>ЕПІЗОДИ</h2>
+              <?php if ($query->have_posts()) {
+              while ($query->have_posts()) {
+              $query->the_post(); ?>
+              <a class="episode-items_item" href="#">
+                <img alt="1" src="<?php echo get_the_post_thumbnail_url($query->ID); ?>">
+                <div class="descriptions">
+                  <h3><?php the_title();?></h3>
+                  <p><?php echo get_post_field('post_content');?></p>
+                </div>
+              </a>
+              <?php }
+              } ?>
+            </section>
+          </div>
+
+    </div>
+    <div class="btn-greenHover loadMore"><a href="#">&#x25BC;</a></div>
+  </div>
+  <div class="divider"></div>
+  <div class="siteWrapper">
+    <section class="episode-partners">
+      <div class="episode-partners_partner">
+        <div class="label">партнер</div>
+        <img alt="1" src="assets/img/temp/partners/1.png">
+      </div>
+      <div class="episode-partners_partner">
+        <div class="label">партнер</div>
+        <img alt="2" src="assets/img/temp/partners/2.png">
+      </div>
+      <div class="episode-partners_partner">
+        <div class="label">партнер</div>
+        <img alt="3" src="assets/img/temp/partners/3.png">
+      </div>
+      <div class="episode-partners_partner">
+        <div class="label">автор</div>
+
+      </div>
+    </section>
+    <section class="episode-description">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
+        Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
+      <p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan ac
+        elementum ac, varius nec purus.</p>
+    </section>
+  </div>
 </div>
 <?php wp_footer(); ?>
