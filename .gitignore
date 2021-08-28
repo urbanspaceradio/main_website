@@ -4,6 +4,5 @@ node_modules/
 .git
 .DS_Store
 Thumbs.db
-/wp-content/uploads
 wp-config.php
 stats/

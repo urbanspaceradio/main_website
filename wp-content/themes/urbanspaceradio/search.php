@@ -1,6 +1,6 @@
 <?php
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 get_header();
 //search page
 ?>
-<?php get_footer();?>
+<?php get_footer(); ?>

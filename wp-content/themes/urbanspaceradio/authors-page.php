@@ -3,7 +3,7 @@
 defined('ABSPATH') || exit;
 get_header();
 ?>
-  <div class="siteWrapper authors">
-    <?php the_content(); ?>
-  </div>
+	<div class="siteWrapper authors">
+     <?php the_content(); ?>
+	</div>
 <?php get_footer(); ?>
