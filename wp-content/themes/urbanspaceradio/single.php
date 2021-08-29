@@ -36,7 +36,7 @@ $query = new WP_Query($args);
               <?php if ($query->have_posts()) {
               while ($query->have_posts()) {
               $query->the_post(); ?>
-              <a class="episode-items_item" href="#">
+              <a class="episode-items_item" href="<?php echo get_post_permalink($query->ID); ?>">
                 <img alt="1" src="<?php echo get_the_post_thumbnail_url($query->ID); ?>">
                 <div class="descriptions">
                   <h3><?php the_title();?></h3>
