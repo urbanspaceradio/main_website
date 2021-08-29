@@ -7,7 +7,6 @@ $args = array(
   'post_type' => 'podcast',
 );
 $posts = new WP_Query($args);
-print_r($posts);
 ?>
 <div class="podcasts">
   <section class="podcasts-divider">

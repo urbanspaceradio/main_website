@@ -1,5 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
+$block_contactPage = getBlock_contactPage();
 ?>
 <footer class="footerWrapper">
 	<div class="siteWrapper footer">
@@ -32,15 +33,19 @@ defined('ABSPATH') || exit;
 			<div class="footer-info_item">
 				<div>КОНТАКТИ</div>
 				<ul>
-					<li><a href="#">+ 38 (096) 265 82 71</a></li>
-					<!--          <li><a href="tel:--><?php //echo $phone_us ['business_number']; ?><!--">-->
-					<!--              --><?php //echo $phone_us ['business_number']; ?><!--</a></li>-->
-					<li><a href="#">media.urbanspaceradio@gmail.com</a></li>
+          <li>
+            <a href="tel:<?php echo $block_contactPage['mainMobile-contactPage']; ?>">
+                        <?php echo $block_contactPage['mainMobile-contactPage']; ?></a>
+          </li>
+					<li>
+            <a href="mailto:<?php echo $block_contactPage['mainEmail-contactPage']; ?>">
+              <?php echo $block_contactPage['mainEmail-contactPage']; ?></a>
+          </li>
 				</ul>
 			</div>
 		</div>
 		<div class="footer-rights">
-			Made in Ivano-Frankivsk<br/>© 2021 Urban Space Radio. All Rights Reserved <br/>
+			Made in Ivano-Frankivsk<br/>&copy; <?php copyright_date() ?> Urban Space Radio. All Rights Reserved <br/>
 			<span class="developed">Developed by
 			<a href="https://www.facebook.com/nazar.meInychenko/"
 				target="_blank">Nazar Melnychenko</a> &

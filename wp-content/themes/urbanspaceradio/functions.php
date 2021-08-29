@@ -46,7 +46,8 @@ function be_register_blocks() {
   acf_register_block(['name' => 'block_subscribe', 'title' => 'Блок - Кнопка "долучитись"', 'render_template' => 'template-parts/blocks/block_subscribe.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // podcast page
   acf_register_block(['name' => 'block_podcastPage', 'title' => 'Блок - Подкасти', 'render_template' => 'template-parts/blocks/block_podcastPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
-
+// contact page
+  acf_register_block(['name' => 'block_contactsPage', 'title' => 'Блок - Контакти', 'render_template' => 'template-parts/blocks/block_contactPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
 }
 
 function getBlock_mostPopular() {
@@ -87,4 +88,20 @@ function getBlock_subscribe() {
 
 function getBlock_podcastPage() {
   return get_field('block_podcastPage');
+}
+
+function getBlock_contactPage() {
+  return get_field('block_contactPage');
+}
+
+//___________FOOTER_____________
+function copyright_date() {
+  $start_date   = '2021';
+  $current_date = date( 'Y' );
+
+  if ( $start_date !== $current_date ) {
+    echo $start_date . ' - ' . $current_date;
+  } else {
+    echo $start_date;
+  }
 }
