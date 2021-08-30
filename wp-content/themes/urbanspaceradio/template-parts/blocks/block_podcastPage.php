@@ -1,12 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 $block_podcastPage = getBlock_podcastPage();
-$args = array(
-  'posts_per_page' => 7,
-  'orderby' => 'post_modified_gmt',
-  'post_type' => 'podcast',
-);
-$posts = new WP_Query($args);
+$series = get_terms(['taxonomy' => 'series','hide_empty' => true, 'parent' => 0]);
 ?>
 <div class="podcasts">
   <section class="podcasts-divider">
@@ -33,18 +28,18 @@ $posts = new WP_Query($args);
   </section>
   <section class="siteWrapper">
     <div class="podcasts-seasons">
-      <?php if ($posts->have_posts()) {
-        while ($posts->have_posts()) {
-          $posts->the_post(); ?>
-          <a class="podcastCart" href="<?php echo get_post_permalink($posts->ID); ?>">
-            <img src="<?php echo get_the_post_thumbnail_url($posts->ID); ?>" alt="picture"/>
-            <p><?php the_title(); ?></p>
+		<?php foreach ($series as $item){
+		  $term_id_img = get_term_meta($item->term_id)['podcast_series_image_settings'][0];
+		  $term_img_url = wp_get_attachment_url($term_id_img);
+		  if(!$term_img_url){
+		  	$term_img_url = get_template_directory_uri().'/assets/img/no_img.png';
+		  }
+		?>
+          <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
+            <img src="<?php echo $term_img_url; ?>" alt="picture"/>
+            <p><?php echo $item->name; ?></p>
           </a>
-          <?php
-        }
-      }
-      wp_reset_postdata();
-      ?>
+	  <?php } ?>
     </div>
   </section>
 </div>

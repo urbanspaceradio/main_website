@@ -217,7 +217,9 @@ img {
 }
 
 .podcastCart {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: 1px solid #000300;
     border-radius: 10px;
     margin: 30px;
@@ -225,7 +227,7 @@ img {
     background-color: #fff;
     color: #000300;
     text-decoration: none;
-    max-width: 235px;
+    width: 235px;
 }
 
 .podcastCart img {
@@ -444,7 +446,7 @@ img {
     border-color: #459799;
 }
 
-.mainPlayer-container .jp-audio-stream:hover_info {
+.mainPlayer-container .jp-audio-stream:hover .info {
     color: #FFF;
 }
 
@@ -799,6 +801,7 @@ img {
 .podcasts-seasons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     margin: 50px 0;
 }
 
@@ -921,6 +924,7 @@ img {
     border: 1px solid transparent;
     transition: all 0.3s linear;
     text-decoration: none;
+    background-color: #FFF;
     color: #000300;
 }
 
@@ -1262,12 +1266,14 @@ img {
 }
 
 .contacts-values_item .description-phone,
-.contacts-values_item .description-email {
+.contacts-values_item .description-email,
+.contacts-values_item .description-address {
     margin: 20px;
 }
 
 .contacts-values_item .description-phone a,
-.contacts-values_item .description-email a {
+.contacts-values_item .description-email a,
+.contacts-values_item .description-address{
     text-decoration: none;
     color: #000300;
     font-size: 30px;

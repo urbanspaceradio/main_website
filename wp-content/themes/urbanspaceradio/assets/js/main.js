@@ -3,6 +3,7 @@
 $(document).ready(function () {
     $('.slick').slick({
         arrows: true,
+        adaptiveHeight: true,
     });
 
     const updatePlaylist = function (songList) {

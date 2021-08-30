@@ -1,7 +1,6 @@
 <?php
 defined('ABSPATH') || exit;
 $block_contactPage = getBlock_contactPage();
-//print_r($block_contactPage)
 ?>
 <div class="contacts">
   <div class="siteWrapper">
@@ -229,8 +228,9 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">ПОДЗВОНИТИ</h2>
           <div class="description-phone">
-<!--                        <a href="tel:--><?php //echo $block_contactPage['block_contactPage']['item-contactPage'] ['mainMobile-contactPage']; ?><!--">-->
-<!--            --><?php //echo $block_contactPage['mainMobile-contactPage']; ?><!--</a>-->
+				 <a href="tel:<?php echo $block_contactPage['item-contactPage']['mainMobile-contactPage']; ?>">
+					<?php echo $block_contactPage['item-contactPage']['mainMobile-contactPage']; ?>
+				 </a>
           </div>
           <div class="text">
             <p>- щирість</p>
@@ -403,10 +403,9 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">НАПИСАТИ</h2>
           <div class="description-email">
-<!--            <a-->
-<!--              href="mailto:--><?php //echo $block_contactPage['mainEmail-contactPage']; ?><!--">-->
-<!--              --><?php //echo $block_contactPage['mainEmail-contactPage']; ?>
-<!--            </a>-->
+            <a href="mailto:<?php echo $block_contactPage['item-contactPage']['mainEmail-contactPage']; ?>">
+              <?php echo $block_contactPage['item-contactPage']['mainEmail-contactPage']; ?>
+            </a>
           </div>
           <div class="text">
             <p>Підтримка зрілості у суспільстві через <br> україномовний аудіальний продукт.</p>
@@ -867,12 +866,11 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">ЗАВІТАТИ</h2>
           <div class="description-address">
-<!--            --><?php //echo $block_contactPage['address-contactPage']; ?>
+            <?php echo $block_contactPage['item-contactPage']['address-contactPage']; ?>
           </div>
           <div class="text">
             <p>Розвиток форматності аудіального продукту та незалежного україномовного <br> подкастингу через
               партнерства та співпраці.</p>
-
           </div>
         </div>
       </div>
