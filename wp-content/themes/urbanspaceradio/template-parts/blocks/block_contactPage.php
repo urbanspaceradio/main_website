@@ -228,8 +228,8 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">ПОДЗВОНИТИ</h2>
           <div class="description-phone">
-				 <a href="tel:<?php echo $block_contactPage['item-contactPage']['mainMobile-contactPage']; ?>">
-					<?php echo $block_contactPage['item-contactPage']['mainMobile-contactPage']; ?>
+				 <a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
+           <?php echo get_field('mainMobile-contactPage', '1350'); ?>
 				 </a>
           </div>
           <div class="text">
@@ -403,8 +403,8 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">НАПИСАТИ</h2>
           <div class="description-email">
-            <a href="mailto:<?php echo $block_contactPage['item-contactPage']['mainEmail-contactPage']; ?>">
-              <?php echo $block_contactPage['item-contactPage']['mainEmail-contactPage']; ?>
+            <a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
+              <?php echo get_field('mainEmail-contactPage', '1350'); ?>
             </a>
           </div>
           <div class="text">
@@ -866,7 +866,7 @@ $block_contactPage = getBlock_contactPage();
         <div class="description">
           <h2 class="description-title">ЗАВІТАТИ</h2>
           <div class="description-address">
-            <?php echo $block_contactPage['item-contactPage']['address-contactPage']; ?>
+            <?php echo get_field('address-contactPage', '1350'); ?>
           </div>
           <div class="text">
             <p>Розвиток форматності аудіального продукту та незалежного україномовного <br> подкастингу через

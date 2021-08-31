@@ -34,12 +34,12 @@ $block_contactPage = getBlock_contactPage();
 				<div>КОНТАКТИ</div>
 				<ul>
           <li>
-            <a href="tel:<?php echo $block_contactPage['mainMobile-contactPage']; ?>">
-                        <?php echo $block_contactPage['mainMobile-contactPage']; ?></a>
+            <a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
+              <?php echo get_field('mainMobile-contactPage', '1350'); ?></a>
           </li>
 					<li>
-            <a href="mailto:<?php echo $block_contactPage['mainEmail-contactPage']; ?>">
-              <?php echo $block_contactPage['mainEmail-contactPage']; ?></a>
+            <a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
+              <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
           </li>
 				</ul>
 			</div>
