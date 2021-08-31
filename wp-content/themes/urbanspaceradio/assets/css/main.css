@@ -931,7 +931,7 @@ img {
 .episode-slider_img .episodeCart {
     margin: 0;
     padding: 0;
-    max-width: unset;
+    width: unset;
     border: none;
 }
 
@@ -1027,6 +1027,10 @@ img {
 
 .episode-description p {
     padding-bottom: 20px;
+}
+
+audio {
+ width: 100%;
 }
 
 .about-header {
@@ -1431,6 +1435,8 @@ img {
 .footer-info_item {
     text-align: center;
     margin: 30px;
+    max-width: 250px;
+    word-break: break-all;
 }
 
 .footer-info_item div {
