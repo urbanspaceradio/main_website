@@ -4,16 +4,22 @@ $mostPopular = getBlock_mostPopular();
 
 ?>
 <section class="mostPopular">
-	<h2><?php echo $mostPopular['mostPopular-title']; ?></h2>
-  <?php foreach ($mostPopular['podcast-item'] as $mostPopular_1) : ?>
+	<h2>НАЙПОПУЛЯРНІШЕ НА URBAN SPACE RADIO</h2>
 	  <div class="mostPopular-podcasts">
-		  <a class="podcastCart" href="#">
-			  <img alt="podcast_item" src="<?php echo $mostPopular_1['podcast-img']; ?>">
-			  <p><?php echo $mostPopular_1['podcast-name']; ?></p>
+ 		 <?php foreach ($mostPopular as $popular) :
+         $term_id_img = get_term_meta($popular->term_id)['podcast_series_image_settings'][0];
+         $term_img_url = wp_get_attachment_url($term_id_img);
+         if(!$term_img_url){
+           $term_img_url = get_template_directory_uri().'/assets/img/no_img.png';
+         }
+			?>
+		  <a class="podcastCart" href="<?php echo get_term_link($popular->term_id); ?>">
+			  <img alt="podcast_item" src="<?php echo $term_img_url; ?>">
+			  <p><?php echo $popular->name; ?></p>
 		  </a>
+  		<?php endforeach; ?>
 	  </div>
-  <?php endforeach; ?>
 	<div class="btn-greenHover mostPopular-btn">
-		<a href="#">переглянути усі наші подкасти</a>
+		<a href="<?php echo site_url('/podcasts'); ?>">переглянути усі наші подкасти</a>
 	</div>
 </section>

@@ -2,7 +2,8 @@
 /* Template name: Single Series Page */
 defined('ABSPATH') || exit;
 get_header();
-$series = get_terms(['taxonomy' => 'series','hide_empty' => true, 'parent' => 82]);
+$query_vars = get_queried_object();
+$series = get_terms(['taxonomy' => 'series','hide_empty' => true, 'slug' => $query_vars->slug]);
 
 function get_episode($term) {
   $args = array(
@@ -26,6 +27,8 @@ function get_episode($term) {
     <div class="slick">
       <?php foreach ($series as $item){
         $term_id_img = get_term_meta($item->term_id)['podcast_series_image_settings'][0];
+        $term_google_url = get_term_meta($item->term_id)['podcasts_link_google_podcasts'][0];
+        $term_apple_url = get_term_meta($item->term_id)['podcasts_link_apple_podcasts'][0];
         $term_img_url = wp_get_attachment_url($term_id_img);
         if(!$term_img_url){
           $term_img_url = get_template_directory_uri().'/assets/img/no_img.png';
@@ -37,8 +40,10 @@ function get_episode($term) {
 					<div class="episode-slider_description">
 						<h2><?php echo $item -> name; ?></h2>
 						<p><?php echo $item -> description; ?></p>
-						<div class="btn-greenHover">
-							<a href="#">слухати</a>
+						<div class="episode-slider_podcastsBtn">
+							<p>Обрери свою платформу для прослуховування</p>
+							<a class="google" href="<?php echo $term_google_url?>" target="_blank"></a>
+							<a class="apple" href="<?php echo $term_apple_url?>" target="_blank"></a>
 						</div>
 					</div>
 					<div class="episode-slider_img">

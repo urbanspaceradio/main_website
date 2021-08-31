@@ -49,9 +49,6 @@ if ($query_vars->parent) {
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
 					Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
 			</div>
-			<div class="btn-greenHover btn-green-main">
-				<a href="#">перейти до наступного сезону</a>
-			</div>
 		</section>
 	</div>
 <?php } ?>

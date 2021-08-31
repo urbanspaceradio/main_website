@@ -8,7 +8,7 @@ $Block_mainPlayer_1 = getBlock_mainPlayer();
 		<div class="mainPlayer-container">
 			<div class="jp-audio-stream">
 				<div class="mainPlayer-container_btn">
-					<a href="player.html" class="play" target="_blank"></a>
+					<a href="<?php echo site_url('/player'); ?>" class="play" target="_blank"></a>
 				</div>
 				<div class="mainPlayer-container_info activeInfo">
 					<div class="js-singer">Loading...</div>

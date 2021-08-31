@@ -141,13 +141,26 @@ table {
 body {
     background-image: url("../img/background.png");
     background-size: contain;
-    font-family: BanderaPro;
+    font-family: BanderaPro, sans-serif;
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 1.1;
 }
 
 .siteWrapper {
     max-width: 1320px;
     margin: 0 auto;
     padding: 15px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: lighter;
 }
 
 img {
@@ -242,6 +255,7 @@ img {
     bottom: 10px;
     right: -10px;
     border: 1px solid #000300;
+    background-color: #fff;
     border-radius: 10px;
     z-index: -1;
     transition: background-color 0.2s linear;
@@ -258,8 +272,6 @@ img {
 
 .header-mainText h1 {
     margin-top: 116px;
-    font-size: 25px;
-    font-weight: lighter;
 }
 
 .header-mainText p {
@@ -405,6 +417,7 @@ img {
 .mainPlayer-container .jp-audio-stream {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 470px;
     border: 2px solid #000300;
     padding: 35px 50px;
@@ -436,7 +449,7 @@ img {
 .mainPlayer-container .jp-audio-stream .play:after {
     content: '';
     position: absolute;
-    top: 5px;
+    top: -30px;
     border: 30px solid transparent;
     border-left: 55px solid #000300;
 }
@@ -463,7 +476,6 @@ img {
     font-weight: bold;
     color: #000300;
     text-align: center;
-    margin: 0 20px;
 }
 
 .mainPlayer-container_info .js-singer,
@@ -490,9 +502,6 @@ img {
 }
 
 .mostPopular h2 {
-    font-size: 25px;
-    letter-spacing: 2px;
-    font-weight: normal;
     margin-bottom: 86px;
 }
 
@@ -524,6 +533,7 @@ img {
     bottom: 20px;
     right: -20px;
     border: 1px solid #000300;
+    background-color: #fff;
     border-radius: 10px;
     z-index: -1;
 }
@@ -540,8 +550,6 @@ img {
 }
 
 .aboutUSR-header_text h1 {
-    font-size: 35px;
-    font-weight: lighter;
     padding-top: 55px;
 }
 
@@ -597,7 +605,6 @@ img {
 }
 
 .rotateCart .cartContainer .back h2 {
-    font-size: 17px;
     text-align: center;
     margin: 10px 0;
 }
@@ -651,6 +658,7 @@ img {
 .playerPage-container .jp-audio-stream {
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 470px;
     border: 2px solid #000300;
     padding: 35px 50px;
@@ -681,7 +689,7 @@ img {
 .playerPage-container .jp-audio-stream .play:after {
     content: '';
     position: absolute;
-    top: 5px;
+    top: -30px;
     border: 30px solid transparent;
     border-left: 55px solid #000300;
 }
@@ -709,7 +717,6 @@ img {
     width: 15px;
     background-color: #FFF;
     position: relative;
-    top: 7px;
     cursor: pointer;
 }
 
@@ -749,7 +756,7 @@ img {
 }
 
 .podcasts-filter {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
@@ -806,7 +813,6 @@ img {
 }
 
 .singlePodcast-filter h2 {
-    font-size: 25px;
     text-transform: uppercase;
 }
 
@@ -878,8 +884,6 @@ img {
 
 .episode-slider_description h2 {
     text-transform: uppercase;
-    font-size: 30px;
-    font-weight: lighter;
     margin-bottom: 20px;
 }
 
@@ -887,10 +891,35 @@ img {
     line-height: 1.5;
 }
 
-.episode-slider_description .btn-greenHover {
-    margin: 50px 0;
-    width: 100%;
-    text-align: center;
+.episode-slider_podcastsBtn {
+    max-width: 287px;
+    margin-top: 50px;
+    font-size: 20px;
+}
+
+.episode-slider_podcastsBtn .google,
+.episode-slider_podcastsBtn .apple {
+    margin-top: 15px;
+    width: 60px;
+    height: 60px;
+}
+
+.episode-slider_podcastsBtn .google {
+    display: inline-block;
+    background: url('../img/podcasts_img/google_black.png') no-repeat center;
+}
+
+.episode-slider_podcastsBtn .apple {
+    display: inline-block;
+    background: url('../img/podcasts_img/apple_black.png') no-repeat center;
+}
+
+.episode-slider_podcastsBtn .google:hover {
+    background: url('../img/podcasts_img/google_color.png') no-repeat center;
+}
+
+.episode-slider_podcastsBtn .apple:hover {
+    background: url('../img/podcasts_img/apple_color.png') no-repeat center;
 }
 
 .episode-slider_img {
@@ -908,11 +937,10 @@ img {
 
 .episode-slider_img .episodeCart img {
     border-radius: 10px;
+    border: 1px solid #000300;
 }
 
 .episode-items h2 {
-    font-size: 30px;
-    font-weight: lighter;
     margin: 20px 100px;
 }
 
@@ -1290,8 +1318,6 @@ img {
 }
 
 .contacts-form h2 {
-    font-size: 30px;
-    font-weight: normal;
     padding-bottom: 27px;
 }
 
@@ -1372,7 +1398,6 @@ img {
 }
 
 .partner-didTogether_description h2 {
-    font-size: 25px;
     font-weight: normal;
 }
 
