@@ -22,7 +22,7 @@ $block_ourTeam_1 = getBlock_ourTeam();
         <?php endforeach; ?>
 		</div>
 		<div class="btn-greenHover bottomBtn">
-			<a href="#">стати членом команди</a>
+			<a href="<?php echo site_url('/contacts'); ?>">стати членом команди</a>
 		</div>
 	</section>
 </div>

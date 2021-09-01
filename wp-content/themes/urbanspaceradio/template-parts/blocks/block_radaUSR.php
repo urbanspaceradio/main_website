@@ -26,13 +26,15 @@ $block_radaUSR_1 = getBlock_radaUSR();
 		</div>
 		<div class="header-mainText about-supervisory_text">
 			<h1>НАШІ КОНТАКТИ</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
-				Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
-			<p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan ac
-				elementum ac, varius nec purus.</p>
+			<div class="contacts">
+				<a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
+				  <?php echo get_field('mainMobile-contactPage', '1350'); ?></a><br/>
+				<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
+				  <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
+			</div>
 		</div>
 		<div class="btn-greenHover bottomBtn">
-			<a href="#">написати</a>
+			<a href="<?php echo site_url('/contacts'); ?>">написати</a>
 		</div>
 	</section>
 </div>

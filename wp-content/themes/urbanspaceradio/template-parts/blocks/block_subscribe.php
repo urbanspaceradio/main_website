@@ -6,5 +6,5 @@ $Block_subscribe = getBlock_subscribe();
 	<p><?php echo $Block_subscribe['desc_subscribe-button']; ?></p>
 </section>
 <div class="btn-greenHover bottomBtn">
-	<a href="#">хочу долучитись</a>
+	<a href="<?php echo site_url('/contacts'); ?>">хочу долучитись</a>
 </div>
