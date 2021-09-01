@@ -17,8 +17,8 @@ $Block_aboutUSR_1 = getBlock_aboutUSR();
 			<div class="aboutUSR-mainText">
 				<p><?php echo $Block_aboutUSR_1['aboutUSR-text']; ?></p>
 			</div>
-			<div class="btn-greenHover btn-green-main">
-				<a href="#">підтримати проект</a>
+        <div onclick="runWfpWdgt('https://secure.wayforpay.com/button/b569b98266d95');" class="button-donation">
+				<span class="button-donation">підтримати проект</span>
 			</div>
 		</div>
 	</div>

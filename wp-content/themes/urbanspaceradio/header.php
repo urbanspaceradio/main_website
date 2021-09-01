@@ -13,6 +13,8 @@ defined('ABSPATH') || exit;
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 	<meta content="path/to/image.jpg" property="og:image">
 	<meta content="#000" name="theme-color">
+  <script type="text/javascript" id="widget-wfp-script" src="https://secure.wayforpay.com/server/pay-widget.js?ref=button"></script>
+  <script type="text/javascript">function runWfpWdgt(url){var wayforpay=new Wayforpay();wayforpay.invoice(url);}</script>
   <?php wp_head(); ?>
 </head>
 <body>
