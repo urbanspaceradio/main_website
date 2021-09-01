@@ -33,14 +33,14 @@ $block_contactPage = getBlock_contactPage();
 			<div class="footer-info_item">
 				<div>КОНТАКТИ</div>
 				<ul>
-          <li>
-            <a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
-              <?php echo get_field('mainMobile-contactPage', '1350'); ?></a>
-          </li>
 					<li>
-            <a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
-              <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
-          </li>
+						<a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
+                    <?php echo get_field('mainMobile-contactPage', '1350'); ?></a>
+					</li>
+					<li>
+						<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
+                    <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
+					</li>
 				</ul>
 			</div>
 		</div>

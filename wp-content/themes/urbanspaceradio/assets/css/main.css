@@ -578,7 +578,6 @@ img {
 }
 
 .rotateCart {
-    width: 300px;
     height: 288px;
 }
 
@@ -954,12 +953,14 @@ img {
     text-decoration: none;
     background-color: #FFF;
     color: #000300;
+    margin: 20px auto;
 }
 
 .episode-items_item:hover {
     border: 1px solid #000300;
     border-radius: 10px;
     cursor: pointer;
+    box-shadow: 1px 5px 15px;
 }
 
 .episode-items_item img {
@@ -1030,7 +1031,8 @@ img {
 }
 
 audio {
- width: 100%;
+    width: 100%;
+    margin: 5px 50px 10px;
 }
 
 .about-header {
@@ -1114,81 +1116,44 @@ audio {
 
 .about-supervisory_text {
     text-align: center;
+    margin-bottom: 70px;
 }
 
-.about-supervisory_text p {
-    margin: 0 auto;
+.about-supervisory_text h1 {
+    margin-bottom: 50px;
+}
+
+.about-supervisory .contacts a {
+    display: inline-block;
+    font-size: 25px;
+    text-decoration: none;
+    color: #000300;
+    padding: 10px 0;
 }
 
 .events {
     margin-bottom: 150px;
 }
 
-.events-items {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 300px 300px 300px;
-    gap: 20px;
-    grid-auto-flow: row;
-    grid-template-areas: "one one two" "three four five" "three six six";
+.events-items_item {
+    padding: unset;
 }
 
-.events-items .img {
-    overflow: hidden;
-    height: 100%;
-    display: flex;
+.events-items_item img {
+    border-radius: 10px 10px 0 0;
+    max-height: 700px;
 }
 
-.events-items ._1,
-.events-items ._2,
-.events-items ._3,
-.events-items ._4,
-.events-items ._5,
-.events-items ._6,
-.events-items ._7 {
-    border: 1px solid #000300;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.events-items_item .text {
+    margin: 50px;
 }
 
-.events-items .text {
-    padding: 20px;
-    max-height: 80px;
-    overflow: hidden;
-    margin-bottom: 10px;
+.events-items_item .text h2 {
+    margin-bottom: 15px;
 }
 
-.events-items .text p {
-    padding-top: 10px;
-}
-
-.events-items ._1 {
-    grid-area: one;
-}
-
-.events-items ._2 {
-    grid-area: two;
-}
-
-.events-items ._3 {
-    grid-area: three;
-}
-
-.events-items ._3 img {
-    height: 300px;
-}
-
-.events-items ._4 {
-    grid-area: four;
-}
-
-.events-items ._5 {
-    grid-area: five;
-}
-
-.events-items ._6 {
-    grid-area: six;
+.events-bottomDescription {
+    margin-top: 130px;
 }
 
 .partners-items {
@@ -1305,7 +1270,7 @@ audio {
 
 .contacts-values_item .description-phone a,
 .contacts-values_item .description-email a,
-.contacts-values_item .description-address{
+.contacts-values_item .description-address {
     text-decoration: none;
     color: #000300;
     font-size: 30px;

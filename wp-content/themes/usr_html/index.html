@@ -18,7 +18,7 @@
 <body>
 <div class="preLoader">
 	<div class="preLoader-img">
-		<img alt="" src="assets/img/preloader_img.png">
+		<img src="assets/img/preloader_img.png" alt="">
 	</div>
 	<div class="preLoader-text">загрузка...</div>
 </div>
@@ -47,7 +47,7 @@
 		<div class="mainPlayer-container">
 			<div class="jp-audio-stream">
 				<div class="mainPlayer-container_btn">
-					<a class="play" href="player.html" target="_blank"></a>
+					<a href="player.html" class="play" target="_blank"></a>
 				</div>
 				<div class="mainPlayer-container_info activeInfo">
 					<div class="js-singer">Loading...</div>
@@ -170,7 +170,7 @@
 <script src="assets/js/jquery.jplayer.min.js" type="text/javascript"></script>
 <script src="assets/js/common.js" type="text/javascript"></script>
 <script>
-    $(window).load(function () {
+    $(window).load(function() {
         setTimeout(() => $(".preLoader").fadeOut("slow"), 300);
     });
 </script>

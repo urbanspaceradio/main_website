@@ -40,13 +40,14 @@ function be_register_blocks() {
   acf_register_block(['name' => 'block_radaUSR', 'title' => 'Блок - Наглядова рада', 'render_template' => 'template-parts/blocks/block_radaUSR.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // Authors page
   acf_register_block(['name' => 'block_authors', 'title' => 'Блок - Автори', 'render_template' => 'template-parts/blocks/block_authors.php', 'category' => 'formatting', 'icon' => 'format-aside']);
+  acf_register_block(['name' => 'block_events', 'title' => 'Блок - Події', 'render_template' => 'template-parts/blocks/block_events.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // Partners Page
   acf_register_block(['name' => 'block_partners', 'title' => 'Блок - Партнери', 'render_template' => 'template-parts/blocks/block_partners.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // block
   acf_register_block(['name' => 'block_subscribe', 'title' => 'Блок - Кнопка "долучитись"', 'render_template' => 'template-parts/blocks/block_subscribe.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // podcast page
   acf_register_block(['name' => 'block_podcastPage', 'title' => 'Блок - Подкасти', 'render_template' => 'template-parts/blocks/block_podcastPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
-// contact page
+/// contact page
   acf_register_block(['name' => 'block_contactsPage', 'title' => 'Блок - Контакти', 'render_template' => 'template-parts/blocks/block_contactPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
 }
 
@@ -68,6 +69,10 @@ function getBlock_ourMission() {
 
 function getBlock_ourTeam() {
   return get_field('block_ourTeam');
+}
+
+function getBlock_events() {
+  return get_field('block_events');
 }
 
 function getBlock_radaUSR() {
@@ -94,14 +99,20 @@ function getBlock_contactPage() {
   return get_field('block_contactPage');
 }
 
+function get_episode($term) {
+  $args = array('posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => array(array('taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term)));
+  return get_posts($args);
+}
+
 //___________FOOTER_____________
 function copyright_date() {
-  $start_date   = '2021';
-  $current_date = date( 'Y' );
+  $start_date = '2021';
+  $current_date = date('Y');
 
-  if ( $start_date !== $current_date ) {
+  if ($start_date !== $current_date) {
     echo $start_date . ' - ' . $current_date;
-  } else {
+  }
+  else {
     echo $start_date;
   }
 }
