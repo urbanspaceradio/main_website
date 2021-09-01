@@ -32,9 +32,13 @@ defined('ABSPATH') || exit;
 			</a>
 		</div>
 		<nav>
-			<ul class="header-navigation">
+      <ul class="header-navigation">
            <?php wp_nav_menu(['theme_location' => 'menu_header', 'container' => null, 'items_wrap' => '%3$s']); ?>
-			</ul>
+      <div onclick="runWfpWdgt('https://secure.wayforpay.com/button/b569b98266d95');" class="button-donation">
+        <span class="button-donation donat-header">підтримати</span>
+      </div>
+      </ul>
+
 		</nav>
 	</div>
 </header>

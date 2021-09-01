@@ -186,6 +186,12 @@ img {
     color: #FFF;
     border: 1px solid #459799;
 }
+.donat-header:after{
+    content: none!important;
+}
+.button-donation span.donat-header:hover{
+    bottom: unset!important;
+}
 
 .btn-greenHover a:after,
 .button-donation span:after{
@@ -231,7 +237,7 @@ img {
     bottom: 0;
 }
 .button-donation {
-    /*width: 100%;*/
+    cursor: pointer;
     text-align: center;
 }
 
@@ -387,21 +393,19 @@ img {
     text-decoration: none;
     color: #000300;
     letter-spacing: 1px;
+    text-transform: lowercase;
 }
 
 .header-navigation a:hover {
     text-decoration: underline;
 }
 
-.header-navigation .activeLink {
+.header-navigation .current_page_item {
     color: #459799;
     font-weight: bold;
 }
 
-.header-navigation li:last-child a {
-    font-size: 21px;
-    font-weight: bold;
-}
+
 
 .header-player {
     width: 330px;
