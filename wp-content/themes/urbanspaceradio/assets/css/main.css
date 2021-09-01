@@ -168,7 +168,7 @@ img {
     height: auto;
 }
 
-.btn-greenHover a {
+.btn-greenHover a, .button-donation span{
     text-decoration: none;
     background-color: #FFF;
     color: #000300;
@@ -180,14 +180,15 @@ img {
     z-index: 1;
 }
 
-.btn-greenHover a:hover {
+.btn-greenHover a:hover, .button-donation span:hover{
     bottom: -7px;
     background-color: #459799;
     color: #FFF;
     border: 1px solid #459799;
 }
 
-.btn-greenHover a:after {
+.btn-greenHover a:after,
+.button-donation span:after{
     content: "";
     position: absolute;
     top: 5px;
@@ -200,7 +201,8 @@ img {
     z-index: -1;
 }
 
-.btn-greenHover a:hover:after {
+.btn-greenHover a:hover:after,
+.button-donation:hover:after{
     bottom: 0;
     border: 1px solid #459799;
 }
@@ -227,6 +229,10 @@ img {
 
 .btn-green-main a:hover:after {
     bottom: 0;
+}
+.button-donation {
+    /*width: 100%;*/
+    text-align: center;
 }
 
 .podcastCart {
