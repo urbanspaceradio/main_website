@@ -3,6 +3,7 @@ defined('ABSPATH') || exit;
 
 add_filter('show_admin_bar', '__return_false');
 
+add_action('init', 'register_post_types');
 add_action('wp_enqueue_scripts', 'my_scripts_and_styles');
 add_action('after_setup_theme', 'register_menu');
 add_action('acf/init', 'be_register_blocks');
@@ -22,6 +23,7 @@ function my_scripts_and_styles() {
 
 function register_menu() {
   register_nav_menus(['menu_header' => 'Головне меню', 'menu_footer' => 'Футер меню']);
+  add_theme_support( 'post-thumbnails' );
 }
 
 //___________Blocks__________
@@ -49,6 +51,60 @@ function be_register_blocks() {
   acf_register_block(['name' => 'block_podcastPage', 'title' => 'Блок - Подкасти', 'render_template' => 'template-parts/blocks/block_podcastPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
 /// contact page
   acf_register_block(['name' => 'block_contactsPage', 'title' => 'Блок - Контакти', 'render_template' => 'template-parts/blocks/block_contactPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
+}
+
+function register_post_types() {
+  register_post_type('events', array(
+    'labels' => array(
+      'name'               => 'Event',
+      'singular_name'      => 'Event',
+      'add_new'            => 'Додати подію',
+      'add_new_item'       => 'Додавання події',
+      'edit_item'          => 'Редагування події',
+      'new_item'           => 'Нова подія',
+      'view_item'          => 'Дивитись подію',
+      'search_items'       => 'Шукати подію',
+      'not_found'          => 'Не знайдено',
+      'not_found_in_trash' => 'Не знайдено в корзині',
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Події',
+    ),
+    'public'              => true,
+    'menu_position'       => 7,
+    'menu_icon'           => 'dashicons-format-aside',
+    'hierarchical'        => true,
+    'supports'            => [ 'title', 'editor','thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies'          => ['category'],
+    'has_archive'         => true,
+    'rewrite'             => true,
+    'query_var'           => true,
+  ) );
+
+  register_post_type('partners', array(
+    'labels' => array(
+      'name'               => 'Partner',
+      'singular_name'      => 'Partner',
+      'add_new'            => 'Додати партнера',
+      'add_new_item'       => 'Додавання партнера',
+      'edit_item'          => 'Редагування партнера',
+      'new_item'           => 'Новий партнер',
+      'view_item'          => 'Дивитись партнера',
+      'search_items'       => 'Шукати партнера',
+      'not_found'          => 'Не знайдено',
+      'not_found_in_trash' => 'Не знайдено в корзині',
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Партнери',
+    ),
+    'public'              => true,
+    'menu_position'       => 8,
+    'menu_icon'           => 'dashicons-format-aside',
+    'hierarchical'        => true,
+    'supports'            => [ 'title', 'editor','thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies'          => ['category'],
+    'has_archive'         => true,
+    'rewrite'             => true,
+    'query_var'           => true,
+  ) );
 }
 
 function getBlock_mostPopular() {
@@ -103,6 +159,16 @@ function get_episode($term) {
   $args = array('posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => array(array('taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term)));
   return get_posts($args);
 }
+
+function getEvents() {
+  return new WP_Query([
+    'numberposts' => -1,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'post_status' => 'publish',
+    'post_type' => 'events',
+  ]);
+};
 
 //___________FOOTER_____________
 function copyright_date() {

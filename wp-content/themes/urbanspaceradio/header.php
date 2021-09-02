@@ -18,12 +18,12 @@ defined('ABSPATH') || exit;
   <?php wp_head(); ?>
 </head>
 <body>
-<div class="preLoader">
-	<div class="preLoader-img">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.png" alt="">
-	</div>
-	<div class="preLoader-text">загрузка...</div>
-</div>
+<!--<div class="preLoader">-->
+<!--	<div class="preLoader-img">-->
+<!--		<img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/img/preloader_img.png" alt="">-->
+<!--	</div>-->
+<!--	<div class="preLoader-text">загрузка...</div>-->
+<!--</div>-->
 <header class="headerWrapper">
 	<div class="siteWrapper header">
 		<div class="header-logo">
