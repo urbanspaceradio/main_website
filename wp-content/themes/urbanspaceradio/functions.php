@@ -168,7 +168,17 @@ function getEvents() {
     'post_status' => 'publish',
     'post_type' => 'events',
   ]);
-};
+}
+
+function getPartner() {
+  return new WP_Query([
+    'numberposts' => -1,
+    'orderby' => 'date',
+    'order' => 'DESC',
+    'post_status' => 'publish',
+    'post_type' => 'partners',
+  ]);
+}
 
 //___________FOOTER_____________
 function copyright_date() {

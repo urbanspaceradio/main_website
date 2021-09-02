@@ -23,9 +23,6 @@ if (!$term_img_url) {
   $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
 }
 $episodes = get_episode($series[0]->term_id);
-
-print_r(get_term_meta($series[0]->term_id));
-
 ?>
 
 <div class="episode">

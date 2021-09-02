@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 $block_podcastPage = getBlock_podcastPage();
-$series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => 0]);
+$series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => 0, 'orderby' => 'id', 'order' => 'DESC',]);
 ?>
 <div class="podcasts">
 	<section class="podcasts-divider">

@@ -383,8 +383,15 @@ img {
 .header-navigation {
     display: flex;
     flex-wrap: wrap;
-    margin: 10px 0;
     justify-content: space-around;
+}
+
+.header-navigation li {
+    margin: 10px 0;
+}
+
+.header-navigation .donat-header {
+    top: 10px;
 }
 
 .header-navigation a {
@@ -1453,6 +1460,12 @@ audio {
     }
 }
 
+@media screen and (max-width: 976px) {
+    .header-navigation {
+        margin-bottom: 10px;
+    }
+}
+
 @media screen and (max-width: 700px) {
     .events-items {
         grid-template-areas: "one" "two" "three" "four" "five" "six";
@@ -1460,3 +1473,5 @@ audio {
         grid-template-rows: 300px;
     }
 }
+
+
