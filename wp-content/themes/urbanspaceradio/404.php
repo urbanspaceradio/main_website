@@ -1,10 +1,8 @@
 <?php
 defined('ABSPATH') || exit;
 get_header();
-//404 page
 ?>
-	<h2>Сторінка 404...</h2>
-	<h3>Виникла помилка, запит переданий у службу підтримки. Вибачте за тимчасові незручності, поверніться на <a
-			href="<?php echo home_url(''); ?>">Головну сторінку</a>
-	</h3>
+	<div class="pageNotFound">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/radio_img_404.png" alt="">
+	</div>
 <?php get_footer(); ?>

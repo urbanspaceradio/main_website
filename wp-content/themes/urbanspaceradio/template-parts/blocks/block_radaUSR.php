@@ -28,9 +28,9 @@ $block_radaUSR_1 = getBlock_radaUSR();
 			<h1>НАШІ КОНТАКТИ</h1>
 			<div class="contacts">
 				<a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
-				  <?php echo get_field('mainMobile-contactPage', '1350'); ?></a><br/>
+              <?php echo get_field('mainMobile-contactPage', '1350'); ?></a><br/>
 				<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
-				  <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
+              <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
 			</div>
 		</div>
 		<div class="btn-greenHover bottomBtn">

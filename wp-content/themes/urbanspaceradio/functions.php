@@ -18,12 +18,13 @@ function my_scripts_and_styles() {
   wp_enqueue_script('jquery.jplayer', get_template_directory_uri() . '/assets/js/jquery.jplayer.min.js', [], null, true);
   wp_enqueue_script('slick.min.js', get_template_directory_uri() . '/assets/js/slick.min.js', [], null, true);
   wp_enqueue_script('player', get_template_directory_uri() . '/assets/js/player.js', [], null, true);
+  wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', [], null, true);
   wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.js', [], null, true);
 }
 
 function register_menu() {
   register_nav_menus(['menu_header' => 'Головне меню', 'menu_footer' => 'Футер меню']);
-  add_theme_support( 'post-thumbnails' );
+  add_theme_support('post-thumbnails');
 }
 
 //___________Blocks__________
@@ -49,62 +50,16 @@ function be_register_blocks() {
   acf_register_block(['name' => 'block_subscribe', 'title' => 'Блок - Кнопка "долучитись"', 'render_template' => 'template-parts/blocks/block_subscribe.php', 'category' => 'formatting', 'icon' => 'format-aside']);
   // podcast page
   acf_register_block(['name' => 'block_podcastPage', 'title' => 'Блок - Подкасти', 'render_template' => 'template-parts/blocks/block_podcastPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
-/// contact page
+  /// contact page
   acf_register_block(['name' => 'block_contactsPage', 'title' => 'Блок - Контакти', 'render_template' => 'template-parts/blocks/block_contactPage.php', 'category' => 'formatting', 'icon' => 'format-aside']);
 }
 
 function register_post_types() {
-  register_post_type('events', array(
-    'labels' => array(
-      'name'               => 'Event',
-      'singular_name'      => 'Event',
-      'add_new'            => 'Додати подію',
-      'add_new_item'       => 'Додавання події',
-      'edit_item'          => 'Редагування події',
-      'new_item'           => 'Нова подія',
-      'view_item'          => 'Дивитись подію',
-      'search_items'       => 'Шукати подію',
-      'not_found'          => 'Не знайдено',
-      'not_found_in_trash' => 'Не знайдено в корзині',
-      'parent_item_colon'  => '',
-      'menu_name'          => 'Події',
-    ),
-    'public'              => true,
-    'menu_position'       => 7,
-    'menu_icon'           => 'dashicons-format-aside',
-    'hierarchical'        => true,
-    'supports'            => [ 'title', 'editor','thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-    'taxonomies'          => ['category'],
-    'has_archive'         => true,
-    'rewrite'             => true,
-    'query_var'           => true,
-  ) );
+  register_post_type('events', array('labels' => array('name' => 'Event', 'singular_name' => 'Event', 'add_new' => 'Додати подію', 'add_new_item' => 'Додавання події', 'edit_item' => 'Редагування події', 'new_item' => 'Нова подія', 'view_item' => 'Дивитись подію', 'search_items' => 'Шукати подію', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Події',), 'public' => true, 'menu_position' => 7, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
-  register_post_type('partners', array(
-    'labels' => array(
-      'name'               => 'Partner',
-      'singular_name'      => 'Partner',
-      'add_new'            => 'Додати партнера',
-      'add_new_item'       => 'Додавання партнера',
-      'edit_item'          => 'Редагування партнера',
-      'new_item'           => 'Новий партнер',
-      'view_item'          => 'Дивитись партнера',
-      'search_items'       => 'Шукати партнера',
-      'not_found'          => 'Не знайдено',
-      'not_found_in_trash' => 'Не знайдено в корзині',
-      'parent_item_colon'  => '',
-      'menu_name'          => 'Партнери',
-    ),
-    'public'              => true,
-    'menu_position'       => 8,
-    'menu_icon'           => 'dashicons-format-aside',
-    'hierarchical'        => true,
-    'supports'            => [ 'title', 'editor','thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
-    'taxonomies'          => ['category'],
-    'has_archive'         => true,
-    'rewrite'             => true,
-    'query_var'           => true,
-  ) );
+  register_post_type('partners', array('labels' => array('name' => 'Partner', 'singular_name' => 'Partner', 'add_new' => 'Додати партнера', 'add_new_item' => 'Додавання партнера', 'edit_item' => 'Редагування партнера', 'new_item' => 'Новий партнер', 'view_item' => 'Дивитись партнера', 'search_items' => 'Шукати партнера', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Партнери',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 }
 
 function getBlock_mostPopular() {
@@ -161,23 +116,11 @@ function get_episode($term) {
 }
 
 function getEvents() {
-  return new WP_Query([
-    'numberposts' => -1,
-    'orderby' => 'date',
-    'order' => 'DESC',
-    'post_status' => 'publish',
-    'post_type' => 'events',
-  ]);
+  return new WP_Query(['numberposts' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'events',]);
 }
 
 function getPartner() {
-  return new WP_Query([
-    'numberposts' => -1,
-    'orderby' => 'date',
-    'order' => 'DESC',
-    'post_status' => 'publish',
-    'post_type' => 'partners',
-  ]);
+  return new WP_Query(['numberposts' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
 }
 
 //___________FOOTER_____________
