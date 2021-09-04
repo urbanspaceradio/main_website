@@ -1586,6 +1586,16 @@ audio {
     .episode-slider_img {
         margin-top: 50px;
     }
+    .events {
+        margin-bottom: 50px;
+    }
+    .events-items_item {
+        margin-bottom: 70px;
+        padding: 0 !important;
+    }
+    .events-bottomDescription {
+        margin-top: 50px;
+    }
 }
 
 @media screen and (max-width: 630px) {
@@ -1648,6 +1658,12 @@ audio {
     .about-supervisory_items {
         margin: 10px 0 50px;
     }
+    .events-items_item .text {
+        margin: 20px;
+    }
+    .events-items_item .text p {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1674,10 +1690,13 @@ audio {
     .about-supervisory .contacts a {
         font-size: 20px;
     }
+    .episode-items_item .descriptions p {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 450px) {
-    p {
+    p:not('podcastCart') {
         font-size: 14px !important;
     }
     .mobileNavigation li a,
@@ -1694,11 +1713,11 @@ audio {
     }
 
     .mainPlayer-container .jp-audio-stream {
-        padding: 30px 40px;
+        padding: 27px 30px;
     }
 
-    .mainPlayer-container_info {
-        font-size: 15px;
+    .mainPlayer-container_info div {
+        font-size: 12px!important;
     }
 
     .mainPlayer-container .jp-audio-stream .play:after {
@@ -1748,6 +1767,12 @@ audio {
     .about-values_item .description {
         margin: 20px 0;
     }
+    .events-items_item .text {
+        margin: 10px;
+    }
+    .events-items_item .text p {
+        font-size: 12px;
+    }
 }
 
 
@@ -1760,6 +1785,9 @@ audio {
     .mobileNavigation .menu {
         line-height: 1.5;
     }
+    .mainPlayer-container .jp-audio-stream {
+        width: 300px;
+    }
     .podcastCart {
         width: 120px;
     }
@@ -1771,6 +1799,14 @@ audio {
     }
     .btn-greenHover a, .button-donation span,
     .aboutUSR p {
+        font-size: 14px;
+    }
+    .mostPopular-btn a {
+        padding: 5px 15px 7px;
+    }
+    .header-mainText p,
+    .singlePodcast-descriptions_text p,
+    .bottomDescription p {
         font-size: 12px;
     }
 }
