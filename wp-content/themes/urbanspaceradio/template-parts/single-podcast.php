@@ -28,42 +28,47 @@ $episodes = get_episode($series[0]->term_id);
 <div class="episode">
 	<div class="siteWrapper">
 		<div class="slick">
-			<div>
-				<section class="episode-slider">
-					<div class="episode-slider_description">
-						<h2><?php echo $series[0]->name; ?></h2>
-						<p><?php echo $series[0]->description; ?></p>
-						<div class="episode-slider_podcastsBtn">
-							<p>Обрери свою платформу для прослуховування</p>
-							<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
-							<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
-						</div>
+			<section class="episode-slider">
+				<div class="episode-slider_description">
+					<h2><?php echo $series[0]->name; ?></h2>
+					<p><?php echo $series[0]->description; ?></p>
+					<div class="episode-slider_podcastsBtn">
+						<p>Обрери свою платформу для прослуховування</p>
+						<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
+						<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
 					</div>
-					<div class="episode-slider_img">
-						<div class="podcastCart episodeCart">
-							<img alt="1" src="<?php echo $term_img_url; ?>">
-						</div>
+				</div>
+				<div class="episode-slider_img">
+					<div class="podcastCart episodeCart">
+						<img alt="1" src="<?php echo $term_img_url; ?>">
 					</div>
-				</section>
-				<section class="episode-items">
-					<h2>ЕПІЗОДИ</h2>
-              <?php foreach ($episodes as $episode) {
-                $audio_file = get_post_meta($episode->ID)['audio_file'][0];
-                ?>
-					  <div class="episode-items_item">
-						  <img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/>
-						  <div class="descriptions">
-							  <h3><?php echo $episode->post_title; ?></h3>
-							  <p><?php echo $episode->post_content; ?></p>
-						  </div>
-						  <audio controls controlsList="nodownload">
-							  <source src="<?php echo $audio_file; ?>" type="audio/mpeg">
-							  Your browser does not support the audio element.
-						  </audio>
-					  </div>
-              <?php } ?>
-				</section>
+				</div>
+			</section>
+			<div class="episode-slider_podcastsBtn podcastBtn">
+				<p>Обрери свою платформу для прослуховування</p>
+				<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
+				<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
 			</div>
+			<section class="episode-items">
+				<h2>ЕПІЗОДИ</h2>
+			  <?php foreach ($episodes as $episode) {
+				 $audio_file = get_post_meta($episode->ID)['audio_file'][0];
+				 ?>
+				  <div class="episode-items_item">
+					  <img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/>
+					  <div class="descriptions">
+						  <h3><?php echo $episode->post_title; ?></h3>
+						  <div class="text">
+                      <?php echo $episode->post_content; ?>
+						  </div>
+					  </div>
+					  <audio controls controlsList="nodownload">
+						  <source src="<?php echo $audio_file; ?>" type="audio/mpeg">
+						  Your browser does not support the audio element.
+					  </audio>
+				  </div>
+			  <?php } ?>
+			</section>
 		</div>
 	</div>
 	<div class="divider"></div>

@@ -1002,6 +1002,10 @@ img {
     font-size: 20px;
 }
 
+.episode-slider_podcastsBtn.podcastBtn {
+    display: none;
+}
+
 .episode-slider_podcastsBtn .google,
 .episode-slider_podcastsBtn .apple {
     margin-top: 15px;
@@ -1031,6 +1035,7 @@ img {
     text-align: center;
     max-width: 450px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .episode-slider_img .episodeCart {
@@ -1092,18 +1097,7 @@ img {
 .episode-items_item .descriptions p {
     font-size: 17px;
     line-height: 1.5;
-}
-
-.episode .loadMore {
-    text-align: center;
-    width: 100%;
-    margin: 30px 0;
-}
-
-.episode .loadMore a {
-    padding: 5px 70px 3px;
-    font-weight: bold;
-    font-size: 25px;
+    word-break: break-all;
 }
 
 .episode-partners {
@@ -1570,11 +1564,33 @@ audio {
     .header nav .mobileNavigation {
         display: flex;
     }
+
+    .episode-slider {
+        margin: 70px auto;
+    }
+}
+
+@media screen and (max-width: 934px) {
+    .episode-slider {
+        margin: 40px auto;
+    }
+    .episode-slider_podcastsBtn {
+        display: none;
+    }
+    .episode-slider_podcastsBtn.podcastBtn {
+        display: block;
+        margin: 10px auto 50px;
+        text-align: center;
+
+    }
+    .episode-slider_img {
+        margin-top: 50px;
+    }
 }
 
 @media screen and (max-width: 630px) {
     h1 {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     h2 {
@@ -1616,6 +1632,13 @@ audio {
     .aboutUSR-mainText {
         margin: unset;
     }
+    .header-mainText h1 {
+        margin-top: 40px;
+    }
+    .header-mainText p,
+    .singlePodcast-descriptions_text p{
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1634,6 +1657,9 @@ audio {
 }
 
 @media screen and (max-width: 450px) {
+    p {
+        font-size: 14px !important;
+    }
     .mobileNavigation li a,
     .mobileNavigation .menu,
     .mobileNavigation .donat-header {
@@ -1671,7 +1697,36 @@ audio {
     .btn-greenHover a, .button-donation span {
         font-size: 15px;
     }
+    .episode-items h2 {
+        margin: 20px;
+    }
+    .episode-items_item .descriptions .text,
+    .episode-items_item audio {
+        display: none;
+    }
+
+    .episode-items_item audio {
+        margin: 20px 5px;
+    }
+
+    .episode-items_item.audioShow .text,
+    .episode-items_item.audioShow audio {
+        display: block!important;
+    }
+    .episode-items_item.audioShow {
+        box-shadow: 1px 5px 15px;
+        border: 1px solid #000300;
+        border-radius: 10px;
+    }
+    .episode-items_item .descriptions h3 {
+        word-break: break-all;
+        font-size: 20px;
+    }
+    .episode-slider {
+        margin: 20px auto;
+    }
 }
+
 
 @media screen and (max-width: 370px) {
     .mobileNavigation li a,

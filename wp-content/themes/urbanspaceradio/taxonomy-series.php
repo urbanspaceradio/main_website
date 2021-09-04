@@ -4,6 +4,7 @@ defined('ABSPATH') || exit;
 get_header();
 $query_vars = get_queried_object();
 $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => $query_vars->term_id]);
+$seriesMeta = get_series();
 
 if ($query_vars->parent) {
   get_template_part('template-parts/single-podcast');
@@ -13,13 +14,8 @@ else { ?>
 		<section class="podcasts-divider">
 			<div class="siteWrapper">
 				<div class="header-mainText">
-					<h1>2020 РІК З URBAN SPACE RADIO</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur
-						mi.
-						Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
-					<p>Aliquam ut mollis tortor, at lobortis quam. Sed tempus aliquam ultricies. Mauris enim felis, accumsan
-						ac
-						elementum ac, varius nec purus.</p>
+					<h1><?php echo $seriesMeta['title']; ?></h1>
+              	<?php echo $seriesMeta['description']; ?>
 				</div>
 				<div class="podcasts-filter singlePodcast-filter">
 					<h2><?php echo $query_vars->name; ?></h2>
@@ -47,10 +43,9 @@ else { ?>
            <?php } ?>
 			</div>
 		</section>
-		<section class="singlePodcast-descriptions">
+		<section class="siteWrapper singlePodcast-descriptions">
 			<div class="singlePodcast-descriptions_text">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in augue nunc. Fusce in consectetur mi.
-					Nullam a congue sapien. Nulla in vulputate mauris, in tempor eros.</p>
+           <?php echo $seriesMeta['bottom_description']; ?>
 			</div>
 		</section>
 	</div>

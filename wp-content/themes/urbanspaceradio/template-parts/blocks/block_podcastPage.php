@@ -8,7 +8,7 @@ $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => 0
 		<div class="siteWrapper">
 			<div class="header-mainText">
 				<h1><?php echo $block_podcastPage['podcastPage-title']; ?></h1>
-				<p><?php echo $block_podcastPage['podcastPage-desc']; ?></p>
+				<?php echo $block_podcastPage['podcastPage-desc']; ?>
 			</div>
 			<div class="podcasts-filter">
 				<ul class="podcasts-filter_years">

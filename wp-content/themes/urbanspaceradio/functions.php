@@ -110,6 +110,10 @@ function getBlock_contactPage() {
   return get_field('block_contactPage');
 }
 
+function get_series() {
+  return get_field('series_page', 1206);
+}
+
 function get_episode($term) {
   $args = array('posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => array(array('taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term)));
   return get_posts($args);
