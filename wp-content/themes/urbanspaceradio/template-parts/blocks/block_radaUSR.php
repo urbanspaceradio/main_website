@@ -7,7 +7,7 @@ $block_radaUSR_1 = getBlock_radaUSR();
 	<section class="about-supervisory">
 		<div class="header-mainText">
 			<h1><?php echo $block_radaUSR_1['title_radaUSR']; ?></h1>
-			<p><?php echo $block_radaUSR_1['desc_radaUSR']; ?></p>
+			<?php echo $block_radaUSR_1['desc_radaUSR']; ?>
 		</div>
 		<div class="about-supervisory_items">
         <?php foreach ($block_radaUSR_1['item_radausr'] as $block_radaUSR_11) : ?>

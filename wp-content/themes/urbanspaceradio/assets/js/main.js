@@ -13,8 +13,6 @@ $(document).ready(function () {
     });
 
     $('.episode-items_item').on('click', function () {
-        console.log($(this))
         $(this).toggleClass('audioShow');
-        // $(this)[0].children[2].toggleClass('audioShow');
     });
 });

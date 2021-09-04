@@ -1152,6 +1152,7 @@ audio {
 
 .about-header img {
     max-width: 550px;
+    border-radius: 10px;
 }
 
 .about-values {
@@ -1160,8 +1161,7 @@ audio {
 
 .about-values_item {
     display: flex;
-    flex-wrap: wrap;
-    margin: 30px 0;
+    margin: 30px 10px;
 }
 
 .about-values_item .img {
@@ -1169,7 +1169,6 @@ audio {
     height: 220px;
     display: flex;
     align-items: center;
-    border: 1px solid #000300;
 }
 
 .about-values_item .description {
@@ -1217,6 +1216,7 @@ audio {
 .about-supervisory_text {
     text-align: center;
     margin-bottom: 70px;
+    word-break: break-all;
 }
 
 .about-supervisory_text h1 {
@@ -1590,11 +1590,11 @@ audio {
 
 @media screen and (max-width: 630px) {
     h1 {
-        font-size: 25px;
+        font-size: 25px!important;
     }
 
     h2 {
-        font-size: 18px;
+        font-size: 20px!important;
     }
     .mostPopular {
         padding: 50px 10px 100px;
@@ -1639,6 +1639,15 @@ audio {
     .singlePodcast-descriptions_text p{
         font-size: 14px;
     }
+    .about-header_mainText {
+        margin-top: unset;
+    }
+    .about .podcastCart {
+        width: 235px;
+    }
+    .about-supervisory_items {
+        margin: 10px 0 50px;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -1653,6 +1662,17 @@ audio {
 
     .podcastCart p {
         font-size: 12px;
+    }
+    .about-values_item {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+    .about-values {
+        margin: 75px 0 85px;
+    }
+    .about-supervisory .contacts a {
+        font-size: 20px;
     }
 }
 
@@ -1724,6 +1744,9 @@ audio {
     }
     .episode-slider {
         margin: 20px auto;
+    }
+    .about-values_item .description {
+        margin: 20px 0;
     }
 }
 
