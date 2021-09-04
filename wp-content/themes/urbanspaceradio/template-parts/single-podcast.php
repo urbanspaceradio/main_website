@@ -31,7 +31,7 @@ $episodes = get_episode($series[0]->term_id);
 			<section class="episode-slider">
 				<div class="episode-slider_description">
 					<h2><?php echo $series[0]->name; ?></h2>
-					<p><?php echo $series[0]->description; ?></p>
+					<?php echo $series[0]->description; ?>
 					<div class="episode-slider_podcastsBtn">
 						<p>Обрери свою платформу для прослуховування</p>
 						<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>

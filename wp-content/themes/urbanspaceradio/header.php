@@ -22,12 +22,12 @@ defined('ABSPATH') || exit;
   <?php wp_head(); ?>
 </head>
 <body>
-<!--<div class="preLoader">-->
-<!--	<div class="preLoader-img">-->
-<!--		<img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/img/preloader_img.png" alt="">-->
-<!--	</div>-->
-<!--	<div class="preLoader-text">загрузка...</div>-->
-<!--</div>-->
+<div class="preLoader">
+	<div class="preLoader-img">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.png" alt="">
+	</div>
+	<div class="preLoader-text">загрузка...</div>
+</div>
 <header class="headerWrapper">
 	<div class="siteWrapper header">
 		<div class="header-logo">
@@ -45,7 +45,7 @@ defined('ABSPATH') || exit;
 
 			<ul class="mobileNavigation">
 				<li id="mobileMenu" class="menu">меню</li>
-				<li><a href="#">контакти</a></li>
+				<li><a href="<?php echo site_url('/contacts'); ?>">контакти</a></li>
 				<div onclick="runWfpWdgt('https://secure.wayforpay.com/button/b569b98266d95');" class="button-donation">
 					<span class="button-donation donat-header">підтримати</span>
 				</div>

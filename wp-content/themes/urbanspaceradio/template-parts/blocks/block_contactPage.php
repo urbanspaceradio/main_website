@@ -7,7 +7,7 @@ $block_contactPage = getBlock_contactPage();
 		<section class="contacts-header">
 			<div class="header-mainText contacts-header_mainText">
 				<h1><?php echo $block_contactPage['title-contactPage'] ?></h1>
-				<p><?php echo $block_contactPage['desc-contactPage']; ?></p>
+				<?php echo $block_contactPage['desc-contactPage']; ?>
 			</div>
 		</section>
 		<section class="contacts-values">
@@ -240,12 +240,6 @@ $block_contactPage = getBlock_contactPage();
                     <?php echo get_field('mainMobile-contactPage', '1350'); ?>
 						</a>
 					</div>
-					<div class="text">
-						<p>- щирість</p>
-						<p>- відкритість</p>
-						<p>- гідність</p>
-						<p>- проактивність</p>
-					</div>
 				</div>
 			</div>
 			<div class="contacts-values_item">
@@ -415,9 +409,6 @@ $block_contactPage = getBlock_contactPage();
 						<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
                     <?php echo get_field('mainEmail-contactPage', '1350'); ?>
 						</a>
-					</div>
-					<div class="text">
-						<p>Підтримка зрілості у суспільстві через <br> україномовний аудіальний продукт.</p>
 					</div>
 				</div>
 			</div>
@@ -877,10 +868,6 @@ $block_contactPage = getBlock_contactPage();
 					<div class="description-address">
                  <?php echo get_field('address-contactPage', '1350'); ?>
 					</div>
-					<div class="text">
-						<p>Розвиток форматності аудіального продукту та незалежного україномовного <br> подкастингу через
-							партнерства та співпраці.</p>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -889,9 +876,7 @@ $block_contactPage = getBlock_contactPage();
 	<div class="siteWrapper">
 		<section class="aboutUSR contacts-form">
 			<h2>БУДЕМО РАДІТИ СПІВПРАЦІ</h2>
-			<form class="contact-form">
            <?php echo do_shortcode('[contact-form-7 id="1364" title="Contact form 1"]'); ?>
-			</form>
 		</section>
 	</div>
 </div>

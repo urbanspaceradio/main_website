@@ -9,7 +9,7 @@ $partners = getPartner();
 	<div class="siteWrapper partners">
 		<section class="header-mainText">
 			<h1><?php echo $partnersMeta['title']; ?></h1>
-			<p><?php echo $partnersMeta['description']; ?></p>
+			<?php echo $partnersMeta['description']; ?>
 		</section>
 		<section class="partners-items">
         <?php while ($partners->have_posts()) : $partners->the_post(); ?>
@@ -24,7 +24,7 @@ $partners = getPartner();
 		</section>
 	</div>
 	<section class="bottomDescription">
-		<p><?php echo $partnersMeta['desc_subscribe-button']; ?></p>
+		<?php echo $partnersMeta['desc_subscribe-button']; ?>
 	</section>
 	<div class="btn-greenHover bottomBtn">
 		<a href="<?php echo site_url('/contacts'); ?>">хочу долучитись</a>

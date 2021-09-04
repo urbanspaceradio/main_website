@@ -18,7 +18,7 @@ $block_radaUSR_1 = getBlock_radaUSR();
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $block_radaUSR_11['name_item_radausr']; ?></h2>
-						  <p><?php echo $block_radaUSR_11['desc_item_radausr']; ?></p>
+						  <?php echo $block_radaUSR_11['desc_item_radausr']; ?>
 					  </div>
 				  </div>
 			  </div>

@@ -20,11 +20,14 @@ $partner_link = $partnerPodcasts['partner_link'];
 			<div class="aboutUSR partner-img">
            <?php the_post_thumbnail(); ?>
 			</div>
+			<div class="btn-greenHover partner-btn mobilePartner-btn" style="display: none">
+				<a href="<?php echo $partner_link; ?>" target="_blank">перейти на партнера</a>
+			</div>
 		</section>
 		<section class="partner-didTogether">
 			<div class="header-mainText partner-didTogether_description">
 				<h2><?php echo $partnerPodcasts['title_partners'] ?></h2>
-				<p><?php echo $partnerPodcasts['desc_partners'] ?></p>
+				<?php echo $partnerPodcasts['desc_partners'] ?>
 			</div>
 			<div class="partner-didTogether_podcasts">
            <?php foreach ($partnerPodcasts['podcast_partner'] as $podcast) :

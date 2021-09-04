@@ -168,7 +168,9 @@ img {
     height: auto;
 }
 
-.btn-greenHover a, .button-donation span {
+.btn-greenHover a,
+.button-donation span,
+.contacts-btn input {
     text-decoration: none;
     background-color: #FFF;
     color: #000300;
@@ -178,9 +180,12 @@ img {
     font-size: 20px;
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
-.btn-greenHover a:hover, .button-donation span:hover {
+.btn-greenHover a:hover,
+.button-donation span:hover,
+.contacts-btn input:hover{
     bottom: -7px;
     background-color: #459799;
     color: #FFF;
@@ -196,6 +201,7 @@ img {
 }
 
 .btn-greenHover a:after,
+.contacts-btn input:after
 .button-donation span:after {
     content: "";
     position: absolute;
@@ -210,7 +216,9 @@ img {
 }
 
 .btn-greenHover a:hover:after,
-.button-donation:hover:after {
+.button-donation span:after,
+.button-donation:hover:after,
+.button-donation span:after {
     bottom: 0;
     border: 1px solid #459799;
 }
@@ -1267,6 +1275,7 @@ audio {
     height: 250px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 20px;
 }
 
@@ -1339,7 +1348,6 @@ audio {
 
 .contacts-values_item {
     display: flex;
-    flex-wrap: wrap;
     margin: 30px 0;
 }
 
@@ -1366,6 +1374,7 @@ audio {
 .contacts-values_item .description-email,
 .contacts-values_item .description-address {
     margin: 20px;
+    word-break: break-all;
 }
 
 .contacts-values_item .description-phone a,
@@ -1426,8 +1435,9 @@ audio {
     margin-top: 80px;
 }
 
-.contacts-btn a {
+.contacts-btn input {
     padding: 15px 50px;
+    max-width: 289px;
 }
 
 .partner-header {
@@ -1458,14 +1468,6 @@ audio {
     text-align: center;
 }
 
-.partner-didTogether_description {
-    text-align: center;
-}
-
-.partner-didTogether_description p {
-    margin: 0 auto;
-}
-
 .partner-didTogether_description h2 {
     font-weight: normal;
 }
@@ -1473,7 +1475,8 @@ audio {
 .partner-didTogether_podcasts {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
+    padding-bottom: 50px;
 }
 
 .partner-bottomBtn {
@@ -1545,6 +1548,23 @@ audio {
     color: #5F5D5D;
 }
 
+@media screen and (max-width: 1254px) {
+    .partner-header,
+    .partner-header_mainText {
+        margin: 0;
+    }
+    .partner-btn {
+        display: none;
+    }
+    .mobilePartner-btn {
+        display: block!important;
+    }
+    .partner-img {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+}
+
 @media screen and (max-width: 980px) {
     .siteWrapper {
         padding: 10px;
@@ -1567,6 +1587,9 @@ audio {
 
     .episode-slider {
         margin: 70px auto;
+    }
+    .partners .header-mainText p:last-child {
+        padding-bottom: 15px;
     }
 }
 
@@ -1595,6 +1618,28 @@ audio {
     }
     .events-bottomDescription {
         margin-top: 50px;
+    }
+    .contacts-values_item {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: unset;
+    }
+    .contacts-values_item .img {
+        width: 105px;
+        height: 105px;
+    }
+    .contacts-values_item .description {
+        width: 100vw;
+        margin: 20px 0;
+    }
+    .contacts-values_item .description-phone a,
+    .contacts-values_item .description-email a,
+    .contacts-values_item .description-address {
+        font-size: 25px;
+    }
+    .contacts .header-mainText p:last-child {
+        padding-bottom: 50px;
     }
 }
 
@@ -1652,7 +1697,8 @@ audio {
     .about-header_mainText {
         margin-top: unset;
     }
-    .about .podcastCart {
+    .about .podcastCart,
+    .authors .authors-cart{
         width: 235px;
     }
     .about-supervisory_items {
@@ -1664,10 +1710,39 @@ audio {
     .events-items_item .text p {
         font-size: 15px;
     }
+    .partner-img {
+        padding: 87px 43px;
+    }
+    .authors .header-mainText p:last-child {
+        padding-bottom: 40px;
+    }
+
+    .authors .bottomDescription {
+        margin: 40px auto 70px;
+    }
+    .contacts-values_item .description h2 {
+        font-size: 25px!important;
+    }
+    .contacts-values_item .description-phone a,
+    .contacts-values_item .description-email a,
+    .contacts-values_item .description-address {
+        font-size: 20px;
+    }
+    .contacts .aboutUSR {
+        border: none;
+        background-color: transparent;
+        padding: 0!important;
+        position: unset;
+        margin: 100px 0;
+    }
+    .contacts .aboutUSR:after {
+        content: none;
+    }
 }
 
 @media screen and (max-width: 550px) {
-    .mainPlayer-container .jp-audio-stream {
+    .mainPlayer-container .jp-audio-stream,
+    .playerPage-container .jp-audio-stream {
         width: unset;
         max-width: 440px;
     }
@@ -1693,6 +1768,19 @@ audio {
     .episode-items_item .descriptions p {
         font-size: 12px;
     }
+    .partners-items_partner {
+        width: 160px;
+        height: auto;
+        margin: 10px;
+        justify-content: space-evenly;
+    }
+    .partners-items_partner .img img {
+        max-width: 160px;
+    }
+    .partners-btn a {
+        font-size: 14px;
+        padding: 5px 15px 7px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1712,15 +1800,18 @@ audio {
         border: none;
     }
 
-    .mainPlayer-container .jp-audio-stream {
+    .mainPlayer-container .jp-audio-stream,
+    .playerPage-container .jp-audio-stream {
         padding: 27px 30px;
     }
 
-    .mainPlayer-container_info div {
+    .mainPlayer-container_info div,
+    .playerPage-container_info div {
         font-size: 12px!important;
     }
 
-    .mainPlayer-container .jp-audio-stream .play:after {
+    .mainPlayer-container .jp-audio-stream .play:after,
+    .playerPage-container .jp-audio-stream .play:after {
         border-width: 25px;
         border-left-width: 45px;
         top: -25px;
@@ -1773,6 +1864,23 @@ audio {
     .events-items_item .text p {
         font-size: 12px;
     }
+    .partners-items_partner {
+        width: 130px;
+    }
+    .partners-items_partner .img img {
+        max-width: 130px;
+    }
+    .partners-btn a {
+        font-size: 12px;
+        padding: 5px 15px 7px;
+    }
+    .contacts-form input,
+    .contacts-form select,
+    .contacts-form textarea {
+        padding: 15px 20px;
+        font-size: 14px;
+        border-radius: 20px;
+    }
 }
 
 
@@ -1785,7 +1893,8 @@ audio {
     .mobileNavigation .menu {
         line-height: 1.5;
     }
-    .mainPlayer-container .jp-audio-stream {
+    .mainPlayer-container .jp-audio-stream,
+    .playerPage-container .jp-audio-stream {
         width: 300px;
     }
     .podcastCart {
@@ -1808,6 +1917,24 @@ audio {
     .singlePodcast-descriptions_text p,
     .bottomDescription p {
         font-size: 12px;
+    }
+    .partners-items_partner {
+        width: 120px;
+    }
+    .partners-btn a {
+        font-size: 10px;
+        padding: 5px 10px 7px;
+    }
+    .partner-img {
+        padding: 50px 40px;
+    }
+    .contacts-values_item .description h2 {
+        font-size: 20px!important;
+    }
+    .contacts-values_item .description-phone a,
+    .contacts-values_item .description-email a,
+    .contacts-values_item .description-address {
+        font-size: 18px;
     }
 }
 
