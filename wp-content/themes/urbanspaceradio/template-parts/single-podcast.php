@@ -5,8 +5,8 @@ get_header();
 $query_vars = get_queried_object();
 $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'slug' => $query_vars->slug]);
 $term_id_img = get_term_meta($series[0]->term_id)['podcast_series_image_settings'][0];
-$term_google_url = get_term_meta($series[0]->term_id)['podcasts_link_google_podcasts'][0];
-$term_apple_url = get_term_meta($series[0]->term_id)['podcasts_link_apple_podcasts'][0];
+$term_google_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_google_podcasts'][0];
+$term_apple_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_apple_podcasts'][0];
 
 $partner_title_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_title'][0];
 $partner_img_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_img'][0];
@@ -32,11 +32,17 @@ $episodes = get_episode($series[0]->term_id);
 				<div class="episode-slider_description">
 					<h2><?php echo $series[0]->name; ?></h2>
 					<?php echo $series[0]->description; ?>
-					<div class="episode-slider_podcastsBtn">
-						<p>Обрери свою платформу для прослуховування</p>
-						<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
-						<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
-					</div>
+					<?php if ($term_apple_url || $term_google_url) : ?>
+						<div class="episode-slider_podcastsBtn">
+							<p>Обрери свою платформу для прослуховування</p>
+                    <?php if ($term_google_url) : ?>
+								<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
+                    <?php endif; ?>
+                    <?php if ($term_apple_url) : ?>
+								<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
+                    <?php endif; ?>
+						</div>
+					<?php endif; ?>
 				</div>
 				<div class="episode-slider_img">
 					<div class="podcastCart episodeCart">
@@ -44,11 +50,17 @@ $episodes = get_episode($series[0]->term_id);
 					</div>
 				</div>
 			</section>
-			<div class="episode-slider_podcastsBtn podcastBtn">
-				<p>Обрери свою платформу для прослуховування</p>
-				<a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
-				<a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
-			</div>
+        <?php if ($term_apple_url || $term_google_url) : ?>
+			  <div class="episode-slider_podcastsBtn podcastBtn">
+				  <p>Обрери свою платформу для прослуховування</p>
+             <?php if ($term_google_url) : ?>
+					 <a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
+             <?php endif; ?>
+             <?php if ($term_apple_url) : ?>
+					 <a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
+             <?php endif; ?>
+			  </div>
+        <?php endif; ?>
 			<section class="episode-items">
 				<h2>ЕПІЗОДИ</h2>
 			  <?php foreach ($episodes as $episode) {

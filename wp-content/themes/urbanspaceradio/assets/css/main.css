@@ -185,7 +185,7 @@ img {
 
 .btn-greenHover a:hover,
 .button-donation span:hover,
-.contacts-btn input:hover{
+.contacts-btn input:hover {
     bottom: -7px;
     background-color: #459799;
     color: #FFF;
@@ -201,8 +201,8 @@ img {
 }
 
 .btn-greenHover a:after,
-.contacts-btn input:after
-.button-donation span:after {
+.contacts-btn input:after,
+.span.donat-header:after {
     content: "";
     position: absolute;
     top: 5px;
@@ -1105,7 +1105,6 @@ img {
 .episode-items_item .descriptions p {
     font-size: 17px;
     line-height: 1.5;
-    word-break: break-all;
 }
 
 .episode-partners {
@@ -1260,6 +1259,10 @@ audio {
     margin-bottom: 15px;
 }
 
+.events-items_item .text p {
+    line-height: 1.5;
+}
+
 .events-bottomDescription {
     margin-top: 130px;
 }
@@ -1408,6 +1411,7 @@ audio {
     width: 100%;
     padding: 20px 30px;
     border: 1px solid #000300;
+    font-family: BanderaPro, sans-serif;
     border-radius: 52px;
     outline: none;
     font-size: 17px;
@@ -1433,6 +1437,13 @@ audio {
 
 .contacts-btn {
     margin-top: 80px;
+}
+.contacts-btn input {
+    background-color: #000;
+    color: #fff;
+}
+.contacts-btn input:hover {
+    bottom: unset;
 }
 
 .contacts-btn input {
@@ -1485,9 +1496,14 @@ audio {
     margin-bottom: 150px;
 }
 
-.pageNotFound {
+.pageNotFound,
+.pageNotFoundMobile {
     display: flex;
     justify-content: center;
+}
+
+.pageNotFoundMobile {
+    display: none;
 }
 
 .pageNotFound img {
@@ -1513,14 +1529,18 @@ audio {
 .footer-info_item {
     text-align: center;
     margin: 20px;
-    max-width: 250px;
+    width: 190px;
     word-break: break-all;
+}
+
+.footer-info_item img {
+    max-width: 143px;
 }
 
 .footer-info_item div {
     border: 1px solid #FFF;
     border-radius: 30px;
-    padding: 10px 50px;
+    padding: 10px;
 }
 
 .footer-info_item ul {
@@ -1562,6 +1582,13 @@ audio {
     .partner-img {
         margin-top: 50px;
         margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    .footerLogo {
+        max-width: unset;
+        width: 100vw;
     }
 }
 
@@ -1650,6 +1677,18 @@ audio {
 
     h2 {
         font-size: 20px!important;
+    }
+    .mainPlayer {
+        background: url("../img/player_bg_mobile.png") no-repeat center 175px;
+    }.pageNotFound {
+         display: none;
+     }
+    .pageNotFoundMobile {
+        display: flex;
+        margin: 100px 0;
+    }
+    .pageNotFoundMobile img {
+        width: 200px;
     }
     .mostPopular {
         padding: 50px 10px 100px;
@@ -1781,6 +1820,22 @@ audio {
         font-size: 14px;
         padding: 5px 15px 7px;
     }
+
+    .footer-info_item {
+        width: 145px;
+    }
+
+    .footerLogo {
+        max-width: unset;
+        width: 100vw;
+    }
+
+    .footer-info_item div {
+        font-size: 14px;
+    }
+    .footer-info_item ul li a {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -1824,7 +1879,8 @@ audio {
     .podcastCart p {
         font-size: 11px;
     }
-    .btn-greenHover a, .button-donation span {
+    .btn-greenHover a,
+    .button-donation span {
         font-size: 15px;
     }
     .episode-items h2 {
@@ -1876,10 +1932,22 @@ audio {
     }
     .contacts-form input,
     .contacts-form select,
-    .contacts-form textarea {
+    .contacts-form textarea::placeholder {
         padding: 15px 20px;
-        font-size: 14px;
+        font-size: 14px!important;
         border-radius: 20px;
+    }
+
+    .contacts-form textarea {
+        padding: 21px;
+    }
+
+    .contacts-form textarea::placeholder {
+        padding: 0;
+    }
+
+    .footer-info_item {
+        margin: 20px 5px;
     }
 }
 
@@ -1906,7 +1974,8 @@ audio {
     .aboutUSR {
         padding: 0 5px 40px;
     }
-    .btn-greenHover a, .button-donation span,
+    .btn-greenHover a,
+    .button-donation span,
     .aboutUSR p {
         font-size: 14px;
     }
@@ -1935,6 +2004,20 @@ audio {
     .contacts-values_item .description-email a,
     .contacts-values_item .description-address {
         font-size: 18px;
+    }
+    .footer-info_item div {
+        font-size: 12px;
+    }
+    .footer-info_item ul li a {
+        font-size: 12px;
+    }
+    .footer-info_item {
+        width: 120px;
+    }
+
+    .footerLogo {
+        max-width: unset;
+        width: 100vw;
     }
 }
 

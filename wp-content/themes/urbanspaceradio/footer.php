@@ -5,7 +5,7 @@ $block_contactPage = getBlock_contactPage();
 <footer class="footerWrapper">
 	<div class="siteWrapper footer">
 		<div class="footer-info">
-			<div class="footer-info_item">
+			<div class="footer-info_item footerLogo">
 				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.png">
 			</div>
 			<div class="footer-info_item">
