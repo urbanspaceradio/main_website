@@ -15,7 +15,7 @@ $block_ourTeam_1 = getBlock_ourTeam();
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $block_ourTeam_11['name_ourTeam']; ?></h2>
-						  <p><?php echo $block_ourTeam_11['desc_ourTeam']; ?></p>
+						  <p><?php echo wp_trim_words($block_ourTeam_11['desc_ourTeam'], 45);   ?></p>
 					  </div>
 				  </div>
 			  </div>

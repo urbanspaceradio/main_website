@@ -18,7 +18,7 @@ $block_radaUSR_1 = getBlock_radaUSR();
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $block_radaUSR_11['name_item_radausr']; ?></h2>
-						  <?php echo $block_radaUSR_11['desc_item_radausr']; ?>
+						  <?php echo wp_trim_words($block_radaUSR_11['desc_item_radausr'],45); ?>
 					  </div>
 				  </div>
 			  </div>

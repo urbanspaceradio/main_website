@@ -1259,7 +1259,8 @@ audio {
     margin-bottom: 15px;
 }
 
-.events-items_item .text p {
+.events-items_item .text p,
+.events-items_item .text span {
     line-height: 1.5;
 }
 
@@ -1746,7 +1747,8 @@ audio {
     .events-items_item .text {
         margin: 20px;
     }
-    .events-items_item .text p {
+    .events-items_item .text p,
+    .events-items_item .text span {
         font-size: 15px;
     }
     .partner-img {
@@ -1917,8 +1919,9 @@ audio {
     .events-items_item .text {
         margin: 10px;
     }
-    .events-items_item .text p {
-        font-size: 12px;
+    .events-items_item .text p,
+    .events-items_item .text span {
+        font-size: 14px;
     }
     .partners-items_partner {
         width: 130px;
