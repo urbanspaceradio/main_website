@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 get_header();
 $query_vars = get_queried_object();
 $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => $query_vars->term_id]);
-$seriesMeta = get_series();
+$series_desc = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'slug' => $query_vars->slug]);
 
 if ($query_vars->parent) {
   get_template_part('template-parts/single-podcast');
@@ -14,8 +14,8 @@ else { ?>
 		<section class="podcasts-divider">
 			<div class="siteWrapper">
 				<div class="header-mainText">
-					<h1><?php echo $seriesMeta['title']; ?></h1>
-              	<?php echo $seriesMeta['description']; ?>
+					<h1><?php echo $series_desc[0]->name; ?></h1>
+              	<?php echo $series_desc[0]->description; ?>
 				</div>
 				<div class="podcasts-filter singlePodcast-filter">
 					<h2><?php echo $query_vars->name; ?></h2>
@@ -43,11 +43,11 @@ else { ?>
            <?php } ?>
 			</div>
 		</section>
-		<section class="siteWrapper singlePodcast-descriptions">
-			<div class="singlePodcast-descriptions_text">
-           <?php echo $seriesMeta['bottom_description']; ?>
-			</div>
-		</section>
+<!--		<section class="siteWrapper singlePodcast-descriptions">-->
+<!--			<div class="singlePodcast-descriptions_text">-->
+<!--           --><?php //echo $seriesMeta['bottom_description']; ?>
+<!--			</div>-->
+<!--		</section>-->
 	</div>
 <?php } ?>
 

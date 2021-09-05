@@ -22,11 +22,15 @@ defined('ABSPATH') || exit;
   <?php wp_head(); ?>
 </head>
 <body>
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ7LFNW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div class="preLoader">
 	<div class="preLoader-img">
 		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.png" alt="">
 	</div>
-	<div class="preLoader-text">загрузка...</div>
+	<div class="preLoader-text">завантаження...</div>
 </div>
 <header class="headerWrapper">
 	<div class="siteWrapper header">

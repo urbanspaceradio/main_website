@@ -15,7 +15,7 @@ $block_authors = getBlock_authors();
 			  </div>
 			  <div class="side back">
 				  <h2><?php echo $author['author_name']; ?></h2>
-				  <?php echo $author['author_desc']; ?>
+				  <?php echo wp_trim_words($author['author_desc'], 45); ?>
 			  </div>
 		  </div>
 	  </div>
