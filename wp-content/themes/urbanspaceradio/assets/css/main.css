@@ -1326,12 +1326,8 @@ audio {
 
 .authors-items {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-}
-
-.authors-cart:after {
-    content: none;
 }
 
 .contacts-header {
