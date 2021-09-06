@@ -1,24 +1,24 @@
 <?php
 defined('ABSPATH') || exit;
-$block_radaUSR_1 = getBlock_radaUSR();
+$block_radaUSR = getBlock_radaUSR();
 ?>
 
 <div class="siteWrapper">
 	<section class="about-supervisory">
 		<div class="header-mainText">
-			<h1><?php echo $block_radaUSR_1['title_radaUSR']; ?></h1>
-			<?php echo $block_radaUSR_1['desc_radaUSR']; ?>
+			<h1><?php echo $block_radaUSR['title_radaUSR']; ?></h1>
+			<?php echo $block_radaUSR['desc_radaUSR']; ?>
 		</div>
 		<div class="about-supervisory_items">
-        <?php foreach ($block_radaUSR_1['item_radausr'] as $block_radaUSR_11) : ?>
+        <?php foreach ($block_radaUSR['item_radausr'] as $radaUSR) : ?>
 			  <div class="podcastCart rotateCart">
 				  <div class="cartContainer">
 					  <div class="side front">
-						  <img alt="avatar" src="<?php echo $block_radaUSR_11['photo_item_radausr']; ?>">
+						  <img alt="avatar" src="<?php echo $radaUSR['photo_item_radausr']; ?>">
 					  </div>
 					  <div class="side back">
-						  <h2><?php echo $block_radaUSR_11['name_item_radausr']; ?></h2>
-						  <?php echo wp_trim_words($block_radaUSR_11['desc_item_radausr'],45); ?>
+						  <h2><?php echo $radaUSR['name_item_radausr']; ?></h2>
+						 <p><?php echo wp_trim_words($radaUSR['desc_item_radausr'],45); ?></p>
 					  </div>
 				  </div>
 			  </div>

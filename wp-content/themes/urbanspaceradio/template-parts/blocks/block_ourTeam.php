@@ -1,21 +1,26 @@
 <?php
 defined('ABSPATH') || exit;
-$block_ourTeam_1 = getBlock_ourTeam();
+$block_ourTeam = getBlock_ourTeam();
 ?>
 
 <div class="siteWrapper">
 	<section class="about-ourTeam">
-		<h2 class="about-ourTeam_title"><?php echo $block_ourTeam_1['title_ourTeam']; ?></h2>
+		<h2 class="about-ourTeam_title"><?php echo $block_ourTeam['title_ourTeam']; ?></h2>
 		<div class="about-ourTeam_container">
-        <?php foreach ($block_ourTeam_1['item_ourteam'] as $block_ourTeam_11) : ?>
+        <?php foreach ($block_ourTeam['item_ourteam'] as $ourTeam ) :
+          $photoOurTeamUrl = $ourTeam['photo_ourTeam'];
+          if (!$photoOurTeamUrl) {
+            $photoOurTeamUrl = get_template_directory_uri() . '/assets/img/no_img.png';
+          }
+			 ?>
 			  <div class="podcastCart rotateCart">
 				  <div class="cartContainer">
 					  <div class="side front">
-						  <img alt="avatar" src="<?php echo $block_ourTeam_11['photo_ourTeam']; ?>">
+						  <img alt="avatar" src="<?php echo $photoOurTeamUrl; ?>">
 					  </div>
 					  <div class="side back">
-						  <h2><?php echo $block_ourTeam_11['name_ourTeam']; ?></h2>
-						  <p><?php echo wp_trim_words($block_ourTeam_11['desc_ourTeam'], 45);   ?></p>
+						  <h2><?php echo $ourTeam['name_ourTeam']; ?></h2>
+						 <p><?php echo wp_trim_words($ourTeam['desc_ourTeam'], 45);?></p>
 					  </div>
 				  </div>
 			  </div>
