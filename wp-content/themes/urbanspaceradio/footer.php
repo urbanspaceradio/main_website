@@ -2,6 +2,11 @@
 defined('ABSPATH') || exit;
 $block_contactPage = getBlock_contactPage();
 ?>
+
+<div id="scrollUp" class="scrollUp">
+	<span>&#9650;</span>
+</div>
+
 <footer class="footerWrapper">
 	<div class="siteWrapper footer">
 		<div class="footer-info">
@@ -57,6 +62,7 @@ $block_contactPage = getBlock_contactPage();
 </footer>
 
 <?php wp_footer(); ?>
+
 <script>
     $(window).load(function () {
         $(".preLoader").fadeOut("slow");

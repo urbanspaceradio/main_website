@@ -15,7 +15,7 @@ else { ?>
 			<div class="siteWrapper">
 				<div class="header-mainText">
 					<h1><?php echo $series_desc[0]->name; ?></h1>
-              	<?php echo $series_desc[0]->description; ?>
+              	<p><?php echo $series_desc[0]->description; ?></p>
 				</div>
 				<div class="podcasts-filter singlePodcast-filter">
 					<h2><?php echo $query_vars->name; ?></h2>
