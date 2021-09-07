@@ -1542,6 +1542,7 @@ audio {
     font-size: 20px;
     text-decoration: none;
     color: #FFF;
+    text-transform: lowercase;
 }
 
 .footer-rights {
