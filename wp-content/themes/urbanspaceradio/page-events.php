@@ -26,9 +26,5 @@ $getEvents = getEvents();
            wp_reset_postdata(); ?>
 			</section>
 		</div>
-		<div class="divider"></div>
-		<div class="bottomDescription events-bottomDescription">
-        <?php echo $events['event_bottom_description']; ?>
-		</div>
 	</div>
 <?php get_footer();
