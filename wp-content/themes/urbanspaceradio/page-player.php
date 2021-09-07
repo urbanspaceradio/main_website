@@ -12,7 +12,6 @@
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 	<meta content="path/to/image.jpg" property="og:image">
-	<link href="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.png" rel="icon">
 	<meta content="#000" name="theme-color">
 	<link href="<?php echo get_template_directory_uri(); ?>/assets/css/main.css" rel="stylesheet">
 </head>
