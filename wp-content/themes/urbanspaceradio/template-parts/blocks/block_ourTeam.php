@@ -16,7 +16,7 @@ $block_ourTeam = getBlock_ourTeam();
 			  <div class="podcastCart rotateCart">
 				  <div class="cartContainer">
 					  <div class="side front">
-						  <img alt="avatar" src="<?php echo $photoOurTeamUrl; ?>">
+						  <img alt="<?php echo $ourTeam['name_ourTeam']; ?>" src="<?php echo $photoOurTeamUrl; ?>">
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $ourTeam['name_ourTeam']; ?></h2>

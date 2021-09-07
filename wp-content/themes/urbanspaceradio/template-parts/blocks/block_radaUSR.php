@@ -10,11 +10,16 @@ $block_radaUSR = getBlock_radaUSR();
 			<?php echo $block_radaUSR['desc_radaUSR']; ?>
 		</div>
 		<div class="about-supervisory_items">
-        <?php foreach ($block_radaUSR['item_radausr'] as $radaUSR) : ?>
+        <?php foreach ($block_radaUSR['item_radausr'] as $radaUSR) :
+          $photoRadaUSR = $radaUSR['photo_item_radausr'];
+          if (!$photoRadaUSR) {
+            $photoRadaUSR = get_template_directory_uri() . '/assets/img/no_img.png';
+          }
+			 ?>
 			  <div class="podcastCart rotateCart">
 				  <div class="cartContainer">
 					  <div class="side front">
-						  <img alt="avatar" src="<?php echo $radaUSR['photo_item_radausr']; ?>">
+						  <img alt="avatar" src="<?php echo $photoRadaUSR; ?>">
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $radaUSR['name_item_radausr']; ?></h2>
