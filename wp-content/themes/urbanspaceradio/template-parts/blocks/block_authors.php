@@ -7,11 +7,16 @@ $block_authors = getBlock_authors();
 	<?php echo $block_authors['desc_authors']; ?>
 </section>
 <section class="authors-items">
-  <?php foreach ($block_authors['author_item'] as $author) : ?>
+  <?php foreach ($block_authors['author_item'] as $author) :
+    $photoAuthor = $author['author_avatar'];
+    if (!$photoAuthor) {
+      $photoAuthor = get_template_directory_uri() . '/assets/img/no_img.png';
+    }
+	 ?>
 	  <div class="podcastCart rotateCart authors-cart">
 		  <div class="cartContainer">
 			  <div class="side front">
-				  <img alt="avatar" src="<?php echo $author['author_avatar']; ?>">
+				  <img alt="avatar" src="<?php echo $photoAuthor; ?>">
 			  </div>
 			  <div class="side back">
 				  <h2><?php echo $author['author_name']; ?></h2>
