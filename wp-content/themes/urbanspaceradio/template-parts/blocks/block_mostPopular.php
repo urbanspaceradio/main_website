@@ -15,7 +15,7 @@ $mostPopular = getBlock_mostPopular();
        ?>
 		  <a class="podcastCart" href="<?php echo get_term_link($popular->term_id); ?>">
 			  <img alt="podcast_item" src="<?php echo $term_img_url; ?>">
-			  <p><?php echo $popular->name; ?></p>
+			  <p><?php echo the_excerpt_max_charlength($popular->name, 2); ?></p>
 		  </a>
      <?php endforeach; ?>
 	</div>

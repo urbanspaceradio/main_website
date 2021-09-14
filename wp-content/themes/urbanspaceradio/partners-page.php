@@ -13,7 +13,7 @@ $partners = getPartner();
 		</section>
 		<section class="partners-items">
         <?php while ($partners->have_posts()) : $partners->the_post();
-          $photoOurTeamUrl = wp_get_attachment_url($partners->ID);
+          $photoOurTeamUrl = get_the_post_thumbnail_url($partners->ID);
           if (!$photoOurTeamUrl) {
             $photoOurTeamUrl = get_template_directory_uri() . '/assets/img/no_img.png';
           }

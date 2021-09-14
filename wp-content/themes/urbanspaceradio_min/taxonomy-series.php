@@ -38,16 +38,11 @@ else { ?>
              ?>
 				  <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
 					  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
-					  <p><?php echo $item->name; ?></p>
+					  <p><?php echo the_excerpt_max_charlength($item->name, 2); ?></p>
 				  </a>
            <?php } ?>
 			</div>
 		</section>
-<!--		<section class="siteWrapper singlePodcast-descriptions">-->
-<!--			<div class="singlePodcast-descriptions_text">-->
-<!--           --><?php //echo $seriesMeta['bottom_description']; ?>
-<!--			</div>-->
-<!--		</section>-->
 	</div>
 <?php } ?>
 

@@ -26,11 +26,11 @@ defined('ABSPATH') || exit;
   <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQ7LFNW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div class="preLoader">
-	<div class="preLoader-img">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.gif" alt="">
-	</div>
-</div>
+<!--<div class="preLoader">-->
+<!--	<div class="preLoader-img">-->
+<!--		<img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/img/preloader_img.gif" alt="">-->
+<!--	</div>-->
+<!--</div>-->
 <header class="headerWrapper">
 	<div class="siteWrapper header">
 		<div class="header-logo">
@@ -65,7 +65,6 @@ defined('ABSPATH') || exit;
 			</ul>
 			<div class="divider"></div>
 			<div class="footer-info_item mobileMenu-contacts">
-				<div class="title">КОНТАКТИ</div>
 				<ul>
 					<li>
 						<a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">

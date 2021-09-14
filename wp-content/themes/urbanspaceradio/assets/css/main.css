@@ -173,11 +173,10 @@ img {
 .button-donation span,
 .contacts-btn input {
     text-decoration: none;
-    background-color: #FFF;
     color: #000300;
     border: 1px solid #000300;
     padding: 5px 25px 7px;
-    border-radius: 30px;
+    border-radius: 50px;
     font-size: 20px;
     position: relative;
     z-index: 1;
@@ -185,48 +184,58 @@ img {
 }
 
 .btn-greenHover a:hover,
-.button-donation span:hover,
 .contacts-btn input:hover {
-    bottom: -7px;
     background-color: #459799;
-    color: #FFF;
+    color: #FFFDFB;
     border: 1px solid #459799;
 }
 
-.donat-header:after {
+.donat-header {
+    border: unset !important;
+}
+
+.donat-header span:after {
     content: none !important;
+}
+
+.button-donation span.donat-header {
+    font-weight: bolder;
+    border: 1px solid transparent !important;
+}
+
+.button-donation span.donat-header:hover {
+    content: none !important;
+    color: #000300 !important;
+    border: 1px solid #459799 !important;
 }
 
 .button-donation span.donat-header:hover {
     bottom: unset !important;
 }
 
-.btn-greenHover a:after,
-.contacts-btn input:after,
-.span.donat-header:after {
+.btn-greenHover a:hover:after,
+.contacts-btn input:hover:after,
+.span.donat-header:hover:after {
     content: "";
     position: absolute;
     top: 5px;
     left: 0;
     bottom: -5px;
     right: 0;
-    border-radius: 30px;
+    border-radius: 50px;
     border: 1px solid #000300;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     z-index: -1;
 }
 
 .btn-greenHover a:hover:after,
-.button-donation span:after,
 .button-donation:hover:after,
 .button-donation span:after {
-    bottom: 0;
     border: 1px solid #459799;
 }
 
 .btn-green-main {
     text-align: center;
-    width: 100%;
 }
 
 .btn-green-main a {
@@ -235,17 +244,9 @@ img {
     font-size: 20px;
 }
 
-.btn-green-main a:hover {
-    bottom: -7px;
-}
-
 .btn-green-main a:after {
     top: 7px;
     bottom: -7px;
-}
-
-.btn-green-main a:hover:after {
-    bottom: 0;
 }
 
 .button-donation {
@@ -259,27 +260,28 @@ img {
     justify-content: space-between;
     border: 1px solid #000300;
     border-radius: 10px;
-    margin: 30px;
+    margin: 23px;
     position: relative;
-    background-color: #fff;
+    background-color: #FFFDFB;
     color: #000300;
     text-decoration: none;
-    width: 235px;
+    width: 263px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);
 }
 
 .podcastCart img {
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
 }
 
 .podcastCart:after {
     content: "";
     position: absolute;
-    top: -10px;
+    top: -11px;
     left: 10px;
     bottom: 10px;
-    right: -10px;
+    right: -11px;
     border: 1px solid #000300;
-    background-color: #fff;
+    background-color: #FFFDFB;
     border-radius: 10px;
     z-index: -1;
     transition: background-color 0.2s linear;
@@ -292,6 +294,7 @@ img {
 .podcastCart p {
     text-transform: uppercase;
     padding: 10px;
+    border-top: 1px solid #000300;
 }
 
 .header-mainText h1 {
@@ -312,7 +315,7 @@ img {
     position: absolute;
     background-color: #459799;
     padding: 50px 35px 10px;
-    color: #FFF;
+    color: #FFFDFB;
     letter-spacing: 1.5px;
     border-radius: 30px;
     font-size: 20px;
@@ -354,7 +357,7 @@ img {
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     z-index: 7;
 }
 
@@ -445,10 +448,9 @@ img {
 
 .mobileMenu_header .closeMenuBtn {
     cursor: pointer;
-    color: #000300;
-    background-color: #fff;
+    color: #FFFDFB;
     font-size: 20px;
-    border: 1px solid #fff;
+    border: 1px solid #FFFDFB;
     border-radius: 30px;
     padding: 5px 20px 4px;
 }
@@ -463,7 +465,7 @@ img {
 
 .mobileMenu .mobileMenu-menu li,
 .mobileMenu .mobileMenu-menu li a {
-    color: #fff;
+    color: #FFFDFB;
     text-decoration: none;
     text-transform: lowercase;
     font-size: 21px;
@@ -471,20 +473,24 @@ img {
 }
 
 .mobileMenu .divider {
-    border-color: #fff;
+    border-color: #FFFDFB;
     margin: 0 -20px;
 }
 
 .mobileMenu-contacts {
-    margin: 30px 28px!important;
+    word-break: break-word;
+    margin: 50px 28px!important;
+    text-align: center;
 }
 
-.mobileMenu-contacts .title {
-    color: #fff;
+.mobileMenu-contacts ul li {
+    margin-top: 20px;
 }
 
 .mobileMenu-contacts ul li a {
     font-size: 17px!important;
+    color: #FFFDFB;
+    text-decoration: none;
 }
 
 .mainPlayer {
@@ -508,7 +514,7 @@ img {
     border: 2px solid #000300;
     padding: 35px 50px;
     border-radius: 150px;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     transition: background-color 0.3s linear;
     position: relative;
 }
@@ -546,7 +552,7 @@ img {
 }
 
 .mainPlayer-container .jp-audio-stream:hover .info {
-    color: #FFF;
+    color: #FFFDFB;
 }
 
 .mainPlayer-container .jp-audio-stream:hover:after {
@@ -554,14 +560,13 @@ img {
 }
 
 .mainPlayer-container .jp-audio-stream:hover .play:after {
-    border-left-color: #FFF;
+    border-left-color: #FFFDFB;
 }
 
 .mainPlayer-container_info {
     font-size: 20px;
     font-weight: bold;
     color: #000300;
-    text-align: center;
 }
 
 .mainPlayer-container_info .js-singer,
@@ -579,7 +584,7 @@ img {
 .mainPlayer-container:hover .js-singer,
 .mainPlayer-container:hover .js-song,
 .mainPlayer-container:hover .now {
-    color: #FFF;
+    color: #FFFDFB;
 }
 
 .mostPopular {
@@ -605,7 +610,7 @@ img {
     border: 1px solid #000300;
     position: relative;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #FFFDFB;
     margin: 0 0 140px 20px;
     padding: 87px 43px;
     left: -20px;
@@ -619,7 +624,7 @@ img {
     bottom: 20px;
     right: -20px;
     border: 1px solid #000300;
-    background-color: #fff;
+    background-color: #FFFDFB;
     border-radius: 10px;
     z-index: -1;
 }
@@ -664,7 +669,7 @@ img {
 }
 
 .rotateCart {
-    height: 288px;
+    height: 324px;
 }
 
 .rotateCart:hover .cartContainer {
@@ -684,18 +689,17 @@ img {
 
 .rotateCart .cartContainer .back {
     transform: rotateY(180deg);
-    background-color: white;
     overflow: hidden;
     border-radius: 10px;
 }
 
 .rotateCart .cartContainer .back h2 {
-    text-align: center;
-    margin: 10px 0;
+    margin: 30px 25px 0;
 }
 
 .rotateCart .cartContainer .back p {
     text-transform: unset;
+    padding: 25px;
 }
 
 .bottomDescription {
@@ -705,7 +709,7 @@ img {
 
 .bottomDescription p {
     padding: 10px;
-    text-align: justify;
+    text-align: center;
     line-height: 1.2;
 }
 
@@ -744,11 +748,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 470px;
+    width: 575px;
     border: 2px solid #000300;
     padding: 35px 50px;
     border-radius: 150px;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     transition: background-color 0.3s linear;
     position: relative;
 }
@@ -800,7 +804,7 @@ img {
     display: inline-block;
     height: 55px;
     width: 15px;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     position: relative;
     cursor: pointer;
 }
@@ -811,18 +815,17 @@ img {
     left: 25px;
     height: 100%;
     width: 15px;
-    background-color: #FFF;
+    background-color: #FFFDFB;
 }
 
 .playerPage-container .jp-state-playing .activeInfo {
-    color: #FFF;
+    color: #FFFDFB;
 }
 
 .playerPage-container_info {
     font-size: 20px;
     font-weight: bold;
     color: #000300;
-    text-align: center;
     margin: 0 20px;
 }
 
@@ -883,7 +886,7 @@ img {
 
 .podcasts-filter_type .search a {
     background-color: #000300;
-    color: #FFF;
+    color: #FFFDFB;
 }
 
 .podcasts-filter_type .search a:after {
@@ -893,7 +896,7 @@ img {
 .podcasts-seasons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     margin: 50px 0;
 }
 
@@ -932,7 +935,7 @@ img {
 .episode .slick-next:hover:before,
 .episode .slick-next:hover:after {
     background-color: #459799;
-    color: #FFF;
+    color: #FFFDFB;
     border-color: #459799;
 }
 
@@ -1042,22 +1045,23 @@ img {
     border: 1px solid transparent;
     transition: all 0.3s linear;
     text-decoration: none;
-    background-color: #FFF;
+    background-color: #FFFDFB;
     color: #000300;
-    margin: 20px auto;
+    margin: 50px auto;
 }
 
 .episode-items_item:hover {
     border: 1px solid #000300;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 1px 5px 15px;
+    box-shadow: 0 4px 4px 0  rgba(0,0,0,0.25);
 }
 
 .episode-items_item img {
     margin: 50px;
     width: 220px;
     height: 220px;
+    border: 2px solid #000300;
     border-radius: 10px;
 }
 
@@ -1168,10 +1172,23 @@ audio {
     margin: 67px 0;
 }
 
+.about-ourTeam .podcastCart img,
+.about-supervisory .podcastCart img,
+.authors .podcastCart img {
+    border-radius: 10px;
+    border-bottom: none;
+}
+
+.about-ourTeam .podcastCart p,
+.about-supervisory .podcastCart p,
+.authors .podcastCart p {
+    border-top: none;
+}
+
 .about-ourTeam_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 50px 0;
 }
 
@@ -1184,7 +1201,7 @@ audio {
 .about-supervisory_items {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     margin: 50px 0;
 }
 
@@ -1265,10 +1282,6 @@ audio {
     border-radius: 30px;
 }
 
-.partners-items_partner .img img {
-    width: unset;
-}
-
 .partners-btn {
     text-align: center;
     margin-top: 15px;
@@ -1277,7 +1290,7 @@ audio {
 .partners-btn a {
     font-size: 15px;
     background-color: #000300;
-    color: #FFF;
+    color: #FFFDFB;
 }
 
 .partners-description {
@@ -1298,7 +1311,7 @@ audio {
 
 .authors-items {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -1384,6 +1397,7 @@ audio {
     border-radius: 52px;
     outline: none;
     font-size: 17px;
+    background-color: #FFFDFB;
 }
 
 .contacts-form select {
@@ -1409,14 +1423,14 @@ audio {
 }
 .contacts-btn input {
     background-color: #000;
-    color: #fff;
+    color: #FFFDFB;
 }
 .contacts-btn input:hover {
     bottom: unset;
 }
 
 .contacts-btn input {
-    padding: 15px 50px;
+    padding: 24px 50px;
     max-width: 289px;
 }
 
@@ -1435,11 +1449,10 @@ audio {
     margin-top: 50px;
 }
 
-.partner-img {
+.partner .partner-img {
     max-width: 470px;
-    width: 100%;
-    max-height: 500px;
-    height: 100%;
+    padding: 0;
+    left: 0;
 }
 
 .partner-btn {
@@ -1487,7 +1500,7 @@ audio {
     border-radius: 30px;
     text-align: center;
     padding: 10px 0;
-    background-color: #fff;
+    background-color: #FFFDFB;
     position: fixed;
     right: 20px;
     bottom: 20px;
@@ -1503,7 +1516,7 @@ audio {
 }
 
 .footer {
-    color: #FFF;
+    color: #FFFDFB;
     padding-top: 70px;
 }
 
@@ -1513,35 +1526,35 @@ audio {
     justify-content: space-evenly;
 }
 
-.footer-info_item {
+.footer .footer-info_item {
     text-align: center;
     margin: 20px;
     width: 190px;
     word-break: break-all;
 }
 
-.footer-info_item img {
+.footer .footer-info_item img {
     max-width: 143px;
 }
 
-.footer-info_item div {
-    border: 1px solid #FFF;
+.footer .footer-info_item div {
+    border: 1px solid #FFFDFB;
     border-radius: 30px;
     padding: 10px;
 }
 
-.footer-info_item ul {
+.footer .footer-info_item ul {
     margin-top: 35px;
 }
 
-.footer-info_item ul li {
+.footer .footer-info_item ul li {
     margin-top: 15px;
 }
 
-.footer-info_item ul li a {
+.footer .footer-info_item ul li a {
     font-size: 20px;
     text-decoration: none;
-    color: #FFF;
+    color: #FFFDFB;
     text-transform: lowercase;
 }
 
@@ -1582,7 +1595,7 @@ audio {
 }
 
 @media screen and (max-width: 1210px) {
-    .footerLogo {
+    .footer .footerLogo {
         max-width: unset;
         width: 100vw;
     }
@@ -1667,6 +1680,9 @@ audio {
     .contacts .header-mainText p:last-child {
         padding-bottom: 50px;
     }
+    .podcastCart {
+        margin: 20px 15px;
+    }
 }
 
 @media screen and (max-width: 630px) {
@@ -1697,11 +1713,6 @@ audio {
 
     .mostPopular h2 {
         margin-bottom: 40px;
-    }
-
-    .podcastCart {
-        margin: 20px 5px;
-        width: 200px;
     }
 
     .podcastCart p {
@@ -1740,6 +1751,7 @@ audio {
     .about .podcastCart,
     .authors .authors-cart{
         width: 235px;
+        height: 289px;
     }
     .about-supervisory_items {
         margin: 10px 0 50px;
@@ -1778,6 +1790,44 @@ audio {
     }
     .contacts .aboutUSR:after {
         content: none;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .about .podcastCart,
+    .authors .podcastCart {
+        width: 100% !important;
+        height: 100%;
+    }
+    .about .rotateCart .cartContainer,
+    .authors .rotateCart .cartContainer {
+        transform-style: unset;
+        transition:unset;
+        display: flex;
+    }
+    .about .rotateCart .cartContainer .side,
+    .authors .rotateCart .cartContainer .side {
+        position: static;
+        -webkit-backface-visibility: visible;
+        width: 50%;
+    }
+    .about .rotateCart .cartContainer .side img,
+    .authors .rotateCart .cartContainer .side img {
+        height: 100%;
+    }
+    .about .rotateCart .cartContainer .back,
+    .authors .rotateCart .cartContainer .back {
+        transform: unset;
+        overflow: visible;
+        border-radius: 10px;
+    }
+    .about .rotateCart .cartContainer .back p,
+    .authors .rotateCart .cartContainer .back p {
+        font-size: 15px;
+    }
+    .about .rotateCart:hover .cartContainer,
+    .authors .rotateCart:hover .cartContainer {
+        transform: unset;
     }
 }
 
@@ -1823,19 +1873,19 @@ audio {
         padding: 5px 15px 7px;
     }
 
-    .footer-info_item {
+    .footer .footer-info_item {
         width: 145px;
     }
 
-    .footerLogo {
+    .footer .footerLogo {
         max-width: unset;
         width: 100vw;
     }
 
-    .footer-info_item div {
+    .footer .footer-info_item div {
         font-size: 14px;
     }
-    .footer-info_item ul li a {
+    .footer .footer-info_item ul li a {
         font-size: 15px;
     }
     .scrollUp {
@@ -1957,8 +2007,12 @@ audio {
         padding: 0;
     }
 
-    .footer-info_item {
+    .footer .footer-info_item {
         margin: 20px 5px;
+    }
+    .about .rotateCart .cartContainer .back p,
+    .authors .rotateCart .cartContainer .back p {
+        font-size: 12px;
     }
 }
 
@@ -2016,19 +2070,30 @@ audio {
     .contacts-values_item .description-address {
         font-size: 18px;
     }
-    .footer-info_item div {
+    .footer .footer-info_item div {
         font-size: 12px;
     }
-    .footer-info_item ul li a {
+    .footer .footer-info_item ul li a {
         font-size: 12px;
     }
-    .footer-info_item {
+    .footer .footer-info_item {
         width: 120px;
     }
 
-    .footerLogo {
+    .footer .footerLogo {
         max-width: unset;
         width: 100vw;
+    }
+    .podcastCart {
+        margin: 20px 14px;
+    }
+    .about .rotateCart .cartContainer .back h2,
+    .authors .rotateCart .cartContainer .back h2 {
+        margin: 10px;
+    }
+    .about .rotateCart .cartContainer .back p,
+    .authors .rotateCart .cartContainer .back p {
+        padding: 10px;
     }
 }
 

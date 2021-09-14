@@ -56,7 +56,11 @@ $block_contactPage = getBlock_contactPage();
 				target="_blank">Nazar Melnychenko</a> &
 			<a href="https://www.facebook.com/roman.korvackiy/"
 				target="_blank">Roman Korvatskyi</a>
-		</span>
+			</span></br>
+			<span class="developed">Design by
+			<a href="https://directa.cc/"
+				target="_blank">directa bureau</a>
+			</span>
 		</div>
 	</div>
 </footer>

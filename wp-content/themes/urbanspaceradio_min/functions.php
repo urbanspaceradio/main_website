@@ -135,3 +135,18 @@ function copyright_date() {
     echo $start_date;
   }
 }
+
+
+function the_excerpt_max_charlength($sentences, $limit) {
+
+  $words = explode(' ', $sentences );
+
+  if( count($words) <= 3 ){
+    return implode(' ', $words);
+  }
+
+  if( count($words) > $limit ){
+    return sprintf("%s&hellip;", implode(' ', array_slice($words, 0, $limit)) );
+  }
+
+}

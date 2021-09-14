@@ -37,7 +37,7 @@ $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => 0
           ?>
 			  <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
 				  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
-				  <p><?php echo $item->name; ?></p>
+				  <p><?php echo the_excerpt_max_charlength($item->name, 2); ?></p>
 			  </a>
         <?php } ?>
 		</div>
