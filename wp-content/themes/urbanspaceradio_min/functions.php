@@ -120,7 +120,7 @@ function getEvents() {
 }
 
 function getPartner() {
-  return new WP_Query(['numberposts' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
+  return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
 }
 
 //___________FOOTER_____________
