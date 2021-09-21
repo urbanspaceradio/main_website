@@ -71,13 +71,16 @@ $episodes = get_episode($series[0]->term_id);
             <div class="descriptions">
               <h3><?php echo $episode->post_title; ?></h3>
               <div class="text">
-                <?php echo $episode->post_content; ?>
+                <p><?php echo $episode->post_excerpt; ?></p>
               </div>
+					<div class="text showContent">
+                 <?php echo $episode->post_content; ?>
+						<audio controls controlsList="nodownload">
+							<source src="<?php echo $audio_file; ?>" type="audio/mpeg">
+							Your browser does not support the audio element.
+						</audio>
+					</div>
             </div>
-            <audio controls controlsList="nodownload">
-              <source src="<?php echo $audio_file; ?>" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
           </div>
         <?php } ?>
       </section>
