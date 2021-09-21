@@ -1495,7 +1495,7 @@ audio {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 5vw 0 0;
+    margin: 5vw 0 50px;
 }
 
 .new-header_mainText {

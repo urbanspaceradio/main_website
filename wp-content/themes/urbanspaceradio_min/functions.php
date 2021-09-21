@@ -7,6 +7,7 @@ add_action('init', 'register_post_types');
 add_action('wp_enqueue_scripts', 'my_scripts_and_styles');
 add_action('after_setup_theme', 'register_menu');
 add_action('acf/init', 'be_register_blocks');
+add_image_size( 'new_img', 500, 500 , true);
 
 function my_scripts_and_styles() {
   wp_enqueue_style('slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), '0.1.0', 'all');
@@ -111,16 +112,19 @@ function getBlock_contactPage() {
 }
 
 function get_episode($term) {
-  $args = array('posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => array(array('taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term)));
-  return get_posts($args);
+  return get_posts(['posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => [['taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term]]]);
 }
 
 function getEvents() {
-  return new WP_Query(['numberposts' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'events',]);
+  return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'events',]);
 }
 
 function getPartner() {
   return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
+}
+
+function getSingleNew() {
+  return get_field('single-new');
 }
 
 //___________FOOTER_____________

@@ -112,8 +112,7 @@ function getBlock_contactPage() {
 }
 
 function get_episode($term) {
-  $args = array('posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => array(array('taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term)));
-  return get_posts($args);
+  return get_posts(['posts_per_page' => -1, 'post_type' => 'podcast', 'order' => 'ASC', 'tax_query' => [['taxonomy' => 'series', 'field' => 'term_id', 'terms' => $term]]]);
 }
 
 function getEvents() {
@@ -122,6 +121,10 @@ function getEvents() {
 
 function getPartner() {
   return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
+}
+
+function getSingleNew() {
+  return get_field('single-new');
 }
 
 //___________FOOTER_____________
