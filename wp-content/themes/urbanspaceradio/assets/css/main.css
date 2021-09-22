@@ -1329,6 +1329,16 @@ audio {
     flex-wrap: wrap;
 }
 
+.authors .authors-cart a {
+    text-decoration: none;
+    color: #000300;
+    height: 100%;
+}
+
+.partner .header-mainText p:last-child {
+    padding-bottom: 10px;
+}
+
 .contacts-header {
     margin: 7vw 0 3vw;
 }
