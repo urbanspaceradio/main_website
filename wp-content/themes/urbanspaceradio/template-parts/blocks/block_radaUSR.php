@@ -7,7 +7,7 @@ $block_radaUSR = getBlock_radaUSR();
 	<section class="about-supervisory">
 		<div class="header-mainText">
 			<h1><?php echo $block_radaUSR['title_radaUSR']; ?></h1>
-			<?php echo $block_radaUSR['desc_radaUSR']; ?>
+        <?php echo $block_radaUSR['desc_radaUSR']; ?>
 		</div>
 		<div class="about-supervisory_items">
         <?php foreach ($block_radaUSR['item_radausr'] as $radaUSR) :
@@ -15,7 +15,7 @@ $block_radaUSR = getBlock_radaUSR();
           if (!$photoRadaUSR) {
             $photoRadaUSR = get_template_directory_uri() . '/assets/img/no_img.png';
           }
-			 ?>
+          ?>
 			  <div class="podcastCart rotateCart">
 				  <div class="cartContainer">
 					  <div class="side front">
@@ -23,7 +23,7 @@ $block_radaUSR = getBlock_radaUSR();
 					  </div>
 					  <div class="side back">
 						  <h2><?php echo $radaUSR['name_item_radausr']; ?></h2>
-						 <p><?php echo wp_trim_words($radaUSR['desc_item_radausr'],45); ?></p>
+						  <p><?php echo wp_trim_words($radaUSR['desc_item_radausr'], 45); ?></p>
 					  </div>
 				  </div>
 			  </div>

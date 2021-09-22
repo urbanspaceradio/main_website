@@ -7,7 +7,7 @@ $block_ourMission_1 = getBlock_ourMission();
 	<section class="about-header">
 		<div class="header-mainText about-header_mainText">
 			<h1><?php echo $block_ourMission_1['title-ourMission']; ?></h1>
-			<?php echo $block_ourMission_1['desc-ourMission']; ?>
+        <?php echo $block_ourMission_1['desc-ourMission']; ?>
 		</div>
 		<img alt="About img" src="<?php echo $block_ourMission_1['photo-ourMission']; ?>">
 	</section>

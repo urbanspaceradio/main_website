@@ -9,7 +9,7 @@ $getEvents = getEvents();
 		<div class="siteWrapper">
 			<section class="header-mainText">
 				<h1><?php echo $events['event_title']; ?></h1>
-				<?php echo $events['event_description']; ?>
+           <?php echo $events['event_description']; ?>
 			</section>
 			<section class="events-items">
            <?php while ($getEvents->have_posts()) : $getEvents->the_post(); ?>

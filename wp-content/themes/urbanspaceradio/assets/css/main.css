@@ -266,11 +266,12 @@ img {
     color: #000300;
     text-decoration: none;
     width: 263px;
-    box-shadow: 0 4px 4px 0 rgba(0,0,0, 0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .podcastCart img {
     border-radius: 10px 10px 0 0;
+    height: 100%;
 }
 
 .podcastCart:after {
@@ -479,7 +480,7 @@ img {
 
 .mobileMenu-contacts {
     word-break: break-word;
-    margin: 50px 28px!important;
+    margin: 50px 28px !important;
     text-align: center;
 }
 
@@ -488,7 +489,7 @@ img {
 }
 
 .mobileMenu-contacts ul li a {
-    font-size: 17px!important;
+    font-size: 17px !important;
     color: #FFFDFB;
     text-decoration: none;
 }
@@ -1054,7 +1055,7 @@ img {
     border: 1px solid #000300;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 4px 0  rgba(0,0,0,0.25);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .episode-items_item img {
@@ -1434,10 +1435,12 @@ audio {
 .contacts-btn {
     margin-top: 80px;
 }
+
 .contacts-btn input {
     background-color: #000;
     color: #FFFDFB;
 }
+
 .contacts-btn input:hover {
     bottom: unset;
 }
@@ -1450,12 +1453,8 @@ audio {
 .partner-header {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     margin: 5vw 0;
-}
-
-.partner-header_mainText {
-    margin-top: 50px;
 }
 
 .partner-header_mainText h1 {
@@ -1464,8 +1463,14 @@ audio {
 
 .partner .partner-img {
     max-width: 470px;
+    max-height: 470px;
+    width: 100%;
     padding: 0;
-    left: 0;
+}
+
+.partner .partner-img img {
+    height: 100%;
+    border-radius: 10px;
 }
 
 .partner-btn {
@@ -1481,7 +1486,6 @@ audio {
 .partner-didTogether_podcasts {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     padding-bottom: 50px;
 }
 
@@ -1690,18 +1694,22 @@ audio {
 @media screen and (max-width: 1254px) {
     .partner-header,
     .partner-header_mainText {
-        margin: 0;
+        margin: 0 0 50px;
     }
+
     .partner-btn {
         display: none;
     }
+
     .mobilePartner-btn {
-        display: block!important;
+        display: block !important;
     }
+
     .partner-img {
         margin-top: 50px;
         margin-bottom: 10px;
     }
+
     .scrollUp {
         width: 50px;
         padding: 5px 0;
@@ -1723,9 +1731,11 @@ audio {
     .siteWrapper {
         padding: 10px;
     }
+
     .playerPage {
         background-image: url('../img/backgroundPlayerMobile.gif');
     }
+
     .header nav .header-navigation {
         display: none;
     }
@@ -1745,6 +1755,7 @@ audio {
     .episode-slider {
         margin: 70px auto;
     }
+
     .partners .header-mainText p:last-child {
         padding-bottom: 15px;
     }
@@ -1754,50 +1765,62 @@ audio {
     .episode-slider {
         margin: 40px auto;
     }
+
     .episode-slider_podcastsBtn {
         display: none;
     }
+
     .episode-slider_podcastsBtn.podcastBtn {
         display: block;
         margin: 10px auto 50px;
         text-align: center;
 
     }
+
     .episode-slider_img {
         margin-top: 50px;
     }
+
     .events {
         margin-bottom: 50px;
     }
+
     .events-items_item {
         margin-bottom: 70px;
         padding: 0 !important;
     }
+
     .events-bottomDescription {
         margin-top: 50px;
     }
+
     .contacts-values_item {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
         margin: unset;
     }
+
     .contacts-values_item .img {
         width: 105px;
         height: 105px;
     }
+
     .contacts-values_item .description {
         width: 100vw;
         margin: 20px 0;
     }
+
     .contacts-values_item .description-phone a,
     .contacts-values_item .description-email a,
     .contacts-values_item .description-address {
         font-size: 25px;
     }
+
     .contacts .header-mainText p:last-child {
         padding-bottom: 50px;
     }
+
     .podcastCart {
         margin: 20px 15px;
     }
@@ -1805,26 +1828,31 @@ audio {
 
 @media screen and (max-width: 630px) {
     h1 {
-        font-size: 25px!important;
+        font-size: 25px !important;
     }
 
     h2 {
-        font-size: 20px!important;
+        font-size: 20px !important;
     }
+
     .mainPlayer {
         background: url("../img/player_bg_mobile.gif") no-repeat center;
         min-height: 930px;
     }
+
     .pageNotFound {
-         display: none;
+        display: none;
     }
+
     .pageNotFoundMobile {
         display: flex;
         margin: 100px 0;
     }
+
     .pageNotFoundMobile img {
         width: 200px;
     }
+
     .mostPopular {
         padding: 50px 10px 100px;
     }
@@ -1853,37 +1881,47 @@ audio {
     .aboutUSR-header_img {
         padding: 20px;
     }
+
     .aboutUSR-mainText {
         margin: unset;
     }
+
     .header-mainText h1 {
         margin-top: 40px;
     }
+
     .header-mainText p,
-    .singlePodcast-descriptions_text p{
+    .singlePodcast-descriptions_text p {
         font-size: 14px;
     }
+
     .about-header_mainText {
         margin-top: unset;
     }
+
     .about .podcastCart,
-    .authors .authors-cart{
+    .authors .authors-cart {
         width: 235px;
         height: 289px;
     }
+
     .about-supervisory_items {
         margin: 10px 0 50px;
     }
+
     .events-items_item .text {
         margin: 20px;
     }
+
     .events-items_item .text p,
     .events-items_item .text span {
         font-size: 15px;
     }
+
     .partner-img {
         padding: 87px 43px;
     }
+
     .authors .header-mainText p:last-child {
         padding-bottom: 40px;
     }
@@ -1891,21 +1929,25 @@ audio {
     .authors .bottomDescription {
         margin: 40px auto 70px;
     }
+
     .contacts-values_item .description h2 {
-        font-size: 25px!important;
+        font-size: 25px !important;
     }
+
     .contacts-values_item .description-phone a,
     .contacts-values_item .description-email a,
     .contacts-values_item .description-address {
         font-size: 20px;
     }
+
     .contacts .aboutUSR {
         border: none;
         background-color: transparent;
-        padding: 0!important;
+        padding: 0 !important;
         position: unset;
         margin: 100px 0;
     }
+
     .contacts .aboutUSR:after {
         content: none;
     }
@@ -1917,32 +1959,38 @@ audio {
         width: 100% !important;
         height: 100%;
     }
+
     .about .rotateCart .cartContainer,
     .authors .rotateCart .cartContainer {
         transform-style: unset;
-        transition:unset;
+        transition: unset;
         display: flex;
     }
+
     .about .rotateCart .cartContainer .side,
     .authors .rotateCart .cartContainer .side {
         position: static;
         -webkit-backface-visibility: visible;
         width: 50%;
     }
+
     .about .rotateCart .cartContainer .side img,
     .authors .rotateCart .cartContainer .side img {
         height: 100%;
     }
+
     .about .rotateCart .cartContainer .back,
     .authors .rotateCart .cartContainer .back {
         transform: unset;
         overflow: visible;
         border-radius: 10px;
     }
+
     .about .rotateCart .cartContainer .back p,
     .authors .rotateCart .cartContainer .back p {
         font-size: 15px;
     }
+
     .about .rotateCart:hover .cartContainer,
     .authors .rotateCart:hover .cartContainer {
         transform: unset;
@@ -1963,29 +2011,36 @@ audio {
     .podcastCart p {
         font-size: 12px;
     }
+
     .about-values_item {
         flex-wrap: wrap;
         justify-content: center;
         text-align: center;
     }
+
     .about-values {
         margin: 75px 0 85px;
     }
+
     .about-supervisory .contacts a {
         font-size: 20px;
     }
+
     .episode-items_item .descriptions p {
         font-size: 12px;
     }
+
     .partners-items_partner {
         width: 160px;
         height: auto;
         margin: 10px;
         justify-content: space-evenly;
     }
+
     .partners-items_partner .img img {
         max-width: 160px;
     }
+
     .partners-btn a {
         font-size: 14px;
         padding: 5px 15px 7px;
@@ -2003,9 +2058,11 @@ audio {
     .footer .footer-info_item div {
         font-size: 14px;
     }
+
     .footer .footer-info_item ul li a {
         font-size: 15px;
     }
+
     .scrollUp {
         width: 40px;
         padding: 3px 0;
@@ -2020,11 +2077,13 @@ audio {
     p:not('podcastCart') {
         font-size: 14px !important;
     }
+
     .mobileNavigation li a,
     .mobileNavigation .menu,
     .mobileNavigation .donat-header {
         font-size: 14px;
     }
+
     .mobileNavigation .menu {
         line-height: 1.3;
     }
@@ -2040,7 +2099,7 @@ audio {
 
     .mainPlayer-container_info div,
     .playerPage-container_info div {
-        font-size: 12px!important;
+        font-size: 12px !important;
     }
 
     .mainPlayer-container .jp-audio-stream .play:after,
@@ -2057,13 +2116,16 @@ audio {
     .podcastCart p {
         font-size: 11px;
     }
+
     .btn-greenHover a,
     .button-donation span {
         font-size: 15px;
     }
+
     .episode-items h2 {
         margin: 20px;
     }
+
     .episode-items_item .descriptions .text,
     .episode-items_item audio {
         display: none;
@@ -2071,45 +2133,55 @@ audio {
 
     .episode-items_item.audioShow .text,
     .episode-items_item.audioShow audio {
-        display: block!important;
+        display: block !important;
     }
+
     .episode-items_item.audioShow {
         box-shadow: 1px 5px 15px;
         border: 1px solid #000300;
         border-radius: 10px;
     }
+
     .episode-items_item .descriptions h3 {
         word-break: break-all;
         font-size: 20px;
     }
+
     .episode-slider {
         margin: 20px auto;
     }
+
     .about-values_item .description {
         margin: 20px 0;
     }
+
     .events-items_item .text {
         margin: 10px;
     }
+
     .events-items_item .text p,
     .events-items_item .text span {
         font-size: 14px;
     }
+
     .partners-items_partner {
         width: 130px;
     }
+
     .partners-items_partner .img img {
         max-width: 130px;
     }
+
     .partners-btn a {
         font-size: 12px;
         padding: 5px 15px 7px;
     }
+
     .contacts-form input,
     .contacts-form select,
     .contacts-form textarea::placeholder {
         padding: 15px 20px;
-        font-size: 14px!important;
+        font-size: 14px !important;
         border-radius: 20px;
     }
 
@@ -2124,6 +2196,7 @@ audio {
     .footer .footer-info_item {
         margin: 20px 5px;
     }
+
     .about .rotateCart .cartContainer .back p,
     .authors .rotateCart .cartContainer .back p {
         font-size: 12px;
@@ -2137,59 +2210,75 @@ audio {
     .mobileNavigation .donat-header {
         font-size: 12px;
     }
+
     .mobileNavigation .menu {
         line-height: 1.5;
     }
+
     .mainPlayer-container .jp-audio-stream,
     .playerPage-container .jp-audio-stream {
         width: 300px;
     }
+
     .podcastCart {
         width: 120px;
     }
+
     .podcastCart p {
         font-size: 10px;
     }
+
     .aboutUSR {
         padding: 0 5px 40px;
     }
+
     .btn-greenHover a,
     .button-donation span,
     .aboutUSR p {
         font-size: 14px;
     }
+
     .mostPopular-btn a {
         padding: 5px 15px 7px;
     }
+
     .header-mainText p,
     .singlePodcast-descriptions_text p,
     .bottomDescription p {
         font-size: 12px;
     }
+
     .partners-items_partner {
         width: 120px;
     }
+
     .partners-btn a {
         font-size: 10px;
         padding: 5px 10px 7px;
     }
+
     .partner-img {
         padding: 50px 40px;
     }
+
     .contacts-values_item .description h2 {
-        font-size: 20px!important;
+        font-size: 20px !important;
     }
+
     .contacts-values_item .description-phone a,
     .contacts-values_item .description-email a,
     .contacts-values_item .description-address {
         font-size: 18px;
     }
+
     .footer .footer-info_item div {
         font-size: 12px;
     }
+
     .footer .footer-info_item ul li a {
         font-size: 12px;
     }
+
     .footer .footer-info_item {
         width: 120px;
     }
@@ -2198,13 +2287,16 @@ audio {
         max-width: unset;
         width: 100vw;
     }
+
     .podcastCart {
         margin: 20px 14px;
     }
+
     .about .rotateCart .cartContainer .back h2,
     .authors .rotateCart .cartContainer .back h2 {
         margin: 10px;
     }
+
     .about .rotateCart .cartContainer .back p,
     .authors .rotateCart .cartContainer .back p {
         padding: 10px;

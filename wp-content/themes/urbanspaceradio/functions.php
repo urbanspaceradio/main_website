@@ -7,7 +7,7 @@ add_action('init', 'register_post_types');
 add_action('wp_enqueue_scripts', 'my_scripts_and_styles');
 add_action('after_setup_theme', 'register_menu');
 add_action('acf/init', 'be_register_blocks');
-add_image_size( 'new_img', 500, 500 , true);
+add_image_size('new_img', 500, 500, true);
 
 function my_scripts_and_styles() {
   wp_enqueue_style('slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), '0.1.0', 'all');
@@ -60,6 +60,9 @@ function register_post_types() {
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
   register_post_type('partners', array('labels' => array('name' => 'Partner', 'singular_name' => 'Partner', 'add_new' => 'Додати партнера', 'add_new_item' => 'Додавання партнера', 'edit_item' => 'Редагування партнера', 'new_item' => 'Новий партнер', 'view_item' => 'Дивитись партнера', 'search_items' => 'Шукати партнера', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Партнери',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
+
+  register_post_type('authors', array('labels' => array('name' => 'Authors', 'singular_name' => 'Authors', 'add_new' => 'Додати автора', 'add_new_item' => 'Додавання автора', 'edit_item' => 'Редагування автора', 'new_item' => 'Новий автор', 'view_item' => 'Дивитись автора', 'search_items' => 'Шукати автора', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Автори',), 'public' => true, 'menu_position' => 9, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],//'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 }
 
@@ -123,6 +126,15 @@ function getPartner() {
   return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
 }
 
+function getAuthors() {
+  return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'authors',]);
+}
+
+function getAuthorMeta($id) {
+  return get_field('single_author', $id);
+}
+
+
 function getSingleNew() {
   return get_field('single-new');
 }
@@ -138,19 +150,4 @@ function copyright_date() {
   else {
     echo $start_date;
   }
-}
-
-
-function the_excerpt_max_charlength($sentences, $limit) {
-
-  $words = explode(' ', $sentences );
-
-  if( count($words) <= 3 ){
-    return implode(' ', $words);
-  }
-
-  if( count($words) > $limit ){
-    return sprintf("%s&hellip;", implode(' ', array_slice($words, 0, $limit)) );
-  }
-
 }

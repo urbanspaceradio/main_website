@@ -1,5 +1,4 @@
 <?php
-/* Template name: Seasons Page */
 defined('ABSPATH') || exit;
 get_header();
 $query_vars = get_queried_object();
@@ -15,7 +14,7 @@ else { ?>
 			<div class="siteWrapper">
 				<div class="header-mainText">
 					<h1><?php echo $series_desc[0]->name; ?></h1>
-              	<p><?php echo $series_desc[0]->description; ?></p>
+					<p><?php echo $series_desc[0]->description; ?></p>
 				</div>
 				<div class="podcasts-filter singlePodcast-filter">
 					<h2><?php echo $query_vars->name; ?></h2>
@@ -38,7 +37,7 @@ else { ?>
              ?>
 				  <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
 					  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
-					  <p><?php echo the_excerpt_max_charlength($item->name, 2); ?></p>
+					  <p><?php echo wp_trim_words($item->name, 2); ?></p>
 				  </a>
            <?php } ?>
 			</div>

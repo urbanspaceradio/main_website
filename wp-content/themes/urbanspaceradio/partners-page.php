@@ -9,7 +9,7 @@ $partners = getPartner();
 	<div class="siteWrapper partners">
 		<section class="header-mainText">
 			<h1><?php echo $partnersMeta['title']; ?></h1>
-			<?php echo $partnersMeta['description']; ?>
+        <?php echo $partnersMeta['description']; ?>
 		</section>
 		<section class="partners-items">
         <?php while ($partners->have_posts()) : $partners->the_post();
@@ -17,7 +17,7 @@ $partners = getPartner();
           if (!$photoOurTeamUrl) {
             $photoOurTeamUrl = get_template_directory_uri() . '/assets/img/no_img.png';
           }
-        ?>
+          ?>
 			  <div class="partners-items_partner">
 				  <div class="img"><img src="<?php echo $photoOurTeamUrl; ?>" alt="<?php the_title(); ?>"></div>
 				  <div class="btn-greenHover partners-btn">
@@ -29,7 +29,7 @@ $partners = getPartner();
 		</section>
 	</div>
 	<section class="bottomDescription">
-		<?php echo $partnersMeta['desc_subscribe-button']; ?>
+     <?php echo $partnersMeta['desc_subscribe-button']; ?>
 	</section>
 	<div class="btn-greenHover bottomBtn">
 		<a href="<?php echo site_url('/contacts'); ?>">хочу долучитись</a>
