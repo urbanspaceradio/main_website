@@ -266,6 +266,7 @@ img {
     color: #000300;
     text-decoration: none;
     width: 263px;
+    height: 318px;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -845,53 +846,116 @@ img {
 }
 
 .podcasts-filter {
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 150px;
 }
 
 .podcasts-filter_years {
     display: flex;
     align-items: flex-end;
+    max-width: 600px;
+    width: 100%;
 }
 
 .podcasts-filter_years li {
     margin: 10px;
-}
-
-.podcasts-filter_years li a {
     text-decoration: none;
     color: #459799;
     font-size: 17px;
+    text-align: center;
 }
 
-.podcasts-filter_years li a:hover {
+.podcasts-filter_years li:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
-.podcasts-filter_years li .active {
+.podcasts-filter_years .activeYear {
     font-size: 27px;
     color: #000300;
 }
 
-.podcasts-filter_type {
+.podcasts-filter_years .slick-track {
     display: flex;
+    align-items: center;
 }
 
-.podcasts-filter_type div {
-    margin: 10px;
+.podcasts-filter_years .slick-slide {
+    width: 67px !important;
 }
 
-.podcasts-filter_type .search a {
+.podcasts-filter_years .slick-dots li button:before {
+    font-size: 9px;
+    color: #000300;
+    opacity: 1;
+}
+
+.podcasts-filter_years .slick-dots li.slick-active button:before {
+    color: #459799 !important;
+    font-size: 12px;
+}
+
+.podcasts-filter_years.slick-dotted.slick-slider {
+    margin: 20px 0 14px;
+}
+
+.podcasts-filter .podcasts-search {
+    margin: 25px 0 23px;
+}
+
+.filterFixed {
     background-color: #000300;
+    border-radius: 0 0 30px 30px;
+    position: fixed;
+    top: 79px;
+    width: 100%;
+    z-index: 5;
+}
+
+.filterFixed .siteWrapper {
+    padding: 0 0 5px;
+}
+
+.filterFixed .podcasts-filter_years .activeYear,
+.filterFixed .podcasts-filter_years .slick-dots li button:before{
     color: #FFFDFB;
 }
 
-.podcasts-filter_type .search a:after {
-    border-color: #000300;
+.filterFixed .podcasts-search input[type='submit'] {
+    border: 1px solid #FFFDFB;
+}
+
+.filterFixed .podcasts-search input[type='submit']:hover {
+    background-color: #FFFDFB;
+    color: #000300;
+}
+
+.podcastsSeasons {
+    margin-top: 113px !important;
+}
+
+
+.podcasts-search input[type='text'] {
+    font-size: 20px;
+    height: 35px;
+    border: 1px solid #000300;
+    border-radius: 50px;
+    outline: none;
+    padding: 10px 20px;
+    background-color: #FFFDFB;
+}
+
+.podcasts-search input[type='submit'] {
+    text-decoration: none;
+    color: #FFFDFB;
+    border: 1px solid #000300;
+    padding: 5px 35px;
+    border-radius: 50px;
+    font-size: 20px;
+    background-color: #000300;
+    cursor: pointer;
+    margin-right: 50px;
 }
 
 .podcasts-seasons {
@@ -1636,6 +1700,7 @@ audio {
     position: fixed;
     right: 20px;
     bottom: 20px;
+    display: none;
 }
 
 .scrollUp span {
@@ -1735,9 +1800,30 @@ audio {
         max-width: unset;
         width: 100vw;
     }
+    .podcasts-filter {
+        justify-content: space-around;
+    }
+    .podcasts-search input[type='submit'] {
+        margin-right: 0;
+    }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1087px) {
+    .filterFixed {
+        top: 121px;
+    }
+}
+
+@media screen and (max-width: 987px) {
+    .filterFixed {
+        top: 105px;
+    }
+    .filterFixed .podcasts-filter_years.slick-dotted.slick-slider {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 983px) {
     .siteWrapper {
         padding: 10px;
     }
@@ -1768,6 +1854,17 @@ audio {
 
     .partners .header-mainText p:last-child {
         padding-bottom: 15px;
+    }
+    .filterFixed {
+        top: 40px;
+    }
+
+    .filterFixed .podcasts-filter .podcasts-search {
+        margin: 10px auto;
+    }
+
+    .filterFixed .slick-dots {
+        bottom: -17px;
     }
 }
 
@@ -2081,6 +2178,29 @@ audio {
     .scrollUp span {
         font-size: 17px;
     }
+
+    .podcasts-filter_years .slick-dots li button:before {
+        font-size: 7px;
+    }
+
+    .podcasts-filter_years .slick-dots li.slick-active button:before {
+        font-size: 10px;
+    }
+
+    .podcasts-filter .podcasts-search input[type='text'],
+    .podcasts-filter .podcasts-search input[type='submit']{
+        font-size: 17px;
+        height: 32px;
+        padding: 5px 24px;
+    }
+
+    .podcasts-filter .podcasts-search input[type='text'] {
+        padding: 10px;
+    }
+
+    .podcastCart {
+        height: unset;
+    }
 }
 
 @media screen and (max-width: 450px) {
@@ -2311,7 +2431,23 @@ audio {
     .authors .rotateCart .cartContainer .back p {
         padding: 10px;
     }
+
+    .podcasts-filter .podcasts-search input[type='text'],
+    .podcasts-filter .podcasts-search input[type='submit']{
+        font-size: 14px;
+        height: 32px;
+        padding: 5px 15px;
+    }
+
+    .podcasts-filter .podcasts-search input[type='text'] {
+        padding: 10px;
+    }
 }
 
+@media screen and (max-width: 340px) {
+    .filterFixed {
+        top: 30px;
+    }
+}
 
 

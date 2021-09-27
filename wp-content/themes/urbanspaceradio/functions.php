@@ -8,6 +8,14 @@ add_action('wp_enqueue_scripts', 'my_scripts_and_styles');
 add_action('after_setup_theme', 'register_menu');
 add_action('acf/init', 'be_register_blocks');
 add_image_size('new_img', 500, 500, true);
+add_action('init', 'wpse_load_custom_search_template');
+
+function wpse_load_custom_search_template() {
+  if (isset($_REQUEST['search'])) {
+    require('search.php');
+    die();
+  }
+}
 
 function my_scripts_and_styles() {
   wp_enqueue_style('slick', get_template_directory_uri() . '/assets/css/slick/slick.css', array(), '0.1.0', 'all');
@@ -19,6 +27,7 @@ function my_scripts_and_styles() {
   wp_enqueue_script('jquery.jplayer', get_template_directory_uri() . '/assets/js/jquery.jplayer.min.js', [], null, true);
   wp_enqueue_script('slick.min.js', get_template_directory_uri() . '/assets/js/slick.min.js', [], null, true);
   wp_enqueue_script('player', get_template_directory_uri() . '/assets/js/player.js', [], null, true);
+  wp_enqueue_script('isotope', get_template_directory_uri() . '/assets/js/isotope.pkgd.min.js', [], null, true);
   wp_enqueue_script('main', get_template_directory_uri() . '/assets/js/main.js', [], null, true);
   wp_enqueue_script('modernizr', get_template_directory_uri() . '/assets/js/modernizr.js', [], null, true);
 }
@@ -64,6 +73,27 @@ function register_post_types() {
 
   register_post_type('authors', array('labels' => array('name' => 'Authors', 'singular_name' => 'Authors', 'add_new' => 'Додати автора', 'add_new_item' => 'Додавання автора', 'edit_item' => 'Редагування автора', 'new_item' => 'Новий автор', 'view_item' => 'Дивитись автора', 'search_items' => 'Шукати автора', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Автори',), 'public' => true, 'menu_position' => 9, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],//'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
+
+  register_taxonomy( 'year', [ 'podcast' ], [
+    'label'                 => '', // определяется параметром $labels->name
+    'labels'                => [
+      'name'              => 'Рік',
+      'singular_name'     => 'Рік',
+      'search_items'      => 'Пошук по рокам',
+      'all_items'         => 'Всі роки',
+      'view_item '        => 'переглянути рік',
+      'edit_item'         => 'Редагувати рік',
+      'update_item'       => 'Оновити рік',
+      'add_new_item'      => 'Додати новий рік',
+      'menu_name'         => 'Рік',
+    ],
+    'public'                => true,
+    'hierarchical'          => false,
+    'rewrite'               => true,
+    'capabilities'          => array(),
+    'meta_box_cb'           => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+    'show_admin_column'     => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
+  ] );
 }
 
 function getBlock_mostPopular() {

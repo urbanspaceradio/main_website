@@ -18,11 +18,6 @@ else { ?>
 				</div>
 				<div class="podcasts-filter singlePodcast-filter">
 					<h2><?php echo $query_vars->name; ?></h2>
-					<div class="podcasts-filter_type">
-						<div class="btn-greenHover"><a href="#">за жанрами</a></div>
-						<div class="btn-greenHover"><a href="#">за авторами</a></div>
-						<div class="btn-greenHover search"><a href="#">пошук</a></div>
-					</div>
 				</div>
 			</div>
 		</section>
