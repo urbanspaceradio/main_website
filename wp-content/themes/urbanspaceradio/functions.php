@@ -8,6 +8,7 @@ add_action('wp_enqueue_scripts', 'my_scripts_and_styles');
 add_action('after_setup_theme', 'register_menu');
 add_action('acf/init', 'be_register_blocks');
 add_image_size('new_img', 500, 500, true);
+add_image_size('authors_img', 263, 324, true);
 add_action('init', 'wpse_load_custom_search_template');
 
 function wpse_load_custom_search_template() {

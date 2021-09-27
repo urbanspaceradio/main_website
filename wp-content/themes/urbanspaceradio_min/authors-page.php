@@ -17,7 +17,7 @@ $authors = getAuthors();
 					  <div class="cartContainer">
 						  <div class="side front">
                       <?php
-                      $term_img_url = get_the_post_thumbnail_url();
+                      $term_img_url = get_the_post_thumbnail_url(null, 'authors_img');
                       if (!$term_img_url) {
                         $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
                       }

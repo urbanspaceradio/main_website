@@ -67,11 +67,16 @@ $episodes = get_episode($series[0]->term_id);
              $audio_file = get_post_meta($episode->ID)['audio_file'][0];
              ?>
 				  <div class="episode-items_item">
-					  <img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/>
+            <div class="episode-item_mobile-block">
+              <div class=""><img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/></div>
+              <div class="mobile-single_episode-title">
+                <h3><?php echo $episode->post_title; ?></h3>
+              </div>
+            </div>
 					  <div class="descriptions">
 						  <h3><?php echo $episode->post_title; ?></h3>
 						  <div class="text">
-							  <p><?php echo $episode->post_excerpt; ?></p>
+							  <p><?php echo wp_trim_words($episode->post_content, '20') ?></p>
 						  </div>
 						  <div class="text showContent">
                       <?php echo $episode->post_content; ?>

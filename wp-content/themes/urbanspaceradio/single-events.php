@@ -4,7 +4,7 @@ get_header();
 the_post();
 $single_new = getSingleNew();
 ?>
-	<div class="siteWrapper new">
+	<div class="siteWrapper new single-event">
 		<section class="new-header">
 			<div class="header-mainText new-header_mainText">
 				<h1><?php the_title(); ?></h1>

@@ -7,7 +7,7 @@ $Block_aboutUSR_1 = getBlock_aboutUSR();
 		<div class="aboutUSR">
 			<div class="aboutUSR-header">
 				<div class="aboutUSR-header_text">
-					<h1><?php echo $Block_aboutUSR_1['aboutUSR-title']; ?></h1>
+					<h2><?php echo $Block_aboutUSR_1['aboutUSR-title']; ?></h2>
               <?php echo $Block_aboutUSR_1['aboutUSR-desc']; ?>
 				</div>
 				<div class="aboutUSR-header_img">

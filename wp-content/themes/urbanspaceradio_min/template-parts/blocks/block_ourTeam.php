@@ -5,7 +5,7 @@ $block_ourTeam = getBlock_ourTeam();
 
 <div class="siteWrapper">
 	<section class="about-ourTeam">
-		<h2 class="about-ourTeam_title"><?php echo $block_ourTeam['title_ourTeam']; ?></h2>
+		<h1 class="about-ourTeam_title"><?php echo $block_ourTeam['title_ourTeam']; ?></h1>
 		<div class="about-ourTeam_container">
         <?php foreach ($block_ourTeam['item_ourteam'] as $ourTeam) :
           $photoOurTeamUrl = $ourTeam['photo_ourTeam'];

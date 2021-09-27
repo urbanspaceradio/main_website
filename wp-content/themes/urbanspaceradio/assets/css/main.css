@@ -175,7 +175,7 @@ img {
     text-decoration: none;
     color: #000300;
     border: 1px solid #000300;
-    padding: 5px 25px 7px;
+    padding: 8px 43px;
     border-radius: 50px;
     font-size: 20px;
     position: relative;
@@ -300,19 +300,32 @@ img {
 }
 
 .header-mainText h1 {
+    font-size: 36px;
     margin-top: 116px;
+    margin-bottom: 21px;
+}
+
+.header-mainText ul li,
+.header-mainText p{
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.header-mainText ul {
+    padding-bottom: 65px;
 }
 
 .header-mainText p {
-    padding-top: 20px;
     max-width: 720px;
-    line-height: 1.5;
 }
-
+/*поки приховав до реалізації фільтру*/
 .header-mainText p:last-child {
-    padding-bottom: 70px;
+    padding-bottom: 65px;
 }
 
+/*.events .header-mainText p:last-child {*/
+/*    padding-bottom: 65px;*/
+/*}*/
 .label {
     position: absolute;
     background-color: #459799;
@@ -596,6 +609,8 @@ img {
 
 .mostPopular h2 {
     margin-bottom: 86px;
+    font-size: 36px;
+    font-weight: 400;
 }
 
 .mostPopular-podcasts {
@@ -642,13 +657,15 @@ img {
     padding: 0 10px;
 }
 
-.aboutUSR-header_text h1 {
+.aboutUSR-header_text h2 {
     padding-top: 55px;
+    font-size: 36px;
 }
 
 .aboutUSR-header_text p {
     margin: 20px 0;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .aboutUSR-header_img {
@@ -666,8 +683,9 @@ img {
 }
 
 .aboutUSR-mainText p {
-    padding-bottom: 30px;
-    font-size: 20px;
+    padding-bottom: 23px;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .rotateCart {
@@ -712,7 +730,8 @@ img {
 .bottomDescription p {
     padding: 10px;
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.6;
+    font-size: 14px;
 }
 
 .bottomBtn {
@@ -1034,20 +1053,23 @@ img {
     max-width: 450px;
     margin: 50px auto 0;
 }
-
+.episode-slider_description {
+    font-size: 14px;
+    line-height: 1.6;
+}
 .episode-slider_description h2 {
     text-transform: uppercase;
     margin-bottom: 20px;
-}
-
-.episode-slider_description p {
-    line-height: 1.5;
+    font-size: 36px;
 }
 
 .episode-slider_podcastsBtn {
     max-width: 287px;
     margin-top: 50px;
     font-size: 20px;
+}
+.episode-slider_podcastsBtn p {
+    font-weight: 600;
 }
 
 .episode-slider_podcastsBtn.podcastBtn {
@@ -1100,6 +1122,7 @@ img {
 
 .episode-items h2 {
     margin: 20px 100px;
+    font-size: 36px;
 }
 
 .episode-items_item {
@@ -1113,6 +1136,10 @@ img {
     background-color: #FFFDFB;
     color: #000300;
     margin: 50px auto;
+}
+
+.episode-items_item .mobile-single_episode-title {
+    display: none;
 }
 
 .episode-items_item:hover {
@@ -1136,7 +1163,7 @@ img {
 }
 
 .episode-items_item .descriptions h3 {
-    font-size: 25px;
+    font-size: 36px;
     letter-spacing: 3px;
     font-weight: lighter;
     margin-bottom: 10px;
@@ -1183,7 +1210,8 @@ audio {
     margin: 30px auto 0;
 }
 
-.episode-items_item .showContent {
+.episode-items_item .showContent,
+.episode-items_item.audioShow .text {
     display: none;
 }
 
@@ -1267,7 +1295,7 @@ audio {
 
 .about-ourTeam_title {
     text-align: center;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: lighter;
 }
 
@@ -1324,17 +1352,23 @@ audio {
 
 .events-items_item .text h2 {
     margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .events-items_item .text p,
 .events-items_item .text span {
     line-height: 1.5;
+    font-size: 14px;
 }
 
 .events-bottomDescription {
     margin-top: 130px;
 }
 
+.single-event .header-mainText ul {
+    padding: 0;
+}
 .partners-items {
     display: flex;
     flex-wrap: wrap;
@@ -1418,10 +1452,13 @@ audio {
 .contacts-values {
     margin: 30px 0;
 }
-
 .contacts-values_item {
     display: flex;
     margin: 30px 0;
+}
+
+.contacts-values_item .description h2 {
+    font-size: 36px;
 }
 
 .contacts-values_item .img {
@@ -1455,7 +1492,7 @@ audio {
 .contacts-values_item .description-address {
     text-decoration: none;
     color: #000300;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .contacts-values_item .description p {
@@ -1470,6 +1507,7 @@ audio {
 
 .contacts-form h2 {
     padding-bottom: 27px;
+    font-size: 36px;
 }
 
 .contacts-form input,
@@ -1484,7 +1522,7 @@ audio {
     font-family: BanderaPro, sans-serif;
     border-radius: 52px;
     outline: none;
-    font-size: 17px;
+    font-size: 18px;
     background-color: #FFFDFB;
 }
 
@@ -1552,9 +1590,13 @@ audio {
     width: 100%;
     text-align: center;
 }
-
+.partner-didTogether_description {
+    padding-left: 30px;
+}
 .partner-didTogether_description h2 {
     font-weight: normal;
+    padding-bottom: 37px;
+    font-size: 36px;
 }
 
 .partner-didTogether_podcasts {
@@ -1582,6 +1624,7 @@ audio {
 
 .new-header_mainText h1 {
     margin-top: 50px;
+    text-transform: uppercase;
 }
 
 .new-img {
@@ -1602,7 +1645,7 @@ audio {
 }
 
 .new-photos h2 {
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 70px;
 }
 
@@ -1619,6 +1662,7 @@ audio {
 
 .new-slider-text {
     padding: 26px 50px;
+    font-size: 14px;
 }
 
 .new .slick-prev,
@@ -1636,11 +1680,11 @@ audio {
 }
 
 .new .slick-prev {
-    left: -80px;
+    left: -115px;
 }
 
 .new .slick-next {
-    right: -43px;
+    right: -53px;
 }
 
 .new .slick-prev:before,
@@ -1650,17 +1694,15 @@ audio {
     border-radius: 20px;
 }
 
-.new .slick-prev:before {
-    padding: 10px 5px 9px 50px;
-}
-
-.new .slick-next:before {
-    padding: 10px 50px 9px 5px;
+.new .slick-prev:before,
+.new .slick-next:before{
+    padding: 15px 40px;
+    border-radius: 50px;
 }
 
 .new-bottomDescription h2 {
     text-align: center;
-    font-size: 40px;
+    font-size: 36px;
     margin-bottom: 35px;
 }
 
@@ -1940,6 +1982,10 @@ audio {
 
     h2 {
         font-size: 20px !important;
+        font-weight: 600
+    }
+    h3{
+        font-size: 20px !important;
     }
 
     .mainPlayer {
@@ -1978,7 +2024,11 @@ audio {
 
     .btn-greenHover a, .button-donation span,
     .aboutUSR p {
-        font-size: 17px;
+        font-size: 12px;
+    }
+    .btn-greenHover a,
+    .aboutUSR p {
+        line-height: 1.6;
     }
 
     .aboutUSR {
@@ -2058,6 +2108,17 @@ audio {
     .contacts .aboutUSR:after {
         content: none;
     }
+    .episode-items_item {
+        margin: 27px auto;
+        /*flex-wrap: unset;*/
+        /*flex-direction: row-reverse;*/
+    }
+    .episode-items_item .descriptions p {
+        font-size: 12px;
+    }
+    .episode-items h2 {
+        margin: 20px;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -2105,6 +2166,12 @@ audio {
 }
 
 @media screen and (max-width: 550px) {
+    h2 {
+        font-weight: 600;
+    }
+    audio {
+        margin: 30px auto 20px;
+    }
     .mainPlayer-container .jp-audio-stream,
     .playerPage-container .jp-audio-stream {
         width: unset;
@@ -2132,9 +2199,48 @@ audio {
     .about-supervisory .contacts a {
         font-size: 20px;
     }
+    .episode-items {
+        padding: 0 10px;
+    }
+    .episode-items_item {
+        border: 1px solid #000300;
+        border-radius: 10px;
+    }
+    .episode-items_item .descriptions h3,
+    .episode-items_item .descriptions .text{
+        display: none;
+    }
+    .episode-items_item .descriptions {
+        padding: 0 20px 0 20px;
+    }
+
+    .episode-item_mobile-block {
+        display: flex;
+        width: 100%;
+    }
+    .episode-item_mobile-block div:nth-child(2)  {
+        order: -1;
+    }
+    .episode-item_mobile-block .mobile-single_episode-title{
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        text-transform: uppercase;
+        line-height: 1.6;
+    }
+
+    .episode-item_mobile-block .mobile-single_episode-title h3{
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
 
     .episode-items_item .descriptions p {
         font-size: 12px;
+    }
+    .episode-items_item .episode-item_mobile-block img{
+        width: 104px;
+        height: 104px;
+        margin: 20px;
     }
 
     .partners-items_partner {
@@ -2189,6 +2295,7 @@ audio {
 
     .podcasts-filter .podcasts-search input[type='text'],
     .podcasts-filter .podcasts-search input[type='submit']{
+        font-family: BanderaPro, sans-serif;
         font-size: 17px;
         height: 32px;
         padding: 5px 24px;
@@ -2244,7 +2351,7 @@ audio {
     }
 
     .podcastCart p {
-        font-size: 11px;
+        font-size: 10px;
     }
 
     .btn-greenHover a,
@@ -2273,12 +2380,17 @@ audio {
     }
 
     .episode-items_item .descriptions h3 {
-        word-break: break-all;
+        /*word-break: break-all;*/
         font-size: 20px;
     }
 
     .episode-slider {
         margin: 20px auto;
+    }
+
+    .episode-slider_description{
+        font-size: 12px;
+        line-height: 1.6;
     }
 
     .about-values_item .description {
@@ -2375,7 +2487,7 @@ audio {
     .header-mainText p,
     .singlePodcast-descriptions_text p,
     .bottomDescription p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .partners-items_partner {
