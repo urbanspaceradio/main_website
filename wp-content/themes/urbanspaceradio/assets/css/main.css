@@ -306,7 +306,7 @@ img {
 }
 
 .header-mainText ul li,
-.header-mainText p{
+.header-mainText p {
     font-size: 14px;
     line-height: 1.6;
 }
@@ -318,6 +318,7 @@ img {
 .header-mainText p {
     max-width: 720px;
 }
+
 /*поки приховав до реалізації фільтру*/
 .header-mainText p:last-child {
     padding-bottom: 65px;
@@ -400,7 +401,7 @@ img {
 .header-navigation a,
 .mobileNavigation a {
     padding: 0 20px;
-    font-size: 20px;
+    font-size: 19px;
     text-decoration: none;
     color: #000300;
     letter-spacing: 1px;
@@ -937,7 +938,7 @@ img {
 }
 
 .filterFixed .podcasts-filter_years .activeYear,
-.filterFixed .podcasts-filter_years .slick-dots li button:before{
+.filterFixed .podcasts-filter_years .slick-dots li button:before {
     color: #FFFDFB;
 }
 
@@ -1053,10 +1054,12 @@ img {
     max-width: 450px;
     margin: 50px auto 0;
 }
+
 .episode-slider_description {
     font-size: 14px;
     line-height: 1.6;
 }
+
 .episode-slider_description h2 {
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -1068,6 +1071,7 @@ img {
     margin-top: 50px;
     font-size: 20px;
 }
+
 .episode-slider_podcastsBtn p {
     font-weight: 600;
 }
@@ -1369,6 +1373,7 @@ audio {
 .single-event .header-mainText ul {
     padding: 0;
 }
+
 .partners-items {
     display: flex;
     flex-wrap: wrap;
@@ -1452,6 +1457,7 @@ audio {
 .contacts-values {
     margin: 30px 0;
 }
+
 .contacts-values_item {
     display: flex;
     margin: 30px 0;
@@ -1590,9 +1596,11 @@ audio {
     width: 100%;
     text-align: center;
 }
+
 .partner-didTogether_description {
     padding-left: 30px;
 }
+
 .partner-didTogether_description h2 {
     font-weight: normal;
     padding-bottom: 37px;
@@ -1632,6 +1640,7 @@ audio {
     max-height: 470px;
     margin: 0;
     padding: 0;
+    left: 0;
 }
 
 .new-img img {
@@ -1684,18 +1693,13 @@ audio {
 }
 
 .new .slick-next {
-    right: -53px;
+    right: -33px;
 }
 
 .new .slick-prev:before,
 .new .slick-next:before {
     color: #000300;
     border: 1px solid #000300;
-    border-radius: 20px;
-}
-
-.new .slick-prev:before,
-.new .slick-next:before{
     padding: 15px 40px;
     border-radius: 50px;
 }
@@ -1734,7 +1738,7 @@ audio {
 .scrollUp {
     width: 60px;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #000300;
     border-radius: 30px;
     text-align: center;
     padding: 10px 0;
@@ -1750,7 +1754,7 @@ audio {
 }
 
 .footerWrapper {
-    background-color: #000;
+    background-color: #000300;
     padding: 30px 0;
 }
 
@@ -1808,6 +1812,13 @@ audio {
     color: #5F5D5D;
 }
 
+@media screen and (max-width: 1300px) {
+    .new-photos_slider {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+}
+
 @media screen and (max-width: 1254px) {
     .partner-header,
     .partner-header_mainText {
@@ -1842,11 +1853,17 @@ audio {
         max-width: unset;
         width: 100vw;
     }
+
     .podcasts-filter {
         justify-content: space-around;
     }
+
     .podcasts-search input[type='submit'] {
         margin-right: 0;
+    }
+
+    .new-photos_slider {
+        max-width: 800px;
     }
 }
 
@@ -1854,12 +1871,17 @@ audio {
     .filterFixed {
         top: 121px;
     }
+
+    .new-photos_slider {
+        max-width: 700px;
+    }
 }
 
 @media screen and (max-width: 987px) {
     .filterFixed {
         top: 105px;
     }
+
     .filterFixed .podcasts-filter_years.slick-dotted.slick-slider {
         margin-bottom: 0;
     }
@@ -1897,6 +1919,7 @@ audio {
     .partners .header-mainText p:last-child {
         padding-bottom: 15px;
     }
+
     .filterFixed {
         top: 40px;
     }
@@ -1907,6 +1930,38 @@ audio {
 
     .filterFixed .slick-dots {
         bottom: -17px;
+    }
+
+    .new .slick-next:before,
+    .new .slick-prev:before {
+        background-color: #FFFDFB;
+        opacity: 1;
+    }
+
+    .new .slick-next {
+        right: 36px;
+    }
+
+    .new .slick-next:before {
+        border-radius: 50px 0 0 50px;
+        padding: 6px 4px 5px 10px;
+    }
+
+    .new .slick-prev:before {
+        border-radius: 0 50px 50px 0;
+        padding: 6px 9px 4px 4px;
+    }
+
+    .new .slick-prev {
+        left: 20px;
+        z-index: 1;
+    }
+
+    .new .slick-prev:hover:before,
+    .new .slick-next:hover:before {
+        border-color: #000300;
+        background-color: #FFFDFB;
+        color: #000300;
     }
 }
 
@@ -1984,7 +2039,8 @@ audio {
         font-size: 20px !important;
         font-weight: 600
     }
-    h3{
+
+    h3 {
         font-size: 20px !important;
     }
 
@@ -2026,12 +2082,13 @@ audio {
     .aboutUSR p {
         font-size: 12px;
     }
+
     .btn-greenHover a,
     .aboutUSR p {
         line-height: 1.6;
     }
 
-    .aboutUSR {
+    .aboutUSR:not(.new-slider_item, .new-img) {
         padding: 0 15px 40px;
     }
 
@@ -2108,14 +2165,17 @@ audio {
     .contacts .aboutUSR:after {
         content: none;
     }
+
     .episode-items_item {
         margin: 27px auto;
         /*flex-wrap: unset;*/
         /*flex-direction: row-reverse;*/
     }
+
     .episode-items_item .descriptions p {
         font-size: 12px;
     }
+
     .episode-items h2 {
         margin: 20px;
     }
@@ -2169,9 +2229,11 @@ audio {
     h2 {
         font-weight: 600;
     }
+
     audio {
         margin: 30px auto 20px;
     }
+
     .mainPlayer-container .jp-audio-stream,
     .playerPage-container .jp-audio-stream {
         width: unset;
@@ -2199,17 +2261,21 @@ audio {
     .about-supervisory .contacts a {
         font-size: 20px;
     }
+
     .episode-items {
         padding: 0 10px;
     }
+
     .episode-items_item {
         border: 1px solid #000300;
         border-radius: 10px;
     }
+
     .episode-items_item .descriptions h3,
-    .episode-items_item .descriptions .text{
+    .episode-items_item .descriptions .text {
         display: none;
     }
+
     .episode-items_item .descriptions {
         padding: 0 20px 0 20px;
     }
@@ -2218,10 +2284,12 @@ audio {
         display: flex;
         width: 100%;
     }
-    .episode-item_mobile-block div:nth-child(2)  {
+
+    .episode-item_mobile-block div:nth-child(2) {
         order: -1;
     }
-    .episode-item_mobile-block .mobile-single_episode-title{
+
+    .episode-item_mobile-block .mobile-single_episode-title {
         display: flex;
         align-items: flex-end;
         padding: 20px;
@@ -2229,7 +2297,7 @@ audio {
         line-height: 1.6;
     }
 
-    .episode-item_mobile-block .mobile-single_episode-title h3{
+    .episode-item_mobile-block .mobile-single_episode-title h3 {
         max-width: 100% !important;
         margin: 0 auto !important;
     }
@@ -2237,7 +2305,8 @@ audio {
     .episode-items_item .descriptions p {
         font-size: 12px;
     }
-    .episode-items_item .episode-item_mobile-block img{
+
+    .episode-items_item .episode-item_mobile-block img {
         width: 104px;
         height: 104px;
         margin: 20px;
@@ -2294,7 +2363,7 @@ audio {
     }
 
     .podcasts-filter .podcasts-search input[type='text'],
-    .podcasts-filter .podcasts-search input[type='submit']{
+    .podcasts-filter .podcasts-search input[type='submit'] {
         font-family: BanderaPro, sans-serif;
         font-size: 17px;
         height: 32px;
@@ -2380,7 +2449,6 @@ audio {
     }
 
     .episode-items_item .descriptions h3 {
-        /*word-break: break-all;*/
         font-size: 20px;
     }
 
@@ -2388,7 +2456,7 @@ audio {
         margin: 20px auto;
     }
 
-    .episode-slider_description{
+    .episode-slider_description {
         font-size: 12px;
         line-height: 1.6;
     }
@@ -2443,6 +2511,10 @@ audio {
     .authors .rotateCart .cartContainer .back p {
         font-size: 12px;
     }
+
+    .new-slider-text {
+        padding: 10px;
+    }
 }
 
 
@@ -2470,7 +2542,7 @@ audio {
         font-size: 10px;
     }
 
-    .aboutUSR {
+    .aboutUSR:not(.new-slider_item, .new-img) {
         padding: 0 5px 40px;
     }
 
@@ -2545,7 +2617,7 @@ audio {
     }
 
     .podcasts-filter .podcasts-search input[type='text'],
-    .podcasts-filter .podcasts-search input[type='submit']{
+    .podcasts-filter .podcasts-search input[type='submit'] {
         font-size: 14px;
         height: 32px;
         padding: 5px 15px;

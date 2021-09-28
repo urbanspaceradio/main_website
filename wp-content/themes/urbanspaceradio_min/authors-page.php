@@ -12,8 +12,8 @@ $authors = getAuthors();
 		</section>
 		<section class="authors-items">
         <?php while ($authors->have_posts()) : $authors->the_post(); ?>
-				  <div class="podcastCart rotateCart authors-cart">
-			 		 <a href="<?php the_permalink(); ?>">
+			  <div class="podcastCart rotateCart authors-cart">
+				  <a href="<?php the_permalink(); ?>">
 					  <div class="cartContainer">
 						  <div class="side front">
                       <?php
@@ -29,8 +29,8 @@ $authors = getAuthors();
 							  <p><?php echo wp_trim_words(get_the_excerpt(), 15); ?></p>
 						  </div>
 					  </div>
-			  		</a>
-				  </div>
+				  </a>
+			  </div>
         <?php endwhile;
         wp_reset_postdata(); ?>
 		</section>

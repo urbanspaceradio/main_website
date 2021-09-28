@@ -17,13 +17,13 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
 				<ul class="podcasts-filter_years yearsSlider">
 					<li class="activeYear" data-filter="*">Всі</li>
               <?php foreach ($years as $year) : ?>
-					  <li data-filter=".<?php echo $year->term_id; ?>" ><?php echo $year->name; ?></li>
+					  <li data-filter=".<?php echo $year->term_id; ?>"><?php echo $year->name; ?></li>
               <?php endforeach; ?>
 				</ul>
 				<div class="podcasts-search">
 					<form method="get" id="advanced-searchform" role="search">
 						<input type="text" name="search" id="name" required/>
-						<input type="submit" value="Пошук" />
+						<input type="submit" value="Пошук"/>
 					</form>
 				</div>
 			</div>
@@ -39,7 +39,7 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
             $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
           }
           ?>
-			  <a class="podcastCart <?php echo $yearID;?>" href="<?php echo get_term_link($item->term_id); ?>">
+			  <a class="podcastCart <?php echo $yearID; ?>" href="<?php echo get_term_link($item->term_id); ?>">
 				  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
 				  <p><?php echo wp_trim_words($item->name, 3); ?></p>
 			  </a>

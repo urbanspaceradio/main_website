@@ -63,7 +63,7 @@ $(document).ready(function () {
         arrows: false,
         infinite: false,
         slidesToShow: 5,
-        responsive:[
+        responsive: [
             {
                 breakpoint: 630,
                 settings: {
@@ -78,7 +78,7 @@ $(document).ready(function () {
         filter: '*',
     });
 
-    $('.podcasts-filter_years .slick-slide').click(function(){
+    $('.podcasts-filter_years .slick-slide').click(function () {
         $('.podcasts-filter_years .activeYear').removeClass('activeYear');
         $(this).addClass('activeYear');
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
             filter: selector,
             animationOptions: {
                 duration: 500,
-                animationEngine : "jquery"
+                animationEngine: "jquery"
             }
         });
     });

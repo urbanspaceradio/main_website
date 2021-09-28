@@ -67,12 +67,12 @@ $episodes = get_episode($series[0]->term_id);
              $audio_file = get_post_meta($episode->ID)['audio_file'][0];
              ?>
 				  <div class="episode-items_item">
-            <div class="episode-item_mobile-block">
-              <div class=""><img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/></div>
-              <div class="mobile-single_episode-title">
-                <h3><?php echo $episode->post_title; ?></h3>
-              </div>
-            </div>
+					  <div class="episode-item_mobile-block">
+						  <div class=""><img alt="1" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/></div>
+						  <div class="mobile-single_episode-title">
+							  <h3><?php echo $episode->post_title; ?></h3>
+						  </div>
+					  </div>
 					  <div class="descriptions">
 						  <h3><?php echo $episode->post_title; ?></h3>
 						  <div class="text">
