@@ -274,6 +274,10 @@ img {
     height: 100%;
 }
 
+.podcastCart .img {
+    height: 300px;
+}
+
 .podcastCart:after {
     content: "";
     position: absolute;
@@ -2029,7 +2033,7 @@ audio {
     }
     .podcastCart {
         width: 236px;
-        height: 281px;
+        height: 290px;
     }
     .episode-items_item {
         flex-wrap: wrap;
@@ -2084,7 +2088,7 @@ audio {
 @media screen and (max-width: 700px) {
     .podcastCart {
         width: 193px;
-        height: 248px;
+        height: 265px;
     }
 }
 
@@ -2311,7 +2315,7 @@ audio {
 
     .podcastCart {
         width: 180px;
-        height: 220px;
+        height: 229px;
     }
 
     .podcastCart p {
@@ -2439,7 +2443,7 @@ audio {
 
     .podcastCart {
         width: 145px;
-        height: 188px;
+        height: 200px;
     }
 
     .podcastCart p {
