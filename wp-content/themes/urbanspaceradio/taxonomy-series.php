@@ -31,7 +31,9 @@ else { ?>
              }
              ?>
 				  <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
-					  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
+					  <div class="img">
+						  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
+					  </div>
 					  <p><?php echo wp_trim_words($item->name, 3); ?></p>
 				  </a>
            <?php } ?>
