@@ -1130,7 +1130,7 @@ img {
 }
 
 .episode-items h2 {
-    margin: 20px 100px;
+    margin: 20px 36px;
     font-size: 36px;
 }
 
@@ -1167,7 +1167,6 @@ img {
 
 .episode-items_item h3 {
     font-size: 36px;
-    letter-spacing: 3px;
     font-weight: lighter;
     margin-bottom: 10px;
     text-transform: uppercase;
@@ -2042,6 +2041,10 @@ audio {
     }
     .episode-items_item {
         flex-wrap: wrap;
+        border: 1px solid #000300;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     }
 
     .episode-items_item .descriptions h3 {
@@ -2050,6 +2053,7 @@ audio {
     .episode-items_item .episode-mobile h3 {
         display: block;
         max-width: 290px;
+        font-weight: 600;
     }
     .episode-items_item .episode-mobile {
         display: flex;
@@ -2077,7 +2081,7 @@ audio {
 
     .episode-items_item h3 {
         font-size: 25px;
-        margin-left: 35px;
+        margin-left: 20px;
     }
 
     .episode-items_item .descriptions .text-description {
@@ -2088,6 +2092,9 @@ audio {
         flex-wrap: wrap !important;
     }
 
+    .episode-items_item.audioShow .descriptions h3 {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -2250,6 +2257,9 @@ audio {
     }
     .episode-items_item .episode-mobile h3 {
         max-width: 190px;
+    }
+    .episode-items_item .img {
+        width: 200px;
     }
 }
 
@@ -2478,10 +2488,6 @@ audio {
         border-radius: 10px;
     }
 
-    .episode-items_item h3 {
-        font-size: 20px;
-    }
-
     .episode-slider {
         margin: 20px auto;
     }
@@ -2554,6 +2560,10 @@ audio {
     }
     .episode-items_item .text.showContent {
         margin: 20px;
+    }
+
+    .episode-items_item .img {
+        width: 150px;
     }
 }
 
@@ -2667,20 +2677,17 @@ audio {
     .podcasts-filter .podcasts-search input[type='text'] {
         padding: 10px;
     }
-    .episode-items_item h3 {
-        font-size: 12px !important;
-    }
     .episode-items_item .episode-mobile h3 {
         max-width: 120px;
+    }
+    .episode-items_item .img {
+        width: 120px;
     }
 }
 
 @media screen and (max-width: 340px) {
     .filterFixed {
         top: 30px;
-    }
-    .episode-items_item h3 {
-        font-size: 10px !important;
     }
     .episode-items_item .img {
         width: 103px;
