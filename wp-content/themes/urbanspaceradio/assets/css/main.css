@@ -1866,9 +1866,9 @@ audio {
     }
 }
 
-@media screen and (max-width: 1087px) {
+@media screen and (max-width: 1099px) {
     .filterFixed {
-        top: 121px;
+        top: 118px;
     }
 
     .new-photos_slider {
@@ -1876,7 +1876,7 @@ audio {
     }
 }
 
-@media screen and (max-width: 987px) {
+@media screen and (max-width: 990px) {
     .filterFixed {
         top: 105px;
     }
@@ -1962,6 +1962,9 @@ audio {
         background-color: #FFFDFB;
         color: #000300;
     }
+    .podcastCart {
+        margin: 20px 15px;
+    }
 }
 
 @media screen and (max-width: 934px) {
@@ -2023,11 +2026,10 @@ audio {
     .contacts .header-mainText p:last-child {
         padding-bottom: 50px;
     }
-
     .podcastCart {
-        margin: 20px 15px;
+        width: 236px;
+        height: 281px;
     }
-
     .episode-items_item {
         flex-wrap: wrap;
     }
@@ -2076,6 +2078,13 @@ audio {
         flex-wrap: wrap !important;
     }
 
+}
+
+@media screen and (max-width: 700px) {
+    .podcastCart {
+        width: 193px;
+        height: 248px;
+    }
 }
 
 @media screen and (max-width: 630px) {
@@ -2301,6 +2310,7 @@ audio {
 
     .podcastCart {
         width: 180px;
+        height: 220px;
     }
 
     .podcastCart p {
@@ -2388,9 +2398,6 @@ audio {
         padding: 10px;
     }
 
-    .podcastCart {
-        height: unset;
-    }
 }
 
 @media screen and (max-width: 450px) {
@@ -2430,7 +2437,8 @@ audio {
     }
 
     .podcastCart {
-        width: 140px;
+        width: 145px;
+        height: 188px;
     }
 
     .podcastCart p {
@@ -2557,7 +2565,8 @@ audio {
     }
 
     .podcastCart {
-        width: 120px;
+        width: 121px;
+        height: 172px;
     }
 
     .podcastCart p {
