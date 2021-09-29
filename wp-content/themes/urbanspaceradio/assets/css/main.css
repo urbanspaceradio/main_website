@@ -1227,6 +1227,10 @@ audio {
     display: block;
 }
 
+.episode .episode-slider_img .episodeCart {
+    height: unset !important;
+}
+
 .about-header {
     display: flex;
     flex-wrap: wrap;
