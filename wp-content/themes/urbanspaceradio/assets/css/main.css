@@ -145,7 +145,6 @@ body {
     font-family: BanderaPro, sans-serif;
     font-weight: normal;
     letter-spacing: 1px;
-    line-height: 1.1;
 }
 
 .siteWrapper {
@@ -967,6 +966,7 @@ img {
 }
 
 .podcasts-search input[type='submit'] {
+    font-family: BanderaPro, sans-serif;
     text-decoration: none;
     color: #FFFDFB;
     border: 1px solid #000300;
@@ -2037,6 +2037,7 @@ audio {
     }
     .episode-items_item .episode-mobile h3 {
         display: block;
+        max-width: 290px;
     }
     .episode-items_item .episode-mobile {
         display: flex;
@@ -2228,6 +2229,9 @@ audio {
     .episode-items h2 {
         margin: 20px;
     }
+    .episode-items_item .episode-mobile h3 {
+        max-width: 190px;
+    }
 }
 
 @media screen and (max-width: 560px) {
@@ -2273,7 +2277,10 @@ audio {
         transform: unset;
     }
     .episode-items_item h3 {
-        font-size: 19px !important;
+        font-size: 17px !important;
+    }
+    .episode-items_item .episode-mobile h3 {
+        max-width: 164px;
     }
 }
 
@@ -2372,7 +2379,6 @@ audio {
 
     .podcasts-filter .podcasts-search input[type='text'],
     .podcasts-filter .podcasts-search input[type='submit'] {
-        font-family: BanderaPro, sans-serif;
         font-size: 17px;
         height: 32px;
         padding: 5px 24px;
@@ -2518,11 +2524,12 @@ audio {
         padding: 10px;
     }
     .episode-items_item .img {
-        margin: 22px;
+        margin: 22px 22px 17px 10px;
     }
     .episode-items_item .episode-mobile h3 {
         margin-bottom: 20px;
         margin-left: 20px;
+        max-width: 139px;
     }
     .episode-items_item .episode-mobile {
         margin-bottom: 0 !important;
@@ -2642,7 +2649,10 @@ audio {
         padding: 10px;
     }
     .episode-items_item h3 {
-        font-size: 17px !important;
+        font-size: 12px !important;
+    }
+    .episode-items_item .episode-mobile h3 {
+        max-width: 120px;
     }
 }
 
@@ -2651,7 +2661,11 @@ audio {
         top: 30px;
     }
     .episode-items_item h3 {
-        font-size: 15px !important;
+        font-size: 10px !important;
+    }
+    .episode-items_item .img {
+        width: 103px;
+        height: 103px;
     }
 }
 

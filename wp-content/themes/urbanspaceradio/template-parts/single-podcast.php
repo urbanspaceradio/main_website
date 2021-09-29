@@ -71,7 +71,7 @@ $episodes = get_episode($series[0]->term_id);
 						  <div class="img">
 							  <img alt="Img" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/>
 						  </div>
-						  <h3><?php echo $episode->post_title; ?></h3>
+						  <h3><?php echo wp_trim_words($episode->post_title, '4') ?></h3>
 					  </div>
 					  <div class="descriptions">
 						  <h3><?php echo $episode->post_title; ?></h3>

@@ -2,13 +2,14 @@
 defined('ABSPATH') || exit;
 ?>
 <!DOCTYPE html>
-<html lang="<?php language_attributes(); ?>">
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta <?php bloginfo('charset'); ?>>
 	<base href="./">
 	<title><?php bloginfo('name');
      echo is_home() ? '' : ' / ' . get_the_title(); ?></title>
-	<meta content="" name="description">
+	<meta content="urban подкасти, актуальні подкасти, свіжі подкасти, урбан подкасти, подкасти українською, подкасти на українській, подкасти українським, подкасти на українском язике, подкасти слухати, подкасти на google podcasts, подкасти apple podcasts, google podcasts, apple podcasts, топ подкасти україни, цікаві подкасти, подкасти це, подкасті, найкращі українські подкасти, підкасти це, де слухати подкасти, подкасти слухати, сайт з подкастами, аудіо книги скачать, що таке подкаст, аудіо книги, google подкасти, подкасти про психологію, легкі подкасти, urban space radio, urban space 100, USR, урбан радіо" name="keywords">
+  <meta content="Радіо нового формату, в ефірі якого звучить українська сучасна музика і програми на тему урбаністики та розвитку міста" name="description">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 	<meta content="path/to/image.jpg" property="og:image">

@@ -23,7 +23,7 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
 				<div class="podcasts-search">
 					<form method="get" id="advanced-searchform" role="search">
 						<input type="text" name="search" id="name" required/>
-						<input type="submit" value="Пошук"/>
+						<input type="submit" value="пошук"/>
 					</form>
 				</div>
 			</div>
