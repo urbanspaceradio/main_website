@@ -1239,6 +1239,7 @@ audio {
 
 .about-header img {
     max-width: 550px;
+    max-height: 550px;
     border-radius: 10px;
 }
 
@@ -2573,7 +2574,7 @@ audio {
         font-size: 10px;
     }
 
-    .aboutUSR:not(.new-slider_item, .new-img) {
+    .aboutUSR:not(.new-slider_item, .new-img, .partner-img) {
         padding: 0 5px 40px;
     }
 
