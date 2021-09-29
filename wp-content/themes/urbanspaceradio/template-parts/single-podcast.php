@@ -80,7 +80,7 @@ $episodes = get_episode($series[0]->term_id);
 						  </div>
 						  <div class="text showContent">
                       <?php echo $episode->post_content; ?>
-							  <audio controls controlsList="nodownload">
+							  <audio id="audio" controls controlsList="nodownload">
 								  <source src="<?php echo $audio_file; ?>" type="audio/mpeg">
 								  Your browser does not support the audio element.
 							  </audio>

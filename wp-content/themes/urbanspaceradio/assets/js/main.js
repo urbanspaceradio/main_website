@@ -18,6 +18,11 @@ $(document).ready(function () {
     });
 
     $('.episode-items_item').on('click', function () {
+        $('#audio').on('pause play', function(e) {
+            if (e.currentTarget) {
+               return;
+            }
+        });
         $(this).toggleClass('audioShow');
     });
 
