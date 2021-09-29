@@ -276,6 +276,7 @@ img {
 
 .podcastCart .img {
     height: 300px;
+    overflow: hidden;
 }
 
 .podcastCart:after {
