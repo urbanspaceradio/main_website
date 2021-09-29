@@ -2150,7 +2150,7 @@ audio {
         line-height: 1.6;
     }
 
-    .aboutUSR:not(.new-slider_item, .new-img) {
+    .aboutUSR:not(.new-slider_item,.new-img,.partner-img) {
         padding: 0 15px 40px;
     }
 
