@@ -3,27 +3,20 @@
 defined('ABSPATH') || exit;
 get_header();
 $query_vars = get_queried_object();
-$series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => $query_vars->term_id]);
-$series_desc = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'slug' => $query_vars->slug]);
-if ($query_vars) {
-  get_template_part('template-parts/single-podcast');
-}
-else { ?>
+$seasons = getSeasonsMeta($query_vars->ID)['podcasts'];
+?>
 	<div class="podcasts singlePodcast">
 		<section class="podcasts-divider">
 			<div class="siteWrapper">
 				<div class="header-mainText">
-					<h1><?php echo $series_desc[0]->name; ?></h1>
-					<p><?php echo $series_desc[0]->description; ?></p>
-				</div>
-				<div class="podcasts-filter singlePodcast-filter">
-					<h2><?php echo $query_vars->name; ?></h2>
+					<h1><?php echo $query_vars->post_title; ?></h1>
+					<p><?php echo $query_vars->post_content; ?></p>
 				</div>
 			</div>
 		</section>
 		<section class="siteWrapper">
 			<div class="podcasts-seasons">
-           <?php foreach ($series as $item) {
+           <?php foreach ($seasons as $item) {
              $term_id_img = get_term_meta($item->term_id)['podcast_series_image_settings'][0];
              $term_img_url = wp_get_attachment_url($term_id_img);
              if (!$term_img_url) {
@@ -40,6 +33,5 @@ else { ?>
 			</div>
 		</section>
 	</div>
-<?php } ?>
 
 <?php get_footer(); ?>

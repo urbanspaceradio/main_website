@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 $block_podcastPage = getBlock_podcastPage();
-$series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => 0, 'orderby' => 'id', 'order' => 'DESC']);
+$seasons = getSeasons();
 $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'name', 'order' => 'DESC']);
 ?>
 <div class="podcasts">
@@ -17,7 +17,7 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
 				<ul id="filter" class="podcasts-filter_years yearsSlider">
 					<li class="activeYear" data-filter="all">Всі</li>
               <?php foreach ($years as $year) : ?>
-					  <li data-filter="year-<?php echo $year->term_id; ?>"><?php echo $year->name; ?></li>
+					  <li data-filter="year-<?php echo $year->name; ?>"><?php echo $year->name; ?></li>
               <?php endforeach; ?>
 				</ul>
 				<div class="podcasts-search">
@@ -31,23 +31,23 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
 	</section>
 	<section class="siteWrapper">
 		<div id="seasons" class="podcasts-seasons">
-        <?php $i = 0; foreach ($series as $item) {
-          $term_id_img = get_term_meta($item->term_id)['podcast_series_image_settings'][0];
-          $yearID = get_term_meta($item->term_id)['podcasts_meta_info_year'][0];
-          $term_img_url = wp_get_attachment_url($term_id_img);
-          if (!$term_img_url) {
-            $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
-          }
-          ?>
-			  <div data-id="<?php echo $i; ?>" data-type="year-<?php echo $yearID; ?>">
-				  <a class="podcastCart" href="<?php echo get_term_link($item->term_id); ?>">
+          <?php $i = 0; while ($seasons->have_posts()) : $seasons->the_post();
+            $term_img_url = get_the_post_thumbnail_url(get_the_ID());
+            $year = getSeasonsMeta(get_the_ID())['year'];
+            if (!$term_img_url) {
+              $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
+            }
+            ?>
+			  <div data-id="<?php echo $i; ?>" data-type="year-<?php echo $year->name; ?>">
+				  <a class="podcastCart" href="<?php the_permalink(); ?>">
 					  <div class="img">
 						  <img src="<?php echo $term_img_url; ?>" alt="picture"/>
 					  </div>
-					  <p><?php echo wp_trim_words($item->name, 3); ?></p>
+					  <p><?php echo wp_trim_words(get_the_title(), 3); ?></p>
 				  </a>
 			  </div>
-        <?php $i++; } ?>
+        <?php $i++; endwhile;
+        wp_reset_postdata(); ?>
 		</div>
 	</section>
 </div>

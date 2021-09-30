@@ -68,17 +68,20 @@ function be_register_blocks() {
 }
 
 function register_post_types() {
-  register_post_type('events', array('labels' => array('name' => 'Event', 'singular_name' => 'Event', 'add_new' => 'Додати подію', 'add_new_item' => 'Додавання події', 'edit_item' => 'Редагування події', 'new_item' => 'Нова подія', 'view_item' => 'Дивитись подію', 'search_items' => 'Шукати подію', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Події',), 'public' => true, 'menu_position' => 7, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+  register_post_type('events', array('labels' => array('name' => 'Event', 'singular_name' => 'Event', 'add_new' => 'Додати подію', 'add_new_item' => 'Додавання події', 'edit_item' => 'Редагування події', 'new_item' => 'Нова подія', 'view_item' => 'Дивитись подію', 'search_items' => 'Шукати подію', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Події',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
-  register_post_type('partners', array('labels' => array('name' => 'Partner', 'singular_name' => 'Partner', 'add_new' => 'Додати партнера', 'add_new_item' => 'Додавання партнера', 'edit_item' => 'Редагування партнера', 'new_item' => 'Новий партнер', 'view_item' => 'Дивитись партнера', 'search_items' => 'Шукати партнера', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Партнери',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+  register_post_type('partners', array('labels' => array('name' => 'Partner', 'singular_name' => 'Partner', 'add_new' => 'Додати партнера', 'add_new_item' => 'Додавання партнера', 'edit_item' => 'Редагування партнера', 'new_item' => 'Новий партнер', 'view_item' => 'Дивитись партнера', 'search_items' => 'Шукати партнера', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Партнери',), 'public' => true, 'menu_position' => 9, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
-  register_post_type('authors', array('labels' => array('name' => 'Authors', 'singular_name' => 'Authors', 'add_new' => 'Додати автора', 'add_new_item' => 'Додавання автора', 'edit_item' => 'Редагування автора', 'new_item' => 'Новий автор', 'view_item' => 'Дивитись автора', 'search_items' => 'Шукати автора', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Автори',), 'public' => true, 'menu_position' => 9, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],//'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+  register_post_type('authors', array('labels' => array('name' => 'Authors', 'singular_name' => 'Authors', 'add_new' => 'Додати автора', 'add_new_item' => 'Додавання автора', 'edit_item' => 'Редагування автора', 'new_item' => 'Новий автор', 'view_item' => 'Дивитись автора', 'search_items' => 'Шукати автора', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Автори',), 'public' => true, 'menu_position' => 10, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],//'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+    'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
+
+  register_post_type('seasons', array('labels' => array('name' => 'Seasons', 'singular_name' => 'Seasons', 'add_new' => 'Додати сезон', 'add_new_item' => 'Додавання сезону', 'edit_item' => 'Редагування сезона', 'new_item' => 'Новий сезон', 'view_item' => 'Дивитись сезон', 'search_items' => 'Шукати сезон', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Сезони',), 'public' => true, 'menu_position' => 7, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
   register_taxonomy('year', ['podcast'], ['label' => '', // определяется параметром $labels->name
-    'labels' => ['name' => 'Рік', 'singular_name' => 'Рік', 'search_items' => 'Пошук по рокам', 'all_items' => 'Всі роки', 'view_item ' => 'переглянути рік', 'edit_item' => 'Редагувати рік', 'update_item' => 'Оновити рік', 'add_new_item' => 'Додати новий рік', 'menu_name' => 'Рік',], 'public' => true, 'hierarchical' => false, 'rewrite' => true, 'capabilities' => array(), 'meta_box_cb' => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
+    'labels' => ['name' => 'Рік', 'singular_name' => 'Рік', 'search_items' => 'Пошук по рокам', 'all_items' => 'Всі роки', 'view_item ' => 'переглянути рік', 'edit_item' => 'Редагувати рік', 'update_item' => 'Оновити рік', 'add_new_item' => 'Додати новий рік', 'menu_name' => 'Рік',], 'public' => true, 'hierarchical' => true, 'rewrite' => true, 'capabilities' => array(), 'meta_box_cb' => null, // html метабокса. callback: `post_categories_meta_box` или `post_tags_meta_box`. false — метабокс отключен.
     'show_admin_column' => false, // авто-создание колонки таксы в таблице ассоциированного типа записи. (с версии 3.5)
   ]);
 }
@@ -141,6 +144,14 @@ function getEvents() {
 
 function getPartner() {
   return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'partners',]);
+}
+
+function getSeasons() {
+  return new WP_Query(['posts_per_page' => -1, 'orderby' => 'date', 'order' => 'DESC', 'post_status' => 'publish', 'post_type' => 'seasons',]);
+}
+
+function getSeasonsMeta($id) {
+  return get_field('season_page', $id, );
 }
 
 function getAuthors() {

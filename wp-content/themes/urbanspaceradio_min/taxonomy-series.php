@@ -1,11 +1,11 @@
 <?php
+/* Template name: Seasons */
 defined('ABSPATH') || exit;
 get_header();
 $query_vars = get_queried_object();
 $series = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'parent' => $query_vars->term_id]);
 $series_desc = get_terms(['taxonomy' => 'series', 'hide_empty' => true, 'slug' => $query_vars->slug]);
-
-if ($query_vars->parent) {
+if ($query_vars) {
   get_template_part('template-parts/single-podcast');
 }
 else { ?>
