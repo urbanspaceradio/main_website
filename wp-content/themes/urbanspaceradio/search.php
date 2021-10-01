@@ -24,7 +24,9 @@ $series = new WP_Term_Query(['taxonomy' => 'series', 'hide_empty' => true, 'name
             }
             ?>
 				 <a class="podcastCart" href="<?php echo home_url('archives/series/') . $item->slug; ?>">
-					 <img src="<?php echo $term_img_url; ?>" alt="picture"/>
+					 <div class="img">
+						 <img src="<?php echo $term_img_url; ?>" alt="picture"/>
+					 </div>
 					 <p><?php echo wp_trim_words($item->name, 2); ?></p>
 				 </a>
           <?php endforeach; endif; ?>
