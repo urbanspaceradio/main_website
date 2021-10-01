@@ -17,8 +17,8 @@ $(document).ready(function () {
         $('.mobileMenu').toggleClass('mobileMenuShow');
     });
 
-    $('.episode-items_item').on('click', function () {
-        $(this).toggleClass('audioShow');
+    $('.episode-items_item span').on('click', function () {
+        $('.episode-items_item').toggleClass('audioShow');
     });
 
 

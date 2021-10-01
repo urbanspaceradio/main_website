@@ -1144,12 +1144,12 @@ img {
     background-color: #FFFDFB;
     color: #000300;
     margin: 50px auto;
+    position: relative;
 }
 
 .episode-items_item:hover {
     border: 1px solid #000300;
     border-radius: 10px;
-    cursor: pointer;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -1179,6 +1179,25 @@ img {
 .episode-items_item .descriptions p {
     font-size: 17px;
     line-height: 1.5;
+}
+
+.episode-items_item span {
+    position: absolute;
+    bottom: 10px;
+    cursor: pointer;
+    padding: 10px 15px 6px;
+    border: 1px solid #000300;
+    border-radius: 50px;
+    height: 34px;
+}
+
+.episode-items_item span img {
+    width: 25px;
+    height: 12px;
+}
+
+.episode-items_item.audioShow span {
+    transform: rotate(180deg);
 }
 
 .episode-partners {
@@ -2088,6 +2107,11 @@ audio {
         display: none;
     }
 
+    .episode-items_item span {
+        top: 35px;
+        left: 35px;
+    }
+
     .episode-items_item.audioShow {
         flex-wrap: wrap !important;
     }
@@ -2486,6 +2510,11 @@ audio {
         box-shadow: 1px 5px 15px;
         border: 1px solid #000300;
         border-radius: 10px;
+    }
+
+    .episode-items_item span {
+        top: 22px;
+        left: 22px;
     }
 
     .episode-slider {

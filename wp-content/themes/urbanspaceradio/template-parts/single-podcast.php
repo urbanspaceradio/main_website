@@ -86,6 +86,7 @@ $episodes = get_episode($series[0]->term_id);
 							  </audio>
 						  </div>
 					  </div>
+					  <span><img src="<?php echo get_template_directory_uri(); ?>/assets/img/arrow.png" alt="Arrow"></span>
 				  </div>
            <?php } ?>
 			</section>
