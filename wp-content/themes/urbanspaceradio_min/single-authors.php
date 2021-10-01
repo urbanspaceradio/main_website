@@ -35,7 +35,9 @@ $authorMeta = getAuthorMeta(get_the_ID());
                }
                ?>
 					 <a class="podcastCart" href="<?php echo get_term_link($podcast->term_id); ?>">
-						 <img alt="1" src="<?php echo $term_img_url; ?>">
+						 <div class="img">
+							 <img alt="1" src="<?php echo $term_img_url; ?>">
+						 </div>
 						 <p><?php echo wp_trim_words($podcast->name, 2); ?></p>
 					 </a>
              <?php endforeach; ?>

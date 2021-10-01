@@ -40,7 +40,9 @@ $partner_link = $partnerPodcasts['partner_link'];
                  }
                  ?>
 						<a class="podcastCart" href="<?php echo get_term_link($podcast->term_id) ?>">
-							<img alt="1" src="<?php echo $term_img_url; ?>">
+							<div class="img">
+								<img alt="<?php echo $podcast->name; ?>" src="<?php echo $term_img_url; ?>">
+							</div>
 							<p><?php echo $podcast->name; ?></p>
 						</a>
                <?php endforeach;
