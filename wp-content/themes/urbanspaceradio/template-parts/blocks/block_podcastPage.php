@@ -15,7 +15,7 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
 		<div class="podcastFilter-wrapper">
 			<div class="podcasts-filter siteWrapper">
 				<ul id="filter" class="podcasts-filter_years yearsSlider">
-					<li class="activeYear" data-filter="all">Всі</li>
+					<li class="activeYear slick-slide slick-current slick-active slick-center" data-filter="all">Всі</li>
               <?php foreach ($years as $year) : ?>
 					  <li data-filter="year-<?php echo $year->name; ?>"><?php echo $year->name; ?></li>
               <?php endforeach; ?>

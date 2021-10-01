@@ -5,6 +5,7 @@ $(document).ready(function () {
     const screen = $(window);
     const podcastFilter = $('.podcastFilter-wrapper');
     const podcastsSeasons = $('.podcasts-seasons');
+    const yearsSlider = $('.yearsSlider');
 
     $('#mobileMenu').on('click', function () {
         $('.mobileMenu').toggleClass('mobileMenuShow');
@@ -58,11 +59,30 @@ $(document).ready(function () {
         slidesToScroll: 1
     });
 
-    $('.yearsSlider').slick({
-        dots: true,
+    const filterYears = (elem) => {
+        $('#filter .activeYear').removeClass('activeYear');
+        elem.addClass('activeYear');
+        const dataFilter = elem.attr('data-filter');
+
+        let sortedData = data.find('div');
+
+        if ( dataFilter !== 'all') {
+            sortedData = data.find('div[data-type=' + dataFilter + ']');
+        }
+
+        seasons.quicksand(sortedData, {
+            duration: 800,
+            easing: 'easeInOutQuad'
+        });
+    }
+
+    yearsSlider.slick({
         arrows: false,
-        infinite: false,
+        infinite: true,
         slidesToShow: 5,
+        centerMode: true,
+        focusOnSelect: true,
+        swipe: true,
         responsive: [
             {
                 breakpoint: 630,
@@ -72,6 +92,7 @@ $(document).ready(function () {
             }
         ]
     });
+    yearsSlider.on('swipe',() => filterYears($('.slick-current.slick-center')));
 
 
     screen.on('scroll', function () {
@@ -90,19 +111,6 @@ $(document).ready(function () {
     const data = seasons.clone();
 
     $('#filter .slick-slide').click(function () {
-        $('#filter .activeYear').removeClass('activeYear');
-        $(this).addClass('activeYear');
-        const dataFilter = $(this).attr('data-filter');
-
-        let sortedData = data.find('div');
-
-        if ( dataFilter !== 'all') {
-            sortedData = data.find('div[data-type=' + dataFilter + ']');
-        }
-
-        seasons.quicksand(sortedData, {
-            duration: 800,
-            easing: 'easeInOutQuad'
-        });
+        filterYears($(this));
     });
 });
