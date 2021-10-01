@@ -19,7 +19,7 @@ $(document).ready(function () {
     });
 
     $('.episode-items_item span').on('click', function () {
-        $('.episode-items_item').toggleClass('audioShow');
+        $(this.offsetParent).toggleClass('audioShow');
     });
 
 
