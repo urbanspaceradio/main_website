@@ -873,11 +873,11 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 }
 
 .podcasts-filter_years {
     display: flex;
-    align-items: flex-end;
     max-width: 600px;
     width: 100%;
 }
@@ -925,7 +925,7 @@ img {
 }
 
 .podcasts-filter .podcasts-search {
-    margin: 25px 0 23px;
+    margin: 18px 0 21px;
 }
 
 .filterFixed {
@@ -1906,7 +1906,11 @@ audio {
 
 @media screen and (max-width: 990px) {
     .filterFixed {
-        top: 105px;
+        top: 117px;
+    }
+
+    .podcasts-filter .podcasts-search {
+        margin: 0 0 10px;
     }
 
     .filterFixed .podcasts-filter_years.slick-dotted.slick-slider {
@@ -1948,7 +1952,7 @@ audio {
     }
 
     .filterFixed {
-        top: 40px;
+        top: 60px;
     }
 
     .filterFixed .podcasts-filter .podcasts-search {
@@ -2593,6 +2597,10 @@ audio {
 
     .episode-items_item .img {
         width: 150px;
+    }
+    .filterFixed {
+        top: 40px;
+        padding-top: 20px;
     }
 }
 
