@@ -60,8 +60,6 @@ $(document).ready(function () {
     });
 
     const filterYears = (elem) => {
-        $('#filter .activeYear').removeClass('activeYear');
-        elem.addClass('activeYear');
         const dataFilter = elem.attr('data-filter');
 
         let sortedData = data.find('div');
@@ -92,7 +90,7 @@ $(document).ready(function () {
             }
         ]
     });
-    yearsSlider.on('swipe',() => filterYears($('.slick-current.slick-center')));
+    yearsSlider.on('swipe',() => filterYears($('.slick-active.slick-center')));
 
 
     screen.on('scroll', function () {

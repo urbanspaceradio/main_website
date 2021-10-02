@@ -879,7 +879,7 @@ img {
 
 .podcasts-filter_years {
     display: flex;
-    max-width: 600px;
+    max-width: 500px;
     width: 100%;
 }
 
@@ -896,7 +896,7 @@ img {
     cursor: pointer;
 }
 
-.podcasts-filter_years .activeYear {
+.podcasts-filter_years .slick-center {
     font-size: 27px;
     color: #000300;
 }
@@ -942,7 +942,7 @@ img {
     padding: 0 0 5px;
 }
 
-.filterFixed .podcasts-filter_years .activeYear,
+.filterFixed .podcasts-filter_years .slick-center,
 .filterFixed .podcasts-filter_years .slick-dots li button:before {
     color: #FFFDFB;
 }
