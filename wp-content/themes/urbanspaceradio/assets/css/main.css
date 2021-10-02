@@ -1595,6 +1595,15 @@ audio {
     max-width: 289px;
 }
 
+.wpcf7 form.sent .wpcf7-response-output,
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.failed .wpcf7-response-output, .wpcf7 form.aborted .wpcf7-response-output {
+    max-width: 400px;
+    padding: 10px;
+    border-radius: 50px;
+    margin: 0 auto;
+}
+
 .partner-header {
     display: flex;
     flex-wrap: wrap;
