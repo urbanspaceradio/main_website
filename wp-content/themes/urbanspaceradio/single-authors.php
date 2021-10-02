@@ -5,7 +5,7 @@ the_post();
 $authorMeta = getAuthorMeta(get_the_ID());
 ?>
 
-	<div class="siteWrapper partner">
+<div class="siteWrapper partner">
 		<section class="partner-header">
 			<div class="header-mainText partner-header_mainText">
 				<h1><?php the_title(); ?></h1>
@@ -29,7 +29,8 @@ $authorMeta = getAuthorMeta(get_the_ID());
 			  </div>
 			  <div class="partner-didTogether_podcasts">
              <?php foreach ($authorMeta['podcasts'] as $podcast) :
-               $term_img_url = get_the_post_thumbnail_url($podcast->term_id);
+               $term_id_img = get_term_meta($podcast->term_id)['podcast_series_image_settings'][0];
+               $term_img_url = wp_get_attachment_url($term_id_img);
                if (!$term_img_url) {
                  $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
                }

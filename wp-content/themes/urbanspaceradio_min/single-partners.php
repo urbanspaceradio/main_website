@@ -43,7 +43,7 @@ $partner_link = $partnerPodcasts['partner_link'];
 							<div class="img">
 								<img alt="<?php echo $podcast->name; ?>" src="<?php echo $term_img_url; ?>">
 							</div>
-							<p><?php echo $podcast->name; ?></p>
+							<p><?php echo wp_trim_words($podcast->name, 2); ?></p>
 						</a>
                <?php endforeach;
              else :
@@ -55,7 +55,7 @@ $partner_link = $partnerPodcasts['partner_link'];
                  ?>
 						<a class="podcastCart">
 							<img alt="1" src="<?php echo $img_url; ?>">
-							<p><?php echo $event->post_title; ?></p>
+							<p><?php echo wp_trim_words($event->post_title, 2); ?></p>
 						</a>
                <?php endforeach; endif; ?>
 			  </div>

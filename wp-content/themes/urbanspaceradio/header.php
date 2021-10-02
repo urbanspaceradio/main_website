@@ -46,7 +46,7 @@ defined('ABSPATH') || exit;
 	<div class="siteWrapper header">
 		<div class="header-logo">
 			<a href="<?php echo home_url() ?>">
-				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoDark.png">
+				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoDark.svg">
 			</a>
 		</div>
 		<nav>
@@ -67,7 +67,7 @@ defined('ABSPATH') || exit;
 		</nav>
 		<div class="mobileMenu">
 			<div class="mobileMenu_header">
-				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.png">
+				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.svg">
 				<span class="closeMenuBtn">&#x2715</span>
 			</div>
 			<ul class="mobileMenu-menu">
