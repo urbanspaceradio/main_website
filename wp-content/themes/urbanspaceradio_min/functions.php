@@ -151,7 +151,7 @@ function getSeasons() {
 }
 
 function getSeasonsMeta($id) {
-  return get_field('season_page', $id, );
+  return get_field('season_page', $id );
 }
 
 function getAuthors() {
