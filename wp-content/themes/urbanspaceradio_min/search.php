@@ -1,13 +1,14 @@
 <?php
 defined('ABSPATH') || exit;
 get_header();
-$series = new WP_Term_Query(['taxonomy' => 'series', 'hide_empty' => true, 'name__like' => $_GET['search']]);
+$search = $_GET['s_podcasts'];
+$series = new WP_Term_Query(['taxonomy' => 'series', 'hide_empty' => true, 'name__like' => $search]);
 ?>
 <div class="podcasts singlePodcast">
 	<section>
 		<div class="siteWrapper">
 			<div class="header-mainText">
-				<h1>За пошуковим запитом <b>"<?php echo $_GET['search'] ?>"</b> знайдено подкастів:
+				<h1>За пошуковим запитом <b>"<?php echo $search; ?>"</b> знайдено подкастів:
 					<b><?php echo count($series->terms); ?></b></h1>
 			</div>
 		</div>
