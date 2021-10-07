@@ -2771,6 +2771,9 @@ audio {
     .contacts-values_item .description-address {
         font-size: 14px;
     }
+    .about-header img {
+        max-height: 273px;
+    }
 }
 
 
