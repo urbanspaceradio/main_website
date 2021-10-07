@@ -50,10 +50,10 @@ $block_contactPage = getBlock_contactPage();
 			</div>
 		</div>
 		<div class="footer-mobileMenu">
-			<a href="https://podcasts.google.com/feed/aHR0cDovL3VyYmFuc3BhY2VyYWRpby5jb20vZmVlZC9wb2RjYXN0/" target="_blank">
+			<a href="https://podcasts.google.com/feed/aHR0cDovL3VyYmFuc3BhY2VyYWRpby5jb20vZmVlZC9wb2RjYXN0" target="_blank">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/googlePodcast.svg" alt="Google Podcast">
 			</a>
-			<a href="https://podcasts.apple.com/ua/podcast/urban-space-radio/id1459038329/" target="_blank">
+			<a href="https://podcasts.apple.com/ua/podcast/urban-space-radio/id1459038329" target="_blank">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/applePodcast.svg" alt="Apple Podcast">
 			</a>
 			<a href="https://www.facebook.com/urbanspaceradio/" target="_blank">
