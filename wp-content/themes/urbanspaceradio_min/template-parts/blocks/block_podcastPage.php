@@ -14,16 +14,18 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
     </div>
     <div class="podcastFilter-wrapper">
       <div class="podcasts-filter siteWrapper">
-        <ul id="filter" class="podcasts-filter_years yearsSlider">
-          <li data-filter="all">Всі</li>
-          <?php foreach ($years as $year) : ?>
-              <li data-filter="year-<?php echo $year->name; ?>"><?php echo $year->name; ?></li>
-            <?php endforeach; ?>
-        </ul>
+        <div class="filterWrapper">
+			  <ul id="filter" class="podcasts-filter_years yearsSlider">
+				  <li class="activeYear" data-filter="all">Всі</li>
+             <?php foreach ($years as $year) : ?>
+					 <li data-filter="year-<?php echo $year->name; ?>"><?php echo $year->name; ?></li>
+             <?php endforeach; ?>
+			  </ul>
+		  </div>
         <div class="podcasts-search">
           <form method="get" id="advanced-searchform" role="search">
-            <input type="text" name="search" id="name" required/>
-            <input type="submit" value="пошук"/>
+            <input type="text" name="s_podcasts" id="name" required/>
+				 <button>пошук</button>
           </form>
         </div>
       </div>

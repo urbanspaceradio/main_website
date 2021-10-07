@@ -58,11 +58,13 @@ defined('ABSPATH') || exit;
 			</ul>
 
 			<ul class="mobileNavigation">
-				<li id="mobileMenu" class="menu">меню</li>
 				<li><a href="<?php echo site_url('/contacts'); ?>">контакти</a></li>
 				<div onclick="runWfpWdgt('https://secure.wayforpay.com/button/b569b98266d95');" class="button-donation">
 					<span class="button-donation donat-header">підтримати</span>
 				</div>
+				<li id="mobileMenu" class="menu">
+					<span></span>
+				</li>
 			</ul>
 		</nav>
 		<div class="mobileMenu">

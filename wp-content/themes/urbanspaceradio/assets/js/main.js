@@ -18,7 +18,7 @@ $(document).ready(function () {
         $('.mobileMenu').toggleClass('mobileMenuShow');
     });
 
-    $('.episode-items_item span').on('click', function () {
+    $('.episode-items_item .arrow').on('click', function () {
         $(this.offsetParent).toggleClass('audioShow');
     });
 
@@ -59,6 +59,9 @@ $(document).ready(function () {
         slidesToScroll: 1
     });
 
+    const seasons = $('#seasons');
+    const data = seasons.clone();
+
     const filterYears = (elem) => {
         const dataFilter = elem.attr('data-filter');
 
@@ -78,37 +81,20 @@ $(document).ready(function () {
         arrows: false,
         infinite: true,
         slidesToShow: 5,
-        centerMode: true,
         focusOnSelect: true,
         swipe: true,
         responsive: [
             {
                 breakpoint: 630,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 4,
                 }
             }
         ]
     });
-    yearsSlider.on('swipe',() => filterYears($('.slick-active.slick-center')));
+    yearsSlider.on('swipe',() => filterYears($('.slick-current.slick-active')));
 
-
-    screen.on('scroll', function () {
-        const hasFilterFixedClass = podcastFilter.hasClass('filterFixed');
-        if (screen.scrollTop() >= 373 && !hasFilterFixedClass) {
-            podcastFilter.addClass('filterFixed');
-            podcastsSeasons.addClass('podcastsSeasons');
-        }
-        if (screen.scrollTop() <= 373 && hasFilterFixedClass) {
-            podcastFilter.removeClass('filterFixed')
-            podcastsSeasons.removeClass('podcastsSeasons')
-        }
-    });
-
-    const seasons = $('#seasons');
-    const data = seasons.clone();
-
-    $('#filter .slick-slide').click(function () {
+    $('#filter .slick-active').click(function () {
         filterYears($(this));
     });
 });

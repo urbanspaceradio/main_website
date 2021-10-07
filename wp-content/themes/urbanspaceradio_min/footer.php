@@ -13,20 +13,20 @@ $block_contactPage = getBlock_contactPage();
 			<div class="footer-info_item footerLogo">
 				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.svg">
 			</div>
-			<div class="footer-info_item">
+			<div class="footer-info_item aboutRadio">
 				<div>ПРО RADIO</div>
            <?php
            wp_nav_menu(['theme_location' => 'menu_footer', 'container' => 'null', 'items_wrap' => '<ul class="%2$s">%3$s</ul>',]);
            ?>
 			</div>
-			<div class="footer-info_item">
+			<div class="footer-info_item desktopMenu">
 				<div>СЛІДКУЙ</div>
 				<ul>
 					<li><a href="https://www.instagram.com/urban_space_radio/" target="_blank">instagram</a></li>
 					<li><a href="https://www.facebook.com/urbanspaceradio" target="_blank">facebook</a></li>
 				</ul>
 			</div>
-			<div class="footer-info_item">
+			<div class="footer-info_item desktopMenu">
 				<div>СЛУХАЙ</div>
 				<ul>
 					<li><a href="https://podcasts.google.com/feed/aHR0cDovL3VyYmFuc3BhY2VyYWRpby5jb20vZmVlZC9wb2RjYXN0"
@@ -35,7 +35,7 @@ $block_contactPage = getBlock_contactPage();
 							podcasts</a></li>
 				</ul>
 			</div>
-			<div class="footer-info_item">
+			<div class="footer-info_item desktopMenu">
 				<div>КОНТАКТИ</div>
 				<ul>
 					<li>
@@ -46,6 +46,27 @@ $block_contactPage = getBlock_contactPage();
 						<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
                     <?php echo get_field('mainEmail-contactPage', '1350'); ?></a>
 					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer-mobileMenu">
+			<a href="https://podcasts.google.com/feed/aHR0cDovL3VyYmFuc3BhY2VyYWRpby5jb20vZmVlZC9wb2RjYXN0/" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/googlePodcast.svg" alt="Google Podcast">
+			</a>
+			<a href="https://podcasts.apple.com/ua/podcast/urban-space-radio/id1459038329/" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/applePodcast.svg" alt="Apple Podcast">
+			</a>
+			<a href="https://www.facebook.com/urbanspaceradio/" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/facebook.svg" alt="Facebook">
+			</a>
+			<a href="https://www.instagram.com/urban_space_radio/" target="_blank">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/socials/instagram.svg" alt="Instagram">
+			</a>
+			<div class="footer-mobileContacts">
+				<a href="mailto:<?php echo get_field('mainEmail-contactPage', '1350'); ?>">
+              <?php echo get_field('mainEmail-contactPage', '1350'); ?></a><br>
+				<a href="tel:<?php echo get_field('mainMobile-contactPage', '1350'); ?>">
+				  <?php echo get_field('mainMobile-contactPage', '1350'); ?></a>
 				</ul>
 			</div>
 		</div>

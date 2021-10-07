@@ -20,7 +20,7 @@ $getEvents = getEvents();
 						  </div>
 						  <div class="text">
 							  <h2><?php the_title(); ?></h2>
-							  <p><?php the_content(); ?></p>
+							  <p><?php the_excerpt(); ?></p>
 						  </div>
 					  </a>
 				  </div>

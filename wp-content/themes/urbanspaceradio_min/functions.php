@@ -68,7 +68,7 @@ function be_register_blocks() {
 }
 
 function register_post_types() {
-  register_post_type('events', array('labels' => array('name' => 'Event', 'singular_name' => 'Event', 'add_new' => 'Додати подію', 'add_new_item' => 'Додавання події', 'edit_item' => 'Редагування події', 'new_item' => 'Нова подія', 'view_item' => 'Дивитись подію', 'search_items' => 'Шукати подію', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Події',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
+  register_post_type('events', array('labels' => array('name' => 'Event', 'singular_name' => 'Event', 'add_new' => 'Додати подію', 'add_new_item' => 'Додавання події', 'edit_item' => 'Редагування події', 'new_item' => 'Нова подія', 'view_item' => 'Дивитись подію', 'search_items' => 'Шукати подію', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Події',), 'public' => true, 'menu_position' => 8, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
     'taxonomies' => ['category'], 'has_archive' => true, 'rewrite' => true, 'query_var' => true,));
 
   register_post_type('partners', array('labels' => array('name' => 'Partner', 'singular_name' => 'Partner', 'add_new' => 'Додати партнера', 'add_new_item' => 'Додавання партнера', 'edit_item' => 'Редагування партнера', 'new_item' => 'Новий партнер', 'view_item' => 'Дивитись партнера', 'search_items' => 'Шукати партнера', 'not_found' => 'Не знайдено', 'not_found_in_trash' => 'Не знайдено в корзині', 'parent_item_colon' => '', 'menu_name' => 'Партнери',), 'public' => true, 'menu_position' => 9, 'menu_icon' => 'dashicons-format-aside', 'hierarchical' => true, 'supports' => ['title', 'editor', 'thumbnail'],//'excerpt', 'author','trackbacks','custom-fields','comments','revisions','page-attributes','post-formats'
@@ -151,7 +151,7 @@ function getSeasons() {
 }
 
 function getSeasonsMeta($id) {
-  return get_field('season_page', $id );
+  return get_field('season_page', $id);
 }
 
 function getAuthors() {
