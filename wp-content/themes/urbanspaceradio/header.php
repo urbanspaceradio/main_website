@@ -32,6 +32,7 @@ defined('ABSPATH') || exit;
                  src="https://www.facebook.com/tr?id=349752110169807&ev=PageView&noscript=1"
     /></noscript>
   <!-- End Facebook Pixel Code -->
+  <meta name="facebook-domain-verification" content="83zs5sacudrn4p3hqpgr5bgr20p5mc" />
 	<meta content="urban подкасти, актуальні подкасти, свіжі подкасти, урбан подкасти, подкасти українською, подкасти на українській, подкасти українським, подкасти на українском язике, подкасти слухати, подкасти на google podcasts, подкасти apple podcasts, google podcasts, apple podcasts, топ подкасти україни, цікаві подкасти, подкасти це, подкасті, найкращі українські подкасти, підкасти це, де слухати подкасти, подкасти слухати, сайт з подкастами, аудіо книги скачать, що таке подкаст, аудіо книги, google подкасти, подкасти про психологію, легкі подкасти, urban space radio, urban space 100, USR, урбан радіо" name="keywords">
   <meta content="Радіо нового формату, в ефірі якого звучить українська сучасна музика і програми на тему урбаністики та розвитку міста" name="description">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
