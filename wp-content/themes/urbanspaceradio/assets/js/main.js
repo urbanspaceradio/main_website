@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
     yearsSlider.on('swipe',() => filterYears($('.slick-current.slick-active')));
 
-    $('#filter .slick-active').click(function () {
+    $('#filter .slick-slide').click(function () {
         filterYears($(this));
     });
 });
