@@ -353,6 +353,7 @@ img {
     font-size: 20px;
     top: -45px;
     right: -27px;
+    text-transform: lowercase;
 }
 
 .label:after {
@@ -1216,18 +1217,16 @@ img {
     justify-content: center;
     align-items: center;
     margin: 20px;
-    padding: 0 50px;
     width: 263px;
-    height: 324px;
     position: relative;
     overflow: hidden;
-    border: 1px solid #000300;
 }
 
 .episode-description {
     max-width: 700px;
     margin: 0 auto 84px;
     text-align: center;
+    line-height: 1.1;
 }
 
 .episode-description p {
