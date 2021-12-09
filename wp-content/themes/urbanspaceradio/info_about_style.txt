@@ -1,0 +1,4 @@
+після мініфікації стилів необхідно добавити відступ "пробід"
+
+Знайти: " .episode-items_item.audioShow.descriptions " та змінити на
+        " .episode-items_item.audioShow .descriptions "
