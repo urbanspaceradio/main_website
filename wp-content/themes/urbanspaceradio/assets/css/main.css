@@ -1873,6 +1873,13 @@ audio {
     display: none;
 }
 
+.wpcf7-form-control-wrap input,
+.wpcf7-form-control-wrap select,
+.wpcf7-form-control-wrap textarea{
+    width: 100%!important;
+    padding: 20px 30px!important;
+}
+
 @media screen and (max-width: 1300px) {
     .new-photos_slider {
         max-width: 900px;
