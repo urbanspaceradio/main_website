@@ -201,6 +201,11 @@
     border-radius: 4px;
     overflow: hidden;
 }
+
+.castos-player .player__podcast-title {
+	font-weight: 700;
+}
+
 .castos-player .player__main {
     display: grid;
     grid-template-columns: 150px 1fr;
@@ -210,6 +215,8 @@
 .castos-player .player__artwork {
     line-height: 0;
     z-index: 0;
+	height: 150px;
+	width: 150px;
 }
 .castos-player .player__artwork:hover {
     cursor: pointer;
@@ -417,7 +424,7 @@
     height: 20px;
     background-color: #fff;
 }
-.castos-player .subscribe-icons .apple-podcasts span,
+.castos-player .subscribe-icons .apple_podcasts span,
 .castos-player .subscribe-icons .itunes span {
     mask-image: url('images/player/images/brands/icon-brand-apple-podcasts.svg');
     -webkit-mask-image: url('images/player/images/brands/icon-brand-apple-podcasts.svg');
@@ -444,7 +451,7 @@
     -webkit-mask-image: url('images/player/images/brands/icon-brand-castro.svg');
 }
 
-.castos-player .subscribe-icons .google-play span {
+.castos-player .subscribe-icons .google_play span {
     mask-image: url('images/player/images/brands/icon-brand-google-play.svg');
     -webkit-mask-image: url('images/player/images/brands/icon-brand-google-play.svg');
 }
@@ -455,14 +462,195 @@
 }
 
 .castos-player .subscribe-icons .tunein span {
-    mask-image: url('images/player/images/brands/tunein.svg');
-    -webkit-mask-image: url('images/player/images/brands/tunein.svg');
+    mask-image: url('images/player/images/brands/icon-brand-tunein.svg');
+    -webkit-mask-image: url('images/player/images/brands/icon-brand-tunein.svg');
 }
 
 .castos-player .subscribe-icons .castbox span {
     mask-image: url('images/player/images/brands/castbox.svg');
     -webkit-mask-image: url('images/player/images/brands/castbox.svg');
 }
+.castos-player .subscribe-icons .acast span {
+	mask-image: url('images/player/images/brands/acast.svg');
+	-webkit-mask-image: url('images/player/images/brands/acast.svg');
+}
+.castos-player .subscribe-icons .amazon span {
+	mask-image: url('images/player/images/brands/amazon.svg');
+	-webkit-mask-image: url('images/player/images/brands/amazon.svg');
+}
+.castos-player .subscribe-icons .anchor span {
+	mask-image: url('images/player/images/brands/anchor.svg');
+	-webkit-mask-image: url('images/player/images/brands/anchor.svg');
+}
+.castos-player .subscribe-icons .blubrry span {
+	mask-image: url('images/player/images/brands/blubrry.svg');
+	-webkit-mask-image: url('images/player/images/brands/blubrry.svg');
+}
+.castos-player .subscribe-icons .breaker span {
+	mask-image: url('images/player/images/brands/breaker.svg');
+	-webkit-mask-image: url('images/player/images/brands/breaker.svg');
+}
+.castos-player .subscribe-icons .bullhorn span {
+	mask-image: url('images/player/images/brands/bullhorn.svg');
+	-webkit-mask-image: url('images/player/images/brands/bullhorn.svg');
+}
+.castos-player .subscribe-icons .clammr span {
+	mask-image: url('images/player/images/brands/clammr.svg');
+	-webkit-mask-image: url('images/player/images/brands/clammr.svg');
+}
+.castos-player .subscribe-icons .downcast span {
+	mask-image: url('images/player/images/brands/downcast.svg');
+	-webkit-mask-image: url('images/player/images/brands/downcast.svg');
+}
+.castos-player .subscribe-icons .google_podcasts span {
+	mask-image: url('images/player/images/brands/google-podcasts.svg');
+	-webkit-mask-image: url('images/player/images/brands/google-podcasts.svg');
+}
+.castos-player .subscribe-icons .himalaya_com span {
+	mask-image: url('images/player/images/brands/himalaya-com.svg');
+	-webkit-mask-image: url('images/player/images/brands/himalaya-com.svg');
+}
+.castos-player .subscribe-icons .libsyn span {
+	mask-image: url('images/player/images/brands/libsyn.svg');
+	-webkit-mask-image: url('images/player/images/brands/libsyn.svg');
+}
+.castos-player .subscribe-icons .miro span {
+	mask-image: url('images/player/images/brands/miro.svg');
+	-webkit-mask-image: url('images/player/images/brands/miro.svg');
+}
+.castos-player .subscribe-icons .mixcloud span {
+	mask-image: url('images/player/images/brands/mixcloud.svg');
+	-webkit-mask-image: url('images/player/images/brands/mixcloud.svg');
+}
+.castos-player .subscribe-icons .pandora span {
+	mask-image: url('images/player/images/brands/pandora.svg');
+	-webkit-mask-image: url('images/player/images/brands/pandora.svg');
+}
+.castos-player .subscribe-icons .patreon span {
+	mask-image: url('images/player/images/brands/patreon.svg');
+	-webkit-mask-image: url('images/player/images/brands/patreon.svg');
+}
+.castos-player .subscribe-icons .player_fm span {
+	mask-image: url('images/player/images/brands/player-fm.svg');
+	-webkit-mask-image: url('images/player/images/brands/player-fm.svg');
+}
+.castos-player .subscribe-icons .plex span {
+	mask-image: url('images/player/images/brands/plex.svg');
+	-webkit-mask-image: url('images/player/images/brands/plex.svg');
+}
+.castos-player .subscribe-icons .podbay span {
+	mask-image: url('images/player/images/brands/podbay.svg');
+	-webkit-mask-image: url('images/player/images/brands/podbay.svg');
+}
+.castos-player .subscribe-icons .podbean span {
+	mask-image: url('images/player/images/brands/podbean.svg');
+	-webkit-mask-image: url('images/player/images/brands/podbean.svg');
+}
+.castos-player .subscribe-icons .podcast_addict span {
+	mask-image: url('images/player/images/brands/podcast-addict.svg');
+	-webkit-mask-image: url('images/player/images/brands/podcast-addict.svg');
+}
+.castos-player .subscribe-icons .podchaser span {
+	mask-image: url('images/player/images/brands/podchaser.svg');
+	-webkit-mask-image: url('images/player/images/brands/podchaser.svg');
+}
+.castos-player .subscribe-icons .podfan span {
+	mask-image: url('images/player/images/brands/podfan.svg');
+	-webkit-mask-image: url('images/player/images/brands/podfan.svg');
+}
+.castos-player .subscribe-icons .podkicker span {
+	mask-image: url('images/player/images/brands/podkicker.svg');
+	-webkit-mask-image: url('images/player/images/brands/podkicker.svg');
+}
+.castos-player .subscribe-icons .podknife span {
+	mask-image: url('images/player/images/brands/podknife.svg');
+	-webkit-mask-image: url('images/player/images/brands/podknife.svg');
+}
+.castos-player .subscribe-icons .podtail span {
+	mask-image: url('images/player/images/brands/podtail.svg');
+	-webkit-mask-image: url('images/player/images/brands/podtail.svg');
+}
+.castos-player .subscribe-icons .rss span {
+	mask-image: url('images/player/images/brands/rss.svg');
+	-webkit-mask-image: url('images/player/images/brands/rss.svg');
+}
+.castos-player .subscribe-icons .rssradio span {
+	mask-image: url('images/player/images/brands/rssradio.svg');
+	-webkit-mask-image: url('images/player/images/brands/rssradio.svg');
+}
+.castos-player .subscribe-icons .radio_public span {
+	mask-image: url('images/player/images/brands/radio-public.svg');
+	-webkit-mask-image: url('images/player/images/brands/radio-public.svg');
+}
+.castos-player .subscribe-icons .radio_com span {
+	mask-image: url('images/player/images/brands/radio-com.svg');
+	-webkit-mask-image: url('images/player/images/brands/radio-com.svg');
+}
+.castos-player .subscribe-icons .redcircle span {
+	mask-image: url('images/player/images/brands/redcircle.svg');
+	-webkit-mask-image: url('images/player/images/brands/redcircle.svg');
+}
+.castos-player .subscribe-icons .soundcloud span {
+	mask-image: url('images/player/images/brands/soundcloud.svg');
+	-webkit-mask-image: url('images/player/images/brands/soundcloud.svg');
+}
+.castos-player .subscribe-icons .spreaker span {
+	mask-image: url('images/player/images/brands/spreaker.svg');
+	-webkit-mask-image: url('images/player/images/brands/spreaker.svg');
+}
+.castos-player .subscribe-icons .the_podcast_app span {
+	mask-image: url('images/player/images/brands/the-podcast-app.svg');
+	-webkit-mask-image: url('images/player/images/brands/the-podcast-app.svg');
+}
+.castos-player .subscribe-icons .vkontakte span {
+	mask-image: url('images/player/images/brands/vkontakte.svg');
+	-webkit-mask-image: url('images/player/images/brands/vkontakte.svg');
+}
+.castos-player .subscribe-icons .we_fo span {
+	mask-image: url('images/player/images/brands/we-fo.svg');
+	-webkit-mask-image: url('images/player/images/brands/we-fo.svg');
+}
+.castos-player .subscribe-icons .yandex span {
+	mask-image: url('images/player/images/brands/yandex.svg');
+	-webkit-mask-image: url('images/player/images/brands/yandex.svg');
+}
+.castos-player .subscribe-icons .youtube span {
+	mask-image: url('images/player/images/brands/youtube.svg');
+	-webkit-mask-image: url('images/player/images/brands/youtube.svg');
+}
+.castos-player .subscribe-icons .fyyd_de span {
+	mask-image: url('images/player/images/brands/fyyd-de.svg');
+	-webkit-mask-image: url('images/player/images/brands/fyyd-de.svg');
+}
+.castos-player .subscribe-icons .iheartradio span {
+	mask-image: url('images/player/images/brands/iheartradio.svg');
+	-webkit-mask-image: url('images/player/images/brands/iheartradio.svg');
+}
+.castos-player .subscribe-icons .itunes span {
+	mask-image: url('images/player/images/brands/itunes.svg');
+	-webkit-mask-image: url('images/player/images/brands/itunes.svg');
+}
+.castos-player .subscribe-icons .ivoox span {
+	mask-image: url('images/player/images/brands/ivoox.svg');
+	-webkit-mask-image: url('images/player/images/brands/ivoox.svg');
+}
+.castos-player .subscribe-icons .mytuner_radio span {
+	mask-image: url('images/player/images/brands/mytuner-radio.svg');
+	-webkit-mask-image: url('images/player/images/brands/mytuner-radio.svg');
+}
+.castos-player .subscribe-icons .laughable span,
+.castos-player .subscribe-icons .listen_notes span,
+.castos-player .subscribe-icons .owltail span,
+.castos-player .subscribe-icons .podcast_republic span,
+.castos-player .subscribe-icons .podcast_de span,
+.castos-player .subscribe-icons .podcoin span,
+.castos-player .subscribe-icons .custom span
+{
+	mask-image: url('images/player/images/brands/share.svg');
+	-webkit-mask-image: url('images/player/images/brands/share.svg');
+}
+
+
 /* Currently Playing */
 .castos-player .currently-playing {
     overflow: hidden;
@@ -512,7 +700,7 @@
 .castos-player .play-pause-controls button {
     position: absolute;
 }
-.castos-player .play-pause-controls .play-btn {
+.castos-player .play-progress .play-pause-controls .play-btn {
     background: url('images/player/images/icon-play.svg');
     background-repeat: no-repeat;
     background-position: 14px 11px;
@@ -523,12 +711,13 @@
     width: 44px;
     height: 44px;
 }
-.castos-player .play-pause-controls .play-btn:hover {
+.castos-player .play-progress .play-pause-controls .play-btn:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
-.castos-player .play-pause-controls .pause-btn {
+.castos-player .play-progress .play-pause-controls .pause-btn {
     background: url('images/player/images/icon-pause.svg');
+	background-color: #fff;
     background-repeat: no-repeat;
     background-position: 13px 13px;
     border: none;
@@ -562,7 +751,7 @@
     }
 }
 
-.castos-player .progress {
+.castos-player .progress, .castos-player .ssp-progress {
     flex: 10;
     position: relative;
     display: flex;
@@ -692,6 +881,7 @@
     color: #fff;
     background-color: rgba(255, 255, 255, 0);
 }
+
 .castos-player .player:hover .player-panels-nav button:hover {
     opacity: 1;
     cursor: pointer;
@@ -743,7 +933,7 @@
     color: #4b4659;
     border: 1px solid #4b4659;
 }
-.castos-player.light-mode .progress {
+.castos-player.light-mode .ssp-progress {
     background-color: #d3d3d3;
 }
 .castos-player.light-mode .player-panel .player-panel-row button {
@@ -803,7 +993,7 @@
         color: #4b4659;
         border: 1px solid #4b4659;
     }
-    .castos-player .progress {
+	.castos-player .progress, .castos-player .ssp-progress {
         background-color: #d3d3d3;
     }
     .castos-player .player-panel .player-panel-row button {
@@ -816,6 +1006,193 @@
     .castos-player .player-btn__fwd {
         background-color: #4c4659;
     }
+}
+
+/* Playlist ---------------------------------------------------------------- */
+.castos-player .playlist__wrapper {
+	height: 330px;
+	color: #fff;
+	background: #25222d;
+	border-radius: 0 0 4px 4px;
+	overflow: scroll;
+}
+.castos-player .playlist__wrapper ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.castos-player .playlist__item {
+	display: grid;
+	grid-template-columns: 75px 1fr;
+	background-color: #393445;
+	margin: 10px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+.playlist__item img {
+	max-width: 100%;
+}
+.castos-player .playlist__item:hover {
+	cursor: pointer;
+	background-color: #4b4657;
+}
+.castos-player .playlist__item:hover .playlist__item__details h2,
+.castos-player .playlist__item:hover .playlist__item__details p,
+.castos-player .playlist__item:hover .playlist__item_meta {
+	opacity: 1;
+}
+.playlist__item__cover {
+	line-height: 0;
+}
+.castos-player .playlist__item__details {
+	padding: 10px;
+	overflow: hidden;
+}
+.castos-player .playlist__item__details h2 {
+	margin: 0;
+	font-size: 16px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	height: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: calc(100% - 20px);
+	position: relative;
+	opacity: 0.9;
+}
+.castos-player .playlist__item.active h2 {
+	padding-left: 16px;
+	color: #e85555;
+}
+.castos-player .playlist__item.active h2:before {
+	content: '';
+	background-image: url('images/player/images/active-indicator.svg');
+	background-repeat: no-repeat;
+	position: absolute;
+	left: 0px;
+	top: 2px;
+	width: 12px;
+	height: 12px;
+}
+.castos-player .playlist__wrapper .playlist__item.active .playlist__item__details {
+	background-color: #f4f4f4;
+}
+.castos-player .playlist__item__details p {
+	font-size: 11px;
+	padding: 0 10px 0 10px;
+	margin: 5px 0 0 0;
+	opacity: 0.7;
+	line-height: 1.3;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.castos-player .playlist__item_meta {
+	opacity: 0.7;
+	background-color: rgba(0, 0, 0, 0.13);
+	padding: 10px;
+	font-size: 11px;
+	text-align: right;
+	display: grid;
+	grid-template-columns: 1;
+	grid-template-rows: 1fr 1fr;
+	align-items: flex-start;
+	grid-gap: 10px;
+}
+.castos-player .playlist__item_meta span:first-child {
+	align-self: flex-end;
+}
+
+@media (max-width: 480px) {
+	.castos-player .playlist__item__details h2 {
+		white-space: pre-wrap;
+		line-height: 1.3;
+	}
+	.castos-player .playlist__item {
+		grid-template-columns: 1fr;
+	}
+	.castos-player .playlist__item_meta {
+		padding: 10px 15px;
+		grid-template-columns: auto 1fr;
+		grid-template-rows: 1fr;
+	}
+	.castos-player .playlist__item_meta span:first-child {
+		grid-column: 2;
+		grid-row: 1;
+	}
+	.castos-player .playlist__item_meta span:last-child {
+		grid-column: 1;
+		grid-row: 1;
+	}
+}
+
+/* Playlist */
+.castos-player.light-mode .playlist__wrapper {
+	color: #383344;
+	background: #dfdfdf;
+}
+.castos-player.light-mode .playlist__item {
+	background-color: #d3d3d3;
+}
+.castos-player.light-mode .playlist__item:hover {
+	background-color: #f4f4f4;
+}
+.castos-player.light-mode .playlist__item_meta {
+	background-color: #cccccc;
+}
+.castos-player.light-mode .playlist__item:hover .playlist__item_meta {
+	background-color: #ededed;
+}
+.castos-player.light-mode .playlist__item.active h2 {
+	color: #d73738;
+}
+
+/* Playlist */
+.castos-player.dark-mode .playlist__wrapper {
+	color: #fff;
+	background: #25222d;
+}
+.castos-player.dark-mode .playlist__item {
+	background-color: #393445;
+}
+.castos-player.dark-mode .playlist__item:hover {
+	background-color: #4b4657;
+}
+.castos-player.dark-mode .playlist__item_meta,
+.castos-player.dark-mode .playlist__item:hover .playlist__item_meta {
+	background-color: rgba(0, 0, 0, 0.13);
+}
+.castos-player.dark-mode .playlist__item.active h2 {
+	color: #e85555;
+}
+
+.dark-mode .playlist__item .playlist__item__details h2,
+.dark-mode .playlist__item .playlist__item__details p {
+	color: #fff;
+}
+
+.loader {
+	border: 2px solid #d75253;
+	border-top: 2px solid #f3f3f3;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	animation: spin 2s linear infinite;
+	position: absolute;
+	margin-left: 45%;
+	margin-top: 150px;
+	display: none;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* Compact player dark mode */
+.wp-playlist-dark .wp-playlist-item a {
+	color: #fff;
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
@@ -861,7 +1238,7 @@
     color: #fff;
     border: 1px solid #fff;
 }
-.castos-player.dark-mode .progress {
+.castos-player.dark-mode .progress, .castos-player.dark-mode .ssp-progress {
     background-color: #4c4659;
 }
 .castos-player.dark-mode .player-panel .player-panel-row button {
@@ -873,10 +1250,13 @@
 }
 .castos-player.dark-mode .subscribe-icons span,
 .castos-player.dark-mode .share-icon span,
-.castos-player.dark-mode .player-btn__volume,
-.castos-player.dark-mode .player-btn__rwd,
-.castos-player.dark-mode .player-btn__fwd {
+.castos-player.dark-mode .playback__controls .player-btn__volume,
+.castos-player.dark-mode .playback__controls .player-btn__rwd,
+.castos-player.dark-mode .playback__controls .player-btn__fwd {
     background-color: #fff;
+}
+.castos-player.dark-mode .playlist__wrapper .playlist__item.active .playlist__item__details {
+	background-color: #4b4657;
 }
 
 /* ///////////////////////////////////////////////////////////////////////// */
@@ -1015,14 +1395,14 @@
 .castos-player .subscribe-btn:focus,
 .castos-player .share-icon:active,
 .castos-player .share-icon:focus,
-.castos-player .apple-podcasts:active,
-.castos-player .apple-podcasts:focus,
+.castos-player .apple_podcasts:active,
+.castos-player .apple_podcasts:focus,
 .castos-player .sticher:active,
 .castos-player .sticher:focus,
 .castos-player .spotify:active,
 .castos-player .spotify:focus,
-.castos-player .google-play:active,
-.castos-player .google-play:focus {
+.castos-player .google_play:active,
+.castos-player .google_play:focus {
     outline: 0;
     border: none;
     -moz-outline-style: none;

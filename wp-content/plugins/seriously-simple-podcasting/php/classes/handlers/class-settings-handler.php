@@ -7,7 +7,6 @@ namespace SeriouslySimplePodcasting\Handlers;
  *
  * @package Seriously Simple Podcasting
  */
-
 class Settings_Handler {
 
 	/**
@@ -29,7 +28,7 @@ class Settings_Handler {
 				'revision',
 				'nav_menu_item',
 				'wooframework',
-				'podcast',
+				SSP_CPT_PODCAST,
 			);
 			if ( in_array( $post_type, $disallowed_post_types, true ) ) {
 				continue;
@@ -109,8 +108,8 @@ class Settings_Handler {
 				'label' => __( 'Marketing', 'seriously-simple-podcasting' ),
 				'group' => __( 'Business', 'seriously-simple-podcasting' ),
 			),
-			'Non-profit'         => array(
-				'label' => __( 'Non-profit', 'seriously-simple-podcasting' ),
+			'Non-Profit'         => array(
+				'label' => __( 'Non-Profit', 'seriously-simple-podcasting' ),
 				'group' => __( 'Business', 'seriously-simple-podcasting' ),
 			),
 			'Comedy Interviews'  => array(
@@ -121,24 +120,24 @@ class Settings_Handler {
 				'label' => __( 'Improv', 'seriously-simple-podcasting' ),
 				'group' => __( 'Comedy', 'seriously-simple-podcasting' ),
 			),
-			'Standup'            => array(
-				'label' => __( 'Standup', 'seriously-simple-podcasting' ),
+			'Stand-Up'           => array(
+				'label' => __( 'Stand-Up', 'seriously-simple-podcasting' ),
 				'group' => __( 'Comedy', 'seriously-simple-podcasting' ),
 			),
 			'Courses'            => array(
 				'label' => __( 'Courses', 'seriously-simple-podcasting' ),
 				'group' => __( 'Education', 'seriously-simple-podcasting' ),
 			),
-			'How to'             => array(
-				'label' => __( 'How to', 'seriously-simple-podcasting' ),
+			'How To'             => array(
+				'label' => __( 'How To', 'seriously-simple-podcasting' ),
 				'group' => __( 'Education', 'seriously-simple-podcasting' ),
 			),
 			'Language Learning'  => array(
 				'label' => __( 'Language Learning', 'seriously-simple-podcasting' ),
 				'group' => __( 'Education', 'seriously-simple-podcasting' ),
 			),
-			'Self Improvement'   => array(
-				'label' => __( 'Self Improvement', 'seriously-simple-podcasting' ),
+			'Self-Improvement'   => array(
+				'label' => __( 'Self-Improvement', 'seriously-simple-podcasting' ),
 				'group' => __( 'Education', 'seriously-simple-podcasting' ),
 			),
 			'Comedy Fiction'     => array(
@@ -225,7 +224,7 @@ class Settings_Handler {
 				'label' => __( 'Video Games', 'seriously-simple-podcasting' ),
 				'group' => __( 'Leisure', 'seriously-simple-podcasting' ),
 			),
-			'Music Commentary'  => array(
+			'Music Commentary'   => array(
 				'label' => __( 'Music Commentary', 'seriously-simple-podcasting' ),
 				'group' => __( 'Music', 'seriously-simple-podcasting' ),
 			),
@@ -257,7 +256,7 @@ class Settings_Handler {
 				'label' => __( 'Politics', 'seriously-simple-podcasting' ),
 				'group' => __( 'News', 'seriously-simple-podcasting' ),
 			),
-			'Sports News'       => array(
+			'Sports News'        => array(
 				'label' => __( 'Sports News ', 'seriously-simple-podcasting' ),
 				'group' => __( 'News', 'seriously-simple-podcasting' ),
 			),
@@ -283,6 +282,10 @@ class Settings_Handler {
 			),
 			'Judaism'            => array(
 				'label' => __( 'Judaism', 'seriously-simple-podcasting' ),
+				'group' => __( 'Religion & Spirituality', 'seriously-simple-podcasting' ),
+			),
+			'Religion'           => array(
+				'label' => __( 'Religion', 'seriously-simple-podcasting' ),
 				'group' => __( 'Religion & Spirituality', 'seriously-simple-podcasting' ),
 			),
 			'Spirituality'       => array(
@@ -357,7 +360,7 @@ class Settings_Handler {
 				'label' => __( 'Cricket', 'seriously-simple-podcasting' ),
 				'group' => __( 'Sports', 'seriously-simple-podcasting' ),
 			),
-			'Fantasy Sports'    => array(
+			'Fantasy Sports'     => array(
 				'label' => __( 'Fantasy Sports ', 'seriously-simple-podcasting' ),
 				'group' => __( 'Sports', 'seriously-simple-podcasting' ),
 			),
@@ -498,8 +501,15 @@ class Settings_Handler {
 				),
 				array(
 					'id'          => 'player_meta_data_enabled',
-					'label'       => __( 'Enable Player meta data ', 'seriously-simple-podcasting' ),
+					'label'       => __( 'Enable Player meta data', 'seriously-simple-podcasting' ),
 					'description' => __( 'Turn this on to enable player meta data underneath the player. (download link, episode duration and date recorded).', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+				array(
+					'id'          => 'player_subscribe_urls_enabled',
+					'label'       => __( 'Show subscribe urls', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display subscribe urls under the player', 'seriously-simple-podcasting' ),
 					'type'        => 'checkbox',
 					'default'     => 'on',
 				),
@@ -509,16 +519,16 @@ class Settings_Handler {
 					'description' => __( 'Select the style of media player you wish to display on your site.', 'seriously-simple-podcasting' ),
 					'type'        => 'radio',
 					'options'     => array(
-						'standard' => __( 'Standard Compact Player', 'seriously-simple-podcasting' ),
 						'larger'   => __( 'HTML5 Player With Album Art', 'seriously-simple-podcasting' ),
+						'standard' => __( 'Standard Compact Player', 'seriously-simple-podcasting' ),
 					),
-					'default'     => 'standard',
+					'default'     => 'larger',
 				),
 			),
 		);
 
-		$ss_podcasting_player_style = get_option( 'ss_podcasting_player_style', 'standard' );
-		if ( 'standard' !== $ss_podcasting_player_style ) {
+		$ss_podcasting_player_style = get_option( 'ss_podcasting_player_style', 'larger' );
+		if ( 'larger' === $ss_podcasting_player_style ) {
 			$html_5_player_settings = array(
 				array(
 					'id'          => 'player_mode',
@@ -531,9 +541,59 @@ class Settings_Handler {
 					),
 					'default'     => 'dark',
 				),
+				array(
+					'id'          => 'subscribe_button_enabled',
+					'label'       => __( 'Show subscribe button', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the subscribe button', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+				array(
+					'id'          => 'share_button_enabled',
+					'label'       => __( 'Show share button', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the share button', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
 			);
 
 			$settings['player-settings']['fields'] = array_merge( $settings['player-settings']['fields'], $html_5_player_settings );
+		}
+
+		$meta_data_enabled = 'on' === get_option( 'ss_podcasting_player_meta_data_enabled', 'on' );
+		if ( $meta_data_enabled ) {
+			$meta_settings = array(
+				array(
+					'id'          => 'download_file_enabled',
+					'label'       => __( 'Show download file link', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the download file link', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+				array(
+					'id'          => 'play_in_new_window_enabled',
+					'label'       => __( 'Show play in new window link', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the play in new window link', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+				array(
+					'id'          => 'duration_enabled',
+					'label'       => __( 'Show duration', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the track duration information', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+				array(
+					'id'          => 'date_recorded_enabled',
+					'label'       => __( 'Show recorded date', 'seriously-simple-podcasting' ),
+					'description' => __( 'Turn on to display the recorded date information', 'seriously-simple-podcasting' ),
+					'type'        => 'checkbox',
+					'default'     => 'on',
+				),
+			);
+
+			$settings['player-settings']['fields'] = array_merge( $settings['player-settings']['fields'], $meta_settings );
 		}
 
 		$settings['feed-details'] = array(
@@ -652,7 +712,7 @@ class Settings_Handler {
 			array(
 				'id'          => 'data_image',
 				'label'       => __( 'Cover Image', 'seriously-simple-podcasting' ),
-				'description' => __( 'Your podcast cover image - must have a minimum size of 1400x1400 px.', 'seriously-simple-podcasting' ),
+				'description' => __( 'The podcast cover image must be between 1400x1400px and 3000x3000px in size and either .jpg or .png file format', 'seriously-simple-podcasting' ),
 				'type'        => 'image',
 				'default'     => '',
 				'placeholder' => '',
@@ -700,6 +760,31 @@ class Settings_Handler {
 				'callback'    => 'wp_strip_all_tags',
 			),
 			array(
+				'id'          => 'funding',
+				'label'       => __( 'Podcast funding', 'seriously-simple-podcasting' ),
+				'type'        => 'text_multi',
+				'class'       => 'large-text',
+				'fields'      => array(
+					array(
+						'id'          => 'url',
+						'type'        => 'text',
+						'placeholder' => __( 'e.g. Donate to the show', 'seriously-simple-podcasting' ),
+						'class'       => 'large-text',
+						'description' => sprintf(
+							'<a href="%s">%s</a>',
+							'https://support.castos.com/hc/en-us/articles/4406045498002',
+							__( 'Learn More', 'seriously-simple-podcasting' )
+						),
+					),
+					array(
+						'id'          => 'title',
+						'type'        => 'text',
+						'placeholder' => __( 'e.g. https://buymeacoffee.com', 'seriously-simple-podcasting' ),
+						'class'       => 'large-text',
+					),
+				),
+			),
+			array(
 				'id'          => 'explicit',
 				'label'       => __( 'Explicit', 'seriously-simple-podcasting' ),
 				// translators: placeholders are for an Apple help document link
@@ -714,6 +799,14 @@ class Settings_Handler {
 				'description' => __( 'Mark if this podcast is complete or not. Only do this if no more episodes are going to be added to this feed.', 'seriously-simple-podcasting' ),
 				'type'        => 'checkbox',
 				'default'     => '',
+				'callback'    => 'wp_strip_all_tags',
+			),
+			array(
+				'id'          => 'locked',
+				'label'       => __( 'Locked', 'seriously-simple-podcasting' ),
+				'description' => __( 'Mark if this podcast is locked or not. Locked means that any attempt to import this feed into a new platform will be rejected.', 'seriously-simple-podcasting' ),
+				'type'        => 'checkbox',
+				'default'     => 'on',
 				'callback'    => 'wp_strip_all_tags',
 			),
 			array(
@@ -744,7 +837,7 @@ class Settings_Handler {
 				'id'          => 'media_prefix',
 				'label'       => __( 'Media File Prefix', 'seriously-simple-podcasting' ),
 				// translators: placeholders are for help document link
-				'description' => sprintf( __( 'Enter your Podtrac, Chartable, or other media file prefix here. %1$sMore details here.%2$s', 'seriously-simple-podcasting' ), '<a href="' . esc_url( 'https://support.castos.com/article/95-adding-a-media-file-prefix-for-podtrac-chartable-and-other-tracking-services' ) . '" target="' . wp_strip_all_tags( '_blank' ) . '">', '</a>' ),
+				'description' => sprintf( __( 'Enter your Podtrac, Chartable, or other media file prefix here. %1$sMore details here.%2$s', 'seriously-simple-podcasting' ), '<a href="' . esc_url( 'https://support.castos.com/hc/en-us/articles/360019364119-Add-a-media-file-prefix-in-WordPress-for-Podtrac-Chartable-and-other-analytics-or-tracking-services' ) . '" target="' . wp_strip_all_tags( '_blank' ) . '">', '</a>' ),
 				'type'        => 'text',
 				'default'     => '',
 				'placeholder' => __( 'https://dts.podtrac.com/redirect/mp3/', 'seriously-simple-podcasting' ),
@@ -983,15 +1076,22 @@ class Settings_Handler {
 			'disable_save_button' => true,
 		);
 
-		$settings = apply_filters( 'ssp_settings_fields', $settings );
+		$settings['integrations'] = apply_filters( 'ssp_integration_settings', array(
+			'title' => __( 'Integrations', 'seriously-simple-podcasting' ),
+			'items' => [],
+		) );
 
-		return $settings;
+		if ( empty( $settings['integrations']['items'] ) ) {
+			unset( $settings['integrations'] );
+		}
+
+		return apply_filters( 'ssp_settings_fields', $settings );
 	}
 
 	/**
 	 * Encode feed password
 	 *
-	 * @param  string $password User input
+	 * @param string $password User input
 	 *
 	 * @return string           Encoded password
 	 */
@@ -1010,7 +1110,7 @@ class Settings_Handler {
 	/**
 	 * Validate protectino message
 	 *
-	 * @param  string $message User input
+	 * @param string $message User input
 	 *
 	 * @return string          Validated message
 	 */
@@ -1094,6 +1194,8 @@ class Settings_Handler {
 	 * @param $role
 	 *
 	 * @return bool
+	 * @deprecated Use Roles_Handler::role_exists() instead
+	 *
 	 */
 	public function role_exists( $role ) {
 		if ( ! empty( $role ) ) {
@@ -1103,4 +1205,29 @@ class Settings_Handler {
 		return false;
 	}
 
+	/**
+	 * Get the field option
+	 *
+	 * @param $field_id
+	 * @param bool $default
+	 *
+	 * @return false|mixed|void
+	 * @since 5.7.0
+	 */
+	public function get_field( $field_id, $default = false ) {
+		return get_option( 'ss_podcasting_' . $field_id, $default );
+	}
+
+	/**
+	 * Set the field option
+	 *
+	 * @param string $field_id
+	 * @param string $value
+	 *
+	 * @return bool
+	 * @since 5.7.0
+	 */
+	public function set_field( $field_id, $value ) {
+		return update_option( 'ss_podcasting_' . $field_id, $value );
+	}
 }

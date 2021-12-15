@@ -2,9 +2,9 @@
 Contributors: PodcastMotor, psykro, zahardoc, simondowdles, hlashbrooke, whyisjake
 Tags: podcast, audio, video, vodcast, rss, mp3, mp4, feed, itunes, podcasting, media, stitcher, google play, playlist
 Requires at least: 4.4
-Tested up to: 5.6.2
+Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 2.6.1
+Stable tag: 2.9.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +12,8 @@ Podcasting the way it's meant to be. No mess, no fuss - just you and your conten
 
 == Description ==
 Seriously Simple Podcasting is a top-rated podcasting plugin for WordPress for beginners and power-users built by [Castos](http://castos.com/podcast-hosting-wordpress). Using our straight-forward set up instructions, advanced features, and plenty of customization options, Seriously Simple Podcasting powers over 20K+ podcasts.
+
+https://vimeo.com/560129506
 
 The plugin will *always* remain free to use. The only costs associated with using Seriously Simple Podcasting is if you choose to host your audio files with a dedicated podcast hosting provider. Similar to using a website hosting provider to keep your WordPress site fast and running smoothly, we recommend hosting podcast files with a dedicated provider. But remember, this isn't required!
 
@@ -158,6 +160,183 @@ You can find complete user and developer documentation (along with the FAQs) on 
 15. View podcast episodes in the At A Glance widget on the main WordPress dashboard.
 
 == Changelog ==
+
+= 2.9.8 =
+* 2021-11-18
+* UPDATE SUMMARY: Bug fixes and improvements
+* [UPDATE] Possibility to change the <content:encoded> tag via ssp_feed_item_args filter
+* [FIX]  Feed analytics prefixes fix
+
+= 2.9.7 =
+* 2021-11-15
+* UPDATE SUMMARY: Bug fixes and improvements
+* [FIX]  Fixed audio files with special chars not downloading
+* [FIX]  Fixed the player being sent to Castos content
+* [FIX]  Fixed the player disappearing on Elementor
+
+= 2.9.6 =
+* 2021-11-09
+* UPDATE SUMMARY: Integration with Paid Memberships Pro, bug fixes and improvements
+* [UPDATE] Integration with Paid Memberships Pro
+* [FIX] Fixed the file download bug
+
+= 2.9.5 =
+* 2021-10-29
+* UPDATE SUMMARY: Fixes for settings and Elementor widgets
+* [FIX] Elementor Episode List widget pagination fix
+* [FIX] Placeholders for series feed settings fix
+* [FIX] Series feed details settings: upload and remove cover art fix
+
+= 2.9.4 =
+* 2021-10-27
+* UPDATE SUMMARY: Updating series feed details removes all details fix
+* [FIX] Updating series feed details removes all details fix
+
+= 2.9.3 =
+* 2021-10-27
+* UPDATE SUMMARY: Feed and player improvements, code refactoring, bug fixes
+* [UPDATE] Possibility to order feed items by "Recorded date" field
+* [UPDATE] Feed series: link to series URL instead of the home page
+* [UPDATE] Plugin settings code refactoring
+* [UPDATE] Possibility to translate podcast player elements
+* [FIX] Player: download file improvements
+* [FIX] Fixed Seriously Simple Transcripts file upload error
+
+= 2.9.2 =
+* 2021-10-12
+* UPDATE SUMMARY: Elementor widgets improvements, bug fixes, code refactoring
+* [UPDATE] Show Elementor widgets for PHP 5.6
+* [UPDATE] Code refactoring: added separate controllers for widgets and shortcodes
+* [UPDATE] Code refactoring: renamed some functions and constants
+* [UPDATE] Feed redirect improvement: 302 redirect for first 48 hours, then 301 redirect
+* [FIX] Fix Elementor widget icons for the recent Elementor update
+* [FIX] Modifying SSP_CPT_PODCAST caused settings page to disappear
+* [FIX] Fixed onboarding wizard permissions bug
+
+= 2.9.1 =
+* 2021-09-14
+* UPDATE SUMMARY: Feed author tag fix
+* [FIX] Fix for the feed author tag
+
+= 2.9.0 =
+* 2021-09-13
+* UPDATE SUMMARY: Podcast 2.0 tags, bug fixes
+* [UPDATE] Podcast 2.0 namespace - podcast:GUID
+* [UPDATE] Podcast 2.0 namespace - podcast:funding
+* [UPDATE] Podcast 2.0 namespace - podcast:locked
+* [UPDATE] Added rel=”noopener noreferrer” to external links in player
+* [FIX] Removed CDATA from <itunes:author> tag
+* [FIX] Fixed looping episode issue
+* [FIX] Fixed setting “Source for publish date" not working for series feeds
+* [FIX] Fixed some feed category names
+* [FIX] Castos player block pulled only latest 10 episodes
+
+= 2.8.2 =
+* 2021-09-01
+* UPDATE SUMMARY: Support PHP 8.0,  bug fixes, feed code refactoring
+* [UPDATE] PHP 8.0 support
+* [UPDATE] Gutenberg HTML player block improvements and fixes
+* [UPDATE] Code refactoring for podcast feed
+* [FIX] Empty podcast tags fix - in some cases tags didn't show the episodes
+* [FIX] Minor plugin translation improvements
+* [FIX] Fixed player CSS issues (style conflicts with some themes)
+
+= 2.8.1 =
+* 2021-08-13
+* UPDATE SUMMARY: Hotfix: player play button not working
+* [FIX] Player play button was not working
+
+= 2.8.0 =
+* 2021-08-12
+* UPDATE SUMMARY: Playlist Player renovation, bug fixes
+* [UPDATE] Playlist player improvements, consistent with the standard player
+* [UPDATE] Playlist player widget now includes more setting options
+* [UPDATE] Improved the process of getting an image for the player, removed featured image from it
+* [UPDATE] Removed redundant HTML when Share or Subscribe buttons were disabled
+* [FIX] Player displayed the default podcast title instead of the Series title
+* [FIX] Reusable blocks disappeared from feed
+* [FIX] Notice error when using Rest API
+* [FIX] Character codes being displayed instead of special symbols
+* [FIX] Conflict between SSP and The Events Calendar Plugin
+
+= 2.7.3 =
+* 2021-07-26
+* UPDATE SUMMARY: Strip all feed tags except allowed if it displays the episode post content, minor fixes
+* [UPDATE] Strip all feed tags except allowed (<p>, <a>, <ul>, <ol>, <li>) if it displays the episode post content, convert <br> tags into the new lines
+* [UPDATE] Revise text when uploading an episode file
+* [FIX] Series feed "Episode description" option not working fix
+* [FIX] Fixed episodes controller fatal error for the REST API episodes endpoint
+
+= 2.7.2 =
+* 2021-06-11
+* UPDATE SUMMARY: Hotfix for the "Exclude series from default feed" by default option
+* [FIX] Reverted "Exclude series from default feed" to the previous state
+* [FIX] Select "Exclude series from default feed" by default ONLY for the new series
+
+
+= 2.7.1 =
+* 2021-06-10
+* UPDATE SUMMARY: Updated the onboarding wizard video, UX improvement
+* [UPDATE] Updated the onboarding wizard video
+* [UPDATE] Added the video to the plugin description
+* [UPDATE] Removed the old welcome page
+* [FIX] When creating a new Series, select "Exclude series from default feed" by default
+
+= 2.7.0 =
+* 2021-05-20
+* UPDATE SUMMARY: Onboarding wizard, bug fixes
+* [UPDATE] Onboarding wizard
+* [FIX] Fixed the gutenberg fatal error
+* [FIX] Fixed the Undefined index: link warning
+* [FIX] Fixed the conflict with the Progress Counter Block plugin
+
+= 2.6.6 =
+* 2021-05-11
+* UPDATE SUMMARY: Fixed the Elementor icons missing issue, minor improvements
+* [FIX] Elementor subscribe icons missing fixes
+* [UPDATE] Do not request player file on page load
+* [UPDATE] Added religion subcategory
+
+= 2.6.5 =
+* 2021-05-07
+* UPDATE SUMMARY: Fix the feed error for the case if the author name has punctuation.
+* [FIX] Fixed the feed error for the case if the author name has punctuation.
+
+= 2.6.4 =
+* 2021-05-04
+* UPDATE SUMMARY: HTML player improvements and fixes, feed images fixes
+* [UPDATE] Changed images validation settings
+* [UPDATE] Options to disable the subscribe and share button in the player
+* [UPDATE] Options for displaying the player meta data
+* [UPDATE] Make player translatable
+* [UPDATE] Include alt attribute in web player
+* [UPDATE] Make HTML5 player to be the default one
+* [FIX] Show series feed image in the feed
+* [FIX] Settings UI: cover image is not being shown after image upload
+* [FIX] Excerpt for content:encoded tag
+* [FIX] Value for <itunes:author> should be author from feed details
+* [FIX] Player subscribe icons
+
+= 2.6.3 =
+* 2021-04-19
+* UPDATE SUMMARY: Roles and capabilities improvements, no image issues fixes
+* [UPDATE] Added podcast capabilities
+* [UPDATE] Added series capabilities
+* [UPDATE] Added two roles for managing podcasts
+* [FIX] Users with manage_podcast capability couldn't change the plugin settings
+* [FIX] Series image not displaying in series feed
+* [FIX] Feed cover image not displaying in the player
+
+= 2.6.2 =
+* 2021-04-06
+* UPDATE SUMMARY: Podcasts synchronization improvements, RSS images
+* [UPDATE] Delayed episode uploading to Castos
+* [UPDATE] Added helper text to Series area
+* [UPDATE] HTML player style improvements
+* [UPDATE] Check the Cover Image size dimensions upon upload
+* [UPDATE] Added episode specific image to RSS feed
+* [FIX] Showing notifications when the episode is added or updated (classic editor)
+* [FIX] When the post is duplicated it is not synchronized with Castos
 
 = 2.6.1 =
 * 2021-03-05

@@ -2,9 +2,9 @@
 
 namespace SeriouslySimplePodcasting\Integrations\Elementor\Widgets;
 
-use SeriouslySimplePodcasting\Controllers\Players_Controller;
+use Elementor\Widget_Base;
 
-class Elementor_Media_Player_Widget extends \Elementor\Widget_Base {
+class Elementor_Media_Player_Widget extends Widget_Base {
 
 	public function get_name() {
 		return 'Media Player';
@@ -15,7 +15,7 @@ class Elementor_Media_Player_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'fa fa-play';
+		return 'eicon-play';
 	}
 
 	public function get_categories() {
@@ -68,7 +68,8 @@ class Elementor_Media_Player_Widget extends \Elementor\Widget_Base {
 	}
 
 	protected function render() {
-		$players_controller = new Players_Controller( __FILE__, SSP_VERSION );
+		global $ss_podcasting;
+		$players_controller = $ss_podcasting->players_controller;
 		$settings           = $this->get_settings_for_display();
 		$episode_id         = $settings['show_elements'];
 		if ( '-1' === $episode_id ) {

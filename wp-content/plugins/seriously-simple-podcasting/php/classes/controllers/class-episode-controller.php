@@ -3,7 +3,7 @@
 namespace SeriouslySimplePodcasting\Controllers;
 
 use SeriouslySimplePodcasting\Renderers\Renderer;
-use SeriouslySimplePodcasting\Controllers\Players_Controller;
+use SeriouslySimplePodcasting\Repositories\Episode_Repository;
 use WP_Query;
 
 /**
@@ -13,12 +13,20 @@ use WP_Query;
  */
 class Episode_Controller extends Controller {
 
-
+	/**
+	 * @var Renderer
+	 * */
 	public $renderer = null;
+
+	/**
+	 * @var Episode_Repository
+	 * */
+	public $episode_repository = null;
 
 	public function __construct( $file, $version ) {
 		parent::__construct( $file, $version );
 		$this->renderer = new Renderer();
+		$this->episode_repository = new Episode_Repository(); //Todo: use DI or Facade here
 		$this->init();
 	}
 
@@ -95,6 +103,8 @@ class Episode_Controller extends Controller {
 	 * @param int $episode_id
 	 *
 	 * @return string
+	 *
+	 * Todo: move it to Episode_Repository
 	 */
 	public function get_episode_player_link( $episode_id ) {
 		$file = $this->get_episode_download_link( $episode_id );
@@ -119,55 +129,20 @@ class Episode_Controller extends Controller {
 	}
 
 	/**
-	 * Convert the array returned from wp_get_attachment_image_src into a human readable version
-	 *
-	 * @param $image_data_array
-	 *
-	 * @return mixed
-	 * @todo check if there is a WordPress function for this
-	 *
-	 */
-	private function return_renamed_image_array_keys( $image_data_array ) {
-		$new_image_data_array = array();
-		if ( $image_data_array && ! empty( $image_data_array ) ) {
-			$new_image_data_array['src']    = isset( $image_data_array[0] ) ? $image_data_array[0] : '';
-			$new_image_data_array['width']  = isset( $image_data_array[1] ) ? $image_data_array[1] : '';
-			$new_image_data_array['height'] = isset( $image_data_array[2] ) ? $image_data_array[2] : '';
-		}
-
-		return $new_image_data_array;
-	}
-
-	/**
-	 * Check if the image in the formatted image_data_array is a square image
-	 *
-	 * @param array $image_data_array
-	 *
-	 * @return bool
-	 */
-	private function check_image_is_square( $image_data_array = array() ) {
-		if ( isset( $image_data_array['width'] ) && isset( $image_data_array['height'] ) ) {
-			if ( ( $image_data_array['width'] / $image_data_array['height'] ) === 1 ) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/**
 	 * Get Album Art for Player
 	 *
 	 * Iteratively tries to find the correct album art based on whether the desired image is of square aspect ratio.
 	 * Falls back to default album art if it can not find the correct ones.
 	 *
-	 * @param $episode_id ID of the episode being loaded into the player
+	 * @param int $episode_id ID of the episode being loaded into the player
 	 *
 	 * @return array [ $src, $width, $height ]
 	 *
 	 * @since 1.19.4
+	 *
+	 * Todo: move it to Episode_Repository
 	 */
-	public function get_album_art( $episode_id = false ) {
+	public function get_album_art( $episode_id = false, $size = 'full' ) {
 
 		/**
 		 * In case the episode id is not passed
@@ -181,64 +156,57 @@ class Episode_Controller extends Controller {
 		 */
 		$thumb_id = get_post_meta( $episode_id, 'cover_image_id', true );
 		if ( ! empty( $thumb_id ) ) {
-			$image_data_array = $this->return_renamed_image_array_keys( wp_get_attachment_image_src( $thumb_id, 'medium' ) );
-			if ( $this->check_image_is_square( $image_data_array ) ) {
+			$image_data_array = ssp_get_attachment_image_src( $thumb_id, $size );
+			if ( ssp_is_image_square( $image_data_array ) ) {
 				return $image_data_array;
 			}
 		}
 
 		/**
-		 * Option 2: if the episode has a featured image that is square, then use that
+		 * Option 2: if the episode belongs to a series, which has an image that is square, then use that
 		 */
-		$thumb_id = get_post_thumbnail_id( $episode_id );
-		if ( ! empty( $thumb_id ) ) {
-			$image_data_array = $this->return_renamed_image_array_keys( wp_get_attachment_image_src( $thumb_id, 'medium' ) );
-			if ( $this->check_image_is_square( $image_data_array ) ) {
-				return $image_data_array;
-			}
-		}
-
-		/**
-		 * Option 3: if the episode belongs to a series, which has an image that is square, then use that
-		 */
-		$series_id    = false;
-		$series_image = '';
-
-		$series = get_the_terms( $episode_id, 'series' );
-
-		/**
-		 * In some instances, this could return a WP_Error object
-		 */
-		if ( ! is_wp_error( $series ) && $series ) {
-			$series_id = ( isset( $series[0] ) ) ? $series[0]->term_id : false;
-		}
+		$series_id  = $this->episode_repository->get_episode_series_id( $episode_id );
 
 		if ( $series_id ) {
-			$series_image = get_option( "ss_podcasting_data_image_{$series_id}", false );
+			$series_image_attachment_id = get_term_meta( $series_id, $this->token . '_series_image_settings', true );
 		}
 
-		if ( $series_image ) {
-			$series_image_attachment_id = ssp_get_image_id_from_url( $series_image );
-			$image_data_array           = $this->return_renamed_image_array_keys( wp_get_attachment_image_src( $series_image_attachment_id, 'medium' ) );
-			if ( $this->check_image_is_square( $image_data_array ) ) {
+		if ( ! empty( $series_image_attachment_id ) ) {
+			$image_data_array = ssp_get_attachment_image_src( $series_image_attachment_id, $size );
+			if ( ssp_is_image_square( $image_data_array ) ) {
 				return $image_data_array;
 			}
 		}
 
 		/**
-		 * Option 4: if the feed settings have an image that is square, then use that
+		 * Option 3: if the series feed settings have an image that is square, then use that
+		 */
+		if ( $series_id ) {
+			$feed_image = get_option( 'ss_podcasting_data_image_' . $series_id, false );
+		}
+
+		if ( ! empty( $feed_image ) ) {
+			$feed_image_attachment_id = attachment_url_to_postid( $feed_image );
+			$image_data_array         = ssp_get_attachment_image_src( $feed_image_attachment_id, $size );
+			if ( ssp_is_image_square( $image_data_array ) ) {
+				return $image_data_array;
+			}
+		}
+
+		/**
+		 * Option 4: if the default feed settings have an image that is square, then use that
 		 */
 		$feed_image = get_option( 'ss_podcasting_data_image', false );
 		if ( $feed_image ) {
-			$feed_image_attachment_id = ssp_get_image_id_from_url( $feed_image );
-			$image_data_array         = $this->return_renamed_image_array_keys( wp_get_attachment_image_src( $feed_image_attachment_id, 'medium' ) );
-			if ( $this->check_image_is_square( $image_data_array ) ) {
+			$feed_image_attachment_id = attachment_url_to_postid( $feed_image );
+			$image_data_array         = ssp_get_attachment_image_src( $feed_image_attachment_id, $size );
+			if ( ssp_is_image_square( $image_data_array ) ) {
 				return $image_data_array;
 			}
 		}
 
 		/**
-		 * None of the above passed, return the no-album-art image
+		 * Option 5: None of the above passed, return the no-album-art image
 		 */
 		return $this->get_no_album_art_image_array();
 	}
@@ -262,7 +230,7 @@ class Episode_Controller extends Controller {
 		if ( ! empty( $episode_ids ) ) {
 			$args = array(
 				'include'        => array_values( $episode_ids ),
-				'post_type'      => 'podcast',
+				'post_type'      => SSP_CPT_PODCAST,
 				'numberposts'    => -1
 			);
 
@@ -275,7 +243,7 @@ class Episode_Controller extends Controller {
 
 		$episodes_template_data = apply_filters( 'episode_list_data', $episodes_template_data );
 
-		return $this->renderer->render( $episodes_template_data, 'episodes/episode-list' );
+		return $this->renderer->render_deprecated( $episodes_template_data, 'episodes/episode-list' );
 	}
 
 	/**
@@ -284,25 +252,29 @@ class Episode_Controller extends Controller {
 	 *
 	 * @param $settings
 	 *
-	 * @return mixed|void
+	 * @return string
 	 */
-	public function render_episodes($settings) {
-		$player       = new Players_Controller( $this->file, $this->version );
-		$args  = array(
-			'post_type'      => 'podcast',
+	public function render_episodes( $settings ) {
+		global $ss_podcasting;
+		$player = $ss_podcasting->players_controller;
+		$paged  = get_query_var( 'paged' );
+
+		$args = array(
+			'post_type'      => SSP_CPT_PODCAST,
 			'posts_per_page' => 10,
+			'paged'          => $paged ?: 1,
 		);
 
 		$episodes               = new WP_Query( $args );
 		$episodes_template_data = array(
-			'player' => $player,
+			'player'   => $player,
 			'episodes' => $episodes,
 			'settings' => $settings,
 		);
 
 		$episodes_template_data = apply_filters( 'episode_list_data', $episodes_template_data );
 
-		return $this->renderer->render( $episodes_template_data, 'episodes/all-episodes-list' );
+		return $this->renderer->fetch( 'episodes/all-episodes-list', $episodes_template_data );
 	}
 
 	/**
@@ -334,7 +306,7 @@ class Episode_Controller extends Controller {
 	public function render_recent_episodes() {
 		$template_data = $this->recent_episodes();
 
-		return $this->renderer->render( $template_data, 'episodes/recent-episodes' );
+		return $this->renderer->render_deprecated( $template_data, 'episodes/recent-episodes' );
 	}
 
 }

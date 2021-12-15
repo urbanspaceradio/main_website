@@ -1,6 +1,7 @@
 <?php
 
 use SeriouslySimplePodcasting\Handlers\Castos_Handler;
+use SeriouslySimplePodcasting\Handlers\Images_Handler;
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -241,7 +242,7 @@ if ( ! function_exists( 'ss_podcast' ) ) {
 
 					setup_postdata( $post );
 
-					$class = 'podcast';
+					$class = SSP_CPT_PODCAST;
 
 					$title = get_the_title();
 					if ( 'true' === $args['link_title'] ) {
@@ -269,7 +270,7 @@ if ( ! function_exists( 'ss_podcast' ) ) {
 					$template = $tpl;
 					$i ++;
 
-					$class = 'podcast';
+					$class = SSP_CPT_PODCAST;
 
 					$title = $series->title;
 					if ( 'true' === $args['link_title'] ) {
@@ -324,7 +325,7 @@ if ( ! function_exists( 'ssp_episode_ids' ) ) {
 
 		// Setup the default args
 		$args = array(
-			'post_type'      => array( 'podcast' ),
+			'post_type'      => array( SSP_CPT_PODCAST ),
 			'post_status'    => 'publish',
 			'posts_per_page' => - 1,
 			'fields'         => 'ids',
@@ -471,7 +472,7 @@ if ( ! function_exists( 'ssp_post_types' ) ) {
 
 		// Add `podcast` post type to array if required
 		if ( $include_podcast ) {
-			$podcast_post_types[] = 'podcast';
+			$podcast_post_types[] = SSP_CPT_PODCAST;
 		}
 
 		if ( $verify ) {
@@ -501,10 +502,11 @@ if ( ! function_exists( 'ssp_get_feed_category_output' ) ) {
 	 * Get the XML markup for the feed category at the specified level
 	 *
 	 * @param int $level Category level
+	 * @param int $series_id
 	 *
 	 * @return string        XML output for feed vategory
 	 */
-	function ssp_get_feed_category_output( $level = 1, $series_id ) {
+	function ssp_get_feed_category_output( $level, $series_id ) {
 
 		$level = (int) $level;
 
@@ -903,6 +905,8 @@ if ( ! function_exists( 'ssp_setup_upload_credentials' ) ) {
 if ( ! function_exists( 'ssp_get_image_id_from_url' ) ) {
 	/**
 	 * Get image ID when only the URL of the image is known
+	 * @deprecated Do not use this function. Use attachment_url_to_postid() instead
+	 * @todo: remove it in the next versions
 	 *
 	 * @param $image_url
 	 *
@@ -1092,6 +1096,16 @@ if ( ! function_exists( 'get_series_data_for_castos' ) ) {
 		$podcast['itunes']      = get_option( 'ss_podcasting_itunes_url_' . $series_id, '' );
 		$podcast['google_play'] = get_option( 'ss_podcasting_google_play_url_' . $series_id, '' );
 
+		if ( $series_id ) {
+			$guid = get_option( 'ss_podcasting_data_guid_' . $series_id );
+		} else {
+			$guid = get_option( 'ss_podcasting_data_guid' );
+		}
+
+		if( $guid ){
+			$podcast['guid'] = $guid;
+		}
+
 		return $podcast;
 
 	}
@@ -1159,5 +1173,203 @@ if ( ! function_exists( 'ssp_is_elementor_ok' ) ) {
 			return true;
 		}
 		return false;
+	}
+}
+
+/**
+ * Checks if the feed image is valid
+ */
+if ( ! function_exists( 'ssp_is_feed_image_valid' ) ) {
+	/**
+	 * @param string $image_url
+	 *
+	 * @return bool
+	 */
+	function ssp_is_feed_image_valid( $image_url ) {
+		global $images_handler; /** @var Images_Handler $images_handler */
+		return $images_handler->is_feed_image_valid( $image_url );
+	}
+}
+
+/**
+ * Checks if the image is square
+ */
+if ( ! function_exists( 'ssp_is_image_square' ) ) {
+	/**
+	 * @param array $image_data_array Converted image data array with width and height keys
+	 *
+	 * @return bool
+	 * */
+	function ssp_is_image_square( $image_data_array = array() ) {
+		global $images_handler; /** @var Images_Handler $images_handler */
+		return $images_handler->is_image_square( $image_data_array );
+	}
+}
+
+
+/**
+ * Almost the same function as wp_get_attachment_image_src(), but returning the associative human readable array
+ */
+if ( ! function_exists( 'ssp_get_attachment_image_src' ) ) {
+	/**
+	 * @param int $attachment_id
+	 * @param string $size
+	 *
+	 * @return array
+	 */
+	function  ssp_get_attachment_image_src( $attachment_id, $size = "full" ) {
+		global $images_handler; /** @var Images_Handler $images_handler */
+		return $images_handler->get_attachment_image_src( $attachment_id, $size  );
+	}
+}
+
+
+/**
+ * Get the episode content for showing in the feed. Now Apple supports only p tags.
+ * This function removes iframes and shortcodes from the content and strips all tags except <p> and <a>
+ */
+if ( ! function_exists( 'ssp_get_the_feed_item_content' ) ) {
+	/**
+	 * @return string
+	 */
+	function ssp_get_the_feed_item_content() {
+		$content = get_the_content();
+		$blocks  = parse_blocks( $content );
+
+		/**
+		 * The same as in @see excerpt_remove_blocks() plus 'core/block',
+		 * */
+		if ( $blocks and is_array( $blocks ) ) {
+			$content = '';
+			$allowed_blocks = [
+				null,
+				'core/freeform',
+				'core/heading',
+				'core/html',
+				'core/list',
+				'core/media-text',
+				'core/paragraph',
+				'core/preformatted',
+				'core/pullquote',
+				'core/quote',
+				'core/table',
+				'core/verse',
+				'core/columns',
+				'core/block',
+			];
+
+			$allowed_blocks = apply_filters( 'ssp_feed_item_content_allowed_blocks', $allowed_blocks );
+
+			foreach ( $blocks as $block ) {
+				if ( in_array( $block['blockName'], $allowed_blocks ) ) {
+					$content .= render_block( $block );
+				}
+			}
+		} else {
+			$content = get_the_content_feed( 'rss2' );
+		}
+
+		$content = strip_shortcodes( $content );
+		$content = preg_replace( '/<\/?iframe(.|\s)*?>/', '', $content );
+		$content = str_replace( '<br>', PHP_EOL, $content );
+		$content = strip_tags( $content, '<p>,<a>,<ul>,<ol>,<li>' );
+
+		// Remove empty paragraphs as well.
+		$content = trim( str_replace( '<p></p>', '', $content ) );
+
+		return apply_filters( 'ssp_feed_item_content', $content, get_the_ID() );
+	}
+}
+
+/**
+ * Get the episode content for showing in the feed. Now Apple supports only p tags.
+ * This function removes iframes and shortcodes from the content and strips all tags except <p> and <a>
+ */
+if ( ! function_exists( 'ssp_get_episode_excerpt' ) ) {
+	/**
+	 * @param int|WP_Post $episode
+	 *
+	 * @return string
+	 */
+	function ssp_get_episode_excerpt( $episode ) {
+		$episode = get_post( $episode );
+		$excerpt = get_the_excerpt( $episode );
+
+		$num_words = apply_filters( 'ssp_episode_excerpt_num_words', 50 );
+
+		$excerpt = wp_trim_words( $excerpt, $num_words );
+
+		return apply_filters( 'ssp_get_episode_excerpt', $excerpt, $episode );
+	}
+}
+
+
+/**
+ * Get the feed url by its slug
+ */
+if ( ! function_exists( 'ssp_get_feed_url' ) ) {
+	/**
+	 * @param string $series_slug
+	 *
+	 * @return string
+	 * @since 2.8.2
+	 */
+	function ssp_get_feed_url( $series_slug = '' ) {
+
+		$feed_series = $series_slug ? $series_slug : 'default';
+
+		$permalink_structure = get_option( 'permalink_structure' );
+
+		$home_url = trailingslashit( home_url() );
+
+		if ( $permalink_structure ) {
+			$feed_slug = apply_filters( 'ssp_feed_slug', SSP_CPT_PODCAST );
+			$feed_url  = $home_url . 'feed/' . $feed_slug;
+		} else {
+			$feed_url = $home_url . '?feed=' . SSP_CPT_PODCAST;
+		}
+
+		if ( $feed_series && 'default' !== $feed_series ) {
+			if ( $permalink_structure ) {
+				$feed_url .= '/' . $feed_series;
+			} else {
+				$feed_url .= '&podcast_series=' . $feed_series;
+			}
+		}
+
+		return apply_filters( 'ssp_get_feed_url', $feed_url, $series_slug );
+	}
+}
+
+/**
+ * Get the SSP option
+ */
+if ( ! function_exists( 'ssp_get_option' ) ) {
+	/**
+	 * @param string $option
+	 * @param mixed $default
+	 *
+	 * @return string
+	 * @since 2.9.3
+	 */
+	function ssp_get_option( $option, $default = false ) {
+		$option = get_option( 'ss_podcasting_' . $option, $default );
+		return apply_filters( 'ssp_get_option', $option );
+	}
+}
+
+
+/**
+ * Check if it's an ajax action or not
+ */
+if ( ! function_exists( 'ssp_is_ajax' ) ) {
+
+	/**
+	 * Is_ajax - Returns true when the page is loaded via ajax.
+	 *
+	 * @return bool
+	 */
+	function ssp_is_ajax() {
+		return function_exists( 'wp_doing_ajax' ) ? wp_doing_ajax() : defined( 'DOING_AJAX' ) && DOING_AJAX;
 	}
 }

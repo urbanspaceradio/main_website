@@ -2,10 +2,10 @@
 
 namespace SeriouslySimplePodcasting\Integrations\Elementor\Widgets;
 
+use Elementor\Widget_Base;
 use Exception;
-use SeriouslySimplePodcasting\Controllers\Players_Controller;
 
-class Elementor_Subscribe_Buttons_Widget extends \Elementor\Widget_Base {
+class Elementor_Subscribe_Buttons_Widget extends Widget_Base {
 
 	/**
 	 * Class constructor.
@@ -39,27 +39,11 @@ class Elementor_Subscribe_Buttons_Widget extends \Elementor\Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'fa fa-link';
+		return 'eicon-link';
 	}
 
 	public function get_categories() {
 		return [ 'podcasting' ];
-	}
-
-	public function get_episodes() {
-		$args = array(
-			'fields'         => array( 'post_title, id' ),
-			'posts_per_page' => - 1,
-			'post_type'      => 'podcast'
-		);
-
-		$episodes       = get_posts( $args );
-		$episode_options = [];
-		foreach ( $episodes as $episode ) {
-			$episode_options[ $episode->ID ] = $episode->post_title;
-		}
-
-		return $episode_options;
 	}
 
 	protected function _register_controls() {
@@ -127,7 +111,9 @@ class Elementor_Subscribe_Buttons_Widget extends \Elementor\Widget_Base {
 			$episode_id = $posts[0]->ID;
 		}
 
-		$player = new Players_Controller( __FILE__, SSP_VERSION );
+		global $ss_podcasting;
+		$player = $ss_podcasting->players_controller;
+
 		echo $player->render_subscribe_buttons( $episode_id );
 	}
 
