@@ -35,6 +35,7 @@ $block_contactPage = getBlock_contactPage();
           <li><a href="https://podcasts.apple.com/ua/podcast/urban-space-radio/id1459038329" target="_blank">apple
               podcasts</a></li>
           <li><a href="https://www.youtube.com/channel/UCV5o1ECG2NtdbVJoihPPsQA" target="_blank">YouTube</a></li>
+          <li><a href="https://www.mixcloud.com/UrbanSpaceRadio/" target="_blank">Mixcloud</a></li>
         </ul>
       </div>
       <div class="footer-info_item desktopMenu">
