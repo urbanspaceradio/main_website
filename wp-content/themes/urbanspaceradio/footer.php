@@ -24,6 +24,7 @@ $block_contactPage = getBlock_contactPage();
         <ul>
           <li><a href="https://www.instagram.com/urban_space_radio/" target="_blank">instagram</a></li>
           <li><a href="https://www.facebook.com/urbanspaceradio" target="_blank">facebook</a></li>
+          <li><a href="https://twitter.com/UrbanSpaceRadio" target="_blank">twitter</a></li>
         </ul>
       </div>
       <div class="footer-info_item desktopMenu">
