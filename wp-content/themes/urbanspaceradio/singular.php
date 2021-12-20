@@ -18,7 +18,7 @@ $seasons = getSeasonsMeta($query_vars->ID)['podcasts'];
 			<div class="podcasts-seasons">
            <?php foreach ($seasons as $item) {
              $term_id_img = get_term_meta($item->term_id)['podcast_series_image_settings'][0];
-             $term_img_url = wp_get_attachment_url($term_id_img);
+             $term_img_url = wp_get_attachment_image_src($term_id_img, [300, 300])[0];
              if (!$term_img_url) {
                $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
              }

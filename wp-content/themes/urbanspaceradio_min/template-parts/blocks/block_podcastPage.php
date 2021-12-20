@@ -35,7 +35,7 @@ $years = get_terms(['taxonomy' => 'year', 'hide_empty' => false, 'orderby' => 'n
     <div id="seasons" class="podcasts-seasons">
       <?php $i = 0;
       while ($seasons->have_posts()) : $seasons->the_post();
-        $term_img_url = get_the_post_thumbnail_url(get_the_ID());
+        $term_img_url = get_the_post_thumbnail_url(get_the_ID(), [500, 500]);
         $year = getSeasonsMeta(get_the_ID())['year'];
         if (!$term_img_url) {
           $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';

@@ -18,7 +18,7 @@ $partner_title_4 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partne
 $partner_img_4 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_4_img'][0];
 $partner_description = get_term_meta($series[0]->term_id)['podcasts_meta_info_partner_description'][0];
 
-$term_img_url = wp_get_attachment_url($term_id_img);
+$term_img_url = wp_get_attachment_image_src($term_id_img, [500, 500])[0];
 if (!$term_img_url) {
   $term_img_url = get_template_directory_uri() . '/assets/img/no_img.png';
 }
@@ -70,7 +70,7 @@ $episodes = get_episode($series[0]->term_id);
 				  <div class="episode-items_item">
 					  <div class="episode-mobile">
 						  <div class="img">
-							  <img alt="Img" src="<?php echo get_the_post_thumbnail_url($episode->ID); ?>"/>
+							  <img alt="Img" src="<?php echo get_the_post_thumbnail_url($episode->ID, [300, 300]); ?>"/>
 						  </div>
 						  <h3><?php echo $episode_title; ?></h3>
 					  </div>
