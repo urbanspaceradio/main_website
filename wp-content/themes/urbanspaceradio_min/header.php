@@ -57,7 +57,7 @@ defined('ABSPATH') || exit;
 <!-- End Google Tag Manager (noscript)-->
 <div class="preLoader">
 	<div class="preLoader-img">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.gif" alt="">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img_xmas.gif" alt="">
 	</div>
 </div>
 <header class="headerWrapper">
