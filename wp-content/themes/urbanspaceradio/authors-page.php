@@ -26,7 +26,7 @@ $authors = getAuthors();
 						  </div>
 						  <div class="side back">
 							  <h2><?php the_title(); ?></h2>
-							  <p><?php echo wp_trim_words(get_the_excerpt(), 5); ?></p>
+							  <p><?php echo wp_trim_words(get_the_excerpt(), 12); ?></p>
 						  </div>
 					  </div>
 				  </a>
