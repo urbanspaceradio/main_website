@@ -1880,6 +1880,10 @@ audio {
     padding: 20px 30px!important;
 }
 
+page_partres_header-block {
+    margin: 70px auto;
+}
+
 @media screen and (max-width: 1300px) {
     .new-photos_slider {
         max-width: 900px;
@@ -1978,6 +1982,10 @@ audio {
 
     .partners .header-mainText p:last-child {
         padding-bottom: 15px;
+    }
+
+    .partners .header-mainText.page_partres_header-block p:last-child {
+        padding-bottom: 55px;
     }
 
     .new .slick-next:before,
