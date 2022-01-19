@@ -14,7 +14,7 @@ $partners = getPartner();
     <div class="btn-greenHover btn-green-main btn-partners-page">
       <a href="https://business-proposal.urbanspaceradio.com/" target="_blank">деталі про співпрацю</a>
     </div>
-		<section class="partners-items">
+		<section class="partners-items" id="partners-mobile">
         <?php while ($partners->have_posts()) : $partners->the_post();
           $photoOurTeamUrl = get_the_post_thumbnail_url($partners->ID);
           if (!$photoOurTeamUrl) {

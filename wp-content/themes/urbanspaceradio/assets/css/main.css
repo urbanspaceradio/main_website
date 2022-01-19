@@ -1626,6 +1626,9 @@ audio {
     justify-content: space-evenly;
     margin: 5vw 0 0;
 }
+#partners-mobile {
+    margin-top: 25px;
+}
 
 .partner-header_mainText h1 {
     margin-top: 50px;
