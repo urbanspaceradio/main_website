@@ -57,14 +57,14 @@ defined('ABSPATH') || exit;
 <!-- End Google Tag Manager (noscript)-->
 <div class="preLoader">
 	<div class="preLoader-img">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img_xmas.gif" alt="">
+		<img src="<?php echo get_template_directory_uri(); ?>/assets/img/preloader_img.gif" alt="">
 	</div>
 </div>
 <header class="headerWrapper">
 	<div class="siteWrapper header">
 		<div class="header-logo">
 			<a href="<?php echo home_url() ?>">
-				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo-uxr.svg">
+				<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoDark.svg">
 			</a>
 		</div>
 		<nav>
