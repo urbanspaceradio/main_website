@@ -14,7 +14,6 @@ use AIOSEO\Plugin\Common\Meta;
  * @since 4.0.0
  */
 class Head {
-
 	/**
 	 * The page title.
 	 *
@@ -108,6 +107,7 @@ class Head {
 			return self::$pageTitle;
 		}
 		self::$pageTitle = aioseo()->meta->title->filterPageTitle( $wpTitle );
+
 		return self::$pageTitle;
 	}
 

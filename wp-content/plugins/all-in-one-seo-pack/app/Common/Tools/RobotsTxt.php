@@ -17,11 +17,11 @@ class RobotsTxt {
 	public function __construct() {
 		add_filter( 'robots_txt', [ $this, 'buildRules' ], 10000, 2 );
 
-		// If our tables do not exist, create them now.
-		if ( ! aioseo()->db->tableExists( 'aioseo_notifications' ) ) {
-			aioseo()->updates->addInitialCustomTablesForV4();
+		if ( ! is_admin() ) {
+			return;
 		}
-		$this->checkForPhysicalFiles();
+
+		add_action( 'init', [ $this, 'checkForPhysicalFiles' ] );
 	}
 
 	/**
@@ -39,7 +39,6 @@ class RobotsTxt {
 		}
 
 		$original      = explode( "\n", $original );
-		$sitemapUrls   = implode( "\r\n", array_merge( aioseo()->sitemap->helpers->getSitemapUrls(), $this->extractSitemapUrls( $original ) ) );
 		$originalRules = $this->extractRules( $original );
 		$networkRules  = [];
 		if ( is_multisite() ) {
@@ -53,13 +52,14 @@ class RobotsTxt {
 		if ( ! aioseo()->options->tools->robots->enable ) {
 			$networkAndOriginal = $this->mergeRules( $originalRules, $this->parseRules( $networkRules ) );
 			$networkAndOriginal = $this->robotsArrayUnique( $networkAndOriginal );
-			return $this->stringify( $networkAndOriginal ) . "\r\n" . $sitemapUrls;
+
+			return $this->stringify( $networkAndOriginal, $original );
 		}
 
 		$allRules = $this->mergeRules( $originalRules, $this->mergeRules( $this->parseRules( $networkRules ), $this->parseRules( aioseo()->options->tools->robots->rules ) ), true );
 		$allRules = $this->robotsArrayUnique( $allRules );
 
-		return $this->stringify( $allRules ) . "\r\n" . $sitemapUrls;
+		return $this->stringify( $allRules, $original );
 	}
 
 	/**
@@ -84,91 +84,9 @@ class RobotsTxt {
 				continue;
 			}
 
-			foreach ( $rules['allow'] as $index1 => $path ) {
-				$index2 = array_search( $path, $rules1[ $userAgent ]['disallow'], true );
-				if ( false !== $index2 && ! $allowDuplicates ) {
-					if ( $allowOverride ) {
-						unset( $rules1[ $userAgent ]['disallow'][ $index2 ] );
-					} else {
-						unset( $rules2[ $userAgent ]['allow'][ $index1 ] );
-					}
-				}
+			list( $rules1, $rules2 ) = $this->mergeRulesHelper( 'allow', $userAgent, $rules, $rules1, $rules2, $allowDuplicates, $allowOverride );
 
-				$pattern = '^' . str_replace(
-					[
-						'.',
-						'/',
-						'*'
-					],
-					[
-						'\.',
-						'\/',
-						'(.*)'
-					],
-					$path
-				) . '$';
-
-				foreach ( $rules1[ $userAgent ]['allow'] as $p ) {
-					$matches = [];
-					preg_match( "/{$pattern}/", $p, $matches );
-				}
-
-				if ( ! empty( $matches ) && ! $allowDuplicates ) {
-					unset( $rules2[ $userAgent ]['allow'][ $index1 ] );
-				}
-
-				foreach ( $rules1[ $userAgent ]['disallow'] as $p ) {
-					$matches = [];
-					preg_match( "/{$pattern}/", $p, $matches );
-				}
-
-				if ( ! empty( $matches ) && ! $allowDuplicates ) {
-					unset( $rules2[ $userAgent ]['allow'][ $index1 ] );
-				}
-			}
-
-			foreach ( $rules['disallow'] as $index1 => $path ) {
-				$index2 = array_search( $path, $rules1[ $userAgent ]['allow'], true );
-				if ( false !== $index2 && ! $allowDuplicates ) {
-					if ( $allowOverride ) {
-						unset( $rules1[ $userAgent ]['allow'][ $index2 ] );
-					} else {
-						unset( $rules2[ $userAgent ]['disallow'][ $index1 ] );
-					}
-				}
-
-				$pattern = '^' . str_replace(
-					[
-						'.',
-						'/',
-						'*'
-					],
-					[
-						'\.',
-						'\/',
-						'(.*)'
-					],
-					$path
-				) . '$';
-
-				foreach ( $rules1[ $userAgent ]['disallow'] as $p ) {
-					$matches = [];
-					preg_match( "/{$pattern}/", $p, $matches );
-				}
-
-				if ( ! empty( $matches ) && ! $allowDuplicates ) {
-					unset( $rules2[ $userAgent ]['disallow'][ $index1 ] );
-				}
-
-				foreach ( $rules1[ $userAgent ]['allow'] as $p ) {
-					$matches = [];
-					preg_match( "/{$pattern}/", $p, $matches );
-				}
-
-				if ( ! empty( $matches ) && ! $allowDuplicates ) {
-					unset( $rules2[ $userAgent ]['disallow'][ $index1 ] );
-				}
-			}
+			list( $rules1, $rules2 ) = $this->mergeRulesHelper( 'disallow', $userAgent, $rules, $rules1, $rules2, $allowDuplicates, $allowOverride );
 
 			$allow = array_merge(
 				array_values( $rules1[ $userAgent ]['allow'] ),
@@ -181,19 +99,84 @@ class RobotsTxt {
 				array_values( $rules2[ $userAgent ]['disallow'] )
 			);
 			$rules1[ $userAgent ]['disallow'] = array_unique( $disallow );
-
 		}
 
 		return $rules1;
 	}
 
 	/**
+	 * Helper function for mergeRules().
+	 *
+	 * @since 4.1.2
+	 *
+	 * @param  string $directive       The directive (allow/disallow).
+	 * @param  string $userAgent       The user agent.
+	 * @param  array  $rules           The rules.
+	 * @param  array  $rules1          The original rules.
+	 * @param  array  $rules2          The extra rules.
+	 * @param  bool   $allowDuplicates Whether duplicates should be allowed
+	 * @param  bool   $allowOverride   Whether the extra rules can override the original ones.
+	 * @return array                   The original and extra rules.
+	 */
+	private function mergeRulesHelper( $directive, $userAgent, $rules, $rules1, $rules2, $allowDuplicates, $allowOverride ) {
+		$otherDirective = ( 'allow' === $directive ) ? 'disallow' : 'allow';
+
+		foreach ( $rules[ $directive ] as $index1 => $path ) {
+			$index2 = array_search( $path, $rules1[ $userAgent ][ $otherDirective ], true );
+			if ( false !== $index2 && ! $allowDuplicates ) {
+				if ( $allowOverride ) {
+					unset( $rules1[ $userAgent ][ $otherDirective ][ $index2 ] );
+				} else {
+					unset( $rules2[ $userAgent ][ $directive ][ $index1 ] );
+				}
+			}
+
+			$pattern = '^' . str_replace(
+				[
+					'.',
+					'/',
+					'*',
+					'?'
+				],
+				[
+					'\.',
+					'\/',
+					'(.*)',
+					'\?'
+				],
+				$path
+			) . '$';
+
+			foreach ( $rules1[ $userAgent ][ $directive ] as $p ) {
+				$matches = [];
+				preg_match( "/{$pattern}/", $p, $matches );
+			}
+
+			if ( ! empty( $matches ) && ! $allowDuplicates ) {
+				unset( $rules2[ $userAgent ][ $directive ][ $index1 ] );
+			}
+
+			foreach ( $rules1[ $userAgent ][ $otherDirective ] as $p ) {
+				$matches = [];
+				preg_match( "/{$pattern}/", $p, $matches );
+			}
+
+			if ( ! empty( $matches ) && ! $allowDuplicates ) {
+				unset( $rules2[ $userAgent ][ $directive ][ $index1 ] );
+			}
+		}
+
+		return [ $rules1, $rules2 ];
+	}
+
+	/**
 	 * Stringifies the parsed rules.
 	 *
 	 * @param  array  $allRules The rules array.
+	 * @param  string $original The original robots.txt content.
 	 * @return string           The stringified rules.
 	 */
-	private function stringify( $allRules ) {
+	private function stringify( $allRules, $original ) {
 		$robots = [];
 		foreach ( $allRules as $agent => $rules ) {
 			if ( empty( $agent ) ) {
@@ -214,7 +197,16 @@ class RobotsTxt {
 
 			$robots[] = '';
 		}
-		return implode( "\r\n", $robots );
+
+		$robots = implode( "\r\n", $robots ) . "\r\n";
+
+		$sitemapUrls = array_merge( aioseo()->sitemap->helpers->getSitemapUrls(), $this->extractSitemapUrls( $original ) );
+		if ( ! empty( $sitemapUrls ) ) {
+			$sitemapUrls = implode( "\r\n", $sitemapUrls );
+			$robots     .= $sitemapUrls . "\r\n\r\n";
+		}
+
+		return $robots;
 	}
 
 	/**
@@ -250,7 +242,7 @@ class RobotsTxt {
 	 * @param  array $lines The lines to extract from.
 	 * @return array        An array of extracted rules.
 	 */
-	private function extractRules( $lines ) {
+	public function extractRules( $lines ) {
 		$rules     = [];
 		$userAgent = null;
 		foreach ( $lines as $line ) {
@@ -305,6 +297,7 @@ class RobotsTxt {
 				$sitemapUrls[] = trim( $line );
 			}
 		}
+
 		return $sitemapUrls;
 	}
 
@@ -340,7 +333,7 @@ class RobotsTxt {
 	 *
 	 * @return void
 	 */
-	private function checkForPhysicalFiles() {
+	public function checkForPhysicalFiles() {
 		if ( ! $this->hasPhysicalRobotsTxt() ) {
 			return;
 		}
@@ -398,6 +391,20 @@ class RobotsTxt {
 		$currentRules = $this->parseRules( aioseo()->options->tools->robots->rules );
 		$allRules     = $this->mergeRules( $currentRules, $allRules, false, true );
 
+		aioseo()->options->tools->robots->rules = aioseo()->robotsTxt->prepareRobotsTxt( $allRules );
+
+		return true;
+	}
+
+	/**
+	 * Prepare robots.txt rules to save.
+	 *
+	 * @since 4.1.4
+	 *
+	 * @param  array $allRules Array with the rules.
+	 * @return array           The prepared rules array.
+	 */
+	public function prepareRobotsTxt( $allRules = [] ) {
 		$robots = [];
 		foreach ( $allRules as $userAgent => $rules ) {
 			if ( empty( $userAgent ) ) {
@@ -426,9 +433,7 @@ class RobotsTxt {
 			}
 		}
 
-		aioseo()->options->tools->robots->rules = $robots;
-
-		return true;
+		return $robots;
 	}
 
 	/**
@@ -461,6 +466,7 @@ class RobotsTxt {
 	public function deletePhysicalRobotsTxt() {
 		$wpfs = aioseo()->helpers->wpfs();
 		$file = trailingslashit( $wpfs->abspath() ) . 'robots.txt';
+
 		return @$wpfs->delete( $file );
 	}
 

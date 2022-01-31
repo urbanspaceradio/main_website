@@ -11,7 +11,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 4.0.0
  */
-class Usage {
+abstract class Usage {
+	/**
+	 * Returns the current plugin version type ("lite" or "pro").
+	 *
+	 * @since 4.1.3
+	 *
+	 * @return string The version type.
+	 */
+	abstract public function getType();
+
 	/**
 	 * Source of notifications content.
 	 *
@@ -50,9 +59,8 @@ class Usage {
 		try {
 			$action = 'aioseo_send_usage_data';
 			if ( ! $this->enabled ) {
-				if ( as_next_scheduled_action( $action ) ) {
-					as_unschedule_action( $action, [], 'aioseo' );
-				}
+				aioseo()->helpers->unscheduleAction( $action );
+
 				return;
 			}
 
@@ -118,7 +126,7 @@ class Usage {
 	 *
 	 * @return array An array of data to send.
 	 */
-	private function getData() {
+	protected function getData() {
 		$themeData = wp_get_theme();
 		$type      = $this->getType();
 
@@ -196,6 +204,7 @@ class Usage {
 				if ( isset( $plugin['Version'] ) ) {
 					return $plugin['Version'];
 				}
+
 				return 'Not Set';
 			},
 			$plugins

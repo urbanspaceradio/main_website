@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-develop',
+    'version' => 'dev-develop',
     'aliases' => 
     array (
     ),
-    'reference' => 'ea3e2f546be98df6bbad534db9e5828c11f4f115',
+    'reference' => 'fecac1fc4467810769f946bc40a51adb0ea46e52',
     'name' => 'castos/seriously-simple-podcasting',
   ),
   'versions' => 
   array (
     'castos/seriously-simple-podcasting' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-develop',
+      'version' => 'dev-develop',
       'aliases' => 
       array (
       ),
-      'reference' => 'ea3e2f546be98df6bbad534db9e5828c11f4f115',
+      'reference' => 'fecac1fc4467810769f946bc40a51adb0ea46e52',
     ),
   ),
 );

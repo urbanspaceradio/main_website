@@ -12,7 +12,6 @@ use AIOSEO\Plugin\Common\Models;
  * Registers notifications for removed filters.
  */
 class Filter {
-
 	/**
 	 * Class constructor.
 	 *
@@ -146,7 +145,8 @@ class Filter {
 			'aiosp_google_analytics',
 			'aioseop_ga_extra_options',
 			'aioseop_pro_gtm_enabled',
-			'aioseop_ga_attributes'
+			'aioseop_ga_attributes',
+			'aioseo_social_meta_tags'
 		];
 
 		$inUse = [];
@@ -169,6 +169,7 @@ class Filter {
 			}
 
 			Models\Notification::deleteNotificationByName( 'deprecated-filters-v2' );
+
 			return;
 		}
 

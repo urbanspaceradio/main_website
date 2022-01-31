@@ -15,7 +15,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Social {
 
-
 	/**
 	 * Class constructor.
 	 *
@@ -31,7 +30,6 @@ class Social {
 		$this->facebook = new Facebook();
 		$this->twitter  = new Twitter();
 		$this->output   = new Output();
-		$this->helpers  = new Helpers();
 
 		$this->hooks();
 	}
@@ -76,6 +74,7 @@ class Social {
 			}
 			$contactMethods['aioseo_facebook'] = 'Facebook'; // @TODO: Will need to migrate these from old installs. `facebook` becomes `aioseo_facebook`
 		}
+
 		return $contactMethods;
 	}
 
@@ -134,6 +133,7 @@ class Social {
 				$htmlTag .= "\n\t$attr ";
 			}
 		}
+
 		return $htmlTag;
 	}
 

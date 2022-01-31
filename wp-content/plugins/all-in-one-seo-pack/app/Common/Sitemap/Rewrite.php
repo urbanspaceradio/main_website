@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 4.0.0
  */
 class Rewrite {
-
 	/**
 	 * Returns our sitemap rewrite rules.
 	 *
@@ -23,7 +22,7 @@ class Rewrite {
 	private static function getRewriteRules() {
 		$rules = [];
 
-		foreach ( aioseo()->sitemap->addons as $addon => $classes ) {
+		foreach ( aioseo()->sitemap->addons as $classes ) {
 			if ( ! empty( $classes['rewrite'] ) ) {
 				$rules += $classes['rewrite']->get();
 			}
@@ -127,6 +126,7 @@ class Rewrite {
 		if ( $update ) {
 			update_option( 'rewrite_rules', $rules );
 		}
+
 		return $rules;
 	}
 }

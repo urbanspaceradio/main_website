@@ -12,7 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 4.0.0
  */
 class Robots {
-
 	/**
 	 * The robots meta tag attributes.
 	 *
@@ -41,8 +40,22 @@ class Robots {
 	 * @since 4.0.16
 	 */
 	public function __construct() {
+		add_action( 'wp_loaded', [ $this, 'unregisterWooCommerceNoindex' ] );
 		add_action( 'template_redirect', [ $this, 'noindexFeed' ] );
 		add_action( 'wp_head', [ $this, 'disableWpRobotsCore' ], -1 );
+	}
+
+	/**
+	 * Prevents WooCommerce from noindexing the Cart/Checkout pages.
+	 *
+	 * @since 4.1.3
+	 *
+	 * @return void
+	 */
+	public function unregisterWooCommerceNoindex() {
+		if ( has_action( 'wp_head', 'wc_page_noindex' ) ) {
+			remove_action( 'wp_head', 'wc_page_noindex' );
+		}
 	}
 
 	/**
@@ -71,7 +84,7 @@ class Robots {
 			return;
 		}
 
-		header( 'X-Robots-Tag: index, follow', true );
+		header( 'X-Robots-Tag: noindex, follow', true );
 	}
 
 	/**
@@ -86,33 +99,34 @@ class Robots {
 			return $this->term();
 		}
 
-		if ( ! get_option( 'blog_public' ) || $this->isNoindexedWooCommercePage() ) {
-			return false;
-		}
-
 		if ( is_home() && 'posts' === get_option( 'show_on_front' ) ) {
 			$this->globalValues();
+
 			return $this->metaHelper();
 		}
 
 		$post = aioseo()->helpers->getPost();
 		if ( $post ) {
 			$this->post();
+
 			return $this->metaHelper();
 		}
 
 		if ( is_author() ) {
 			$this->globalValues( [ 'archives', 'author' ] );
+
 			return $this->metaHelper();
 		}
 
 		if ( is_date() ) {
 			$this->globalValues( [ 'archives', 'date' ] );
+
 			return $this->metaHelper();
 		}
 
 		if ( is_search() ) {
 			$this->globalValues( [ 'archives', 'search' ] );
+
 			return $this->metaHelper();
 		}
 
@@ -122,6 +136,7 @@ class Robots {
 
 		if ( is_archive() ) {
 			$this->archives();
+
 			return $this->metaHelper();
 		}
 	}
@@ -158,7 +173,14 @@ class Robots {
 			$this->attributes['noindex'] = '';
 		}
 
+		// Because we prevent WordPress Core from outputting a robots tag in disableWpRobotsCore(), we need to noindex/nofollow non-public sites ourselves.
+		if ( ! get_option( 'blog_public' ) ) {
+			$this->attributes['noindex']  = 'noindex';
+			$this->attributes['nofollow'] = 'nofollow';
+		}
+
 		$this->attributes = apply_filters( 'aioseo_robots_meta', $this->attributes );
+
 		return implode( ', ', array_filter( $this->attributes ) );
 	}
 
@@ -170,17 +192,18 @@ class Robots {
 	 * @return void
 	 */
 	private function post() {
-		$options  = aioseo()->options->noConflict();
-		$post     = aioseo()->helpers->getPost();
-		$metaData = aioseo()->meta->metaData->getMetaData( $post );
+		$dynamicOptions = aioseo()->dynamicOptions->noConflict();
+		$post           = aioseo()->helpers->getPost();
+		$metaData       = aioseo()->meta->metaData->getMetaData( $post );
 
 		if ( ! empty( $metaData ) && ! $metaData->robots_default ) {
 			$this->metaValues( $metaData );
+
 			return;
 		}
 
-		if ( $options->searchAppearance->dynamic->postTypes->has( $post->post_type ) ) {
-			$this->globalValues( [ 'dynamic', 'postTypes', $post->post_type ] );
+		if ( $dynamicOptions->searchAppearance->postTypes->has( $post->post_type ) ) {
+			$this->globalValues( [ 'postTypes', $post->post_type ], true );
 		}
 	}
 
@@ -192,15 +215,17 @@ class Robots {
 	 * @return string The robots meta tag value.
 	 */
 	private function term() {
-		$options  = aioseo()->options->noConflict();
-		$term     = get_queried_object();
+		$dynamicOptions = aioseo()->dynamicOptions->noConflict();
+		$term           = get_queried_object();
 
-		if ( $options->searchAppearance->dynamic->taxonomies->has( $term->taxonomy ) ) {
-			$this->globalValues( [ 'dynamic', 'taxonomies', $term->taxonomy ] );
+		if ( $dynamicOptions->searchAppearance->taxonomies->has( $term->taxonomy ) ) {
+			$this->globalValues( [ 'taxonomies', $term->taxonomy ], true );
+
 			return$this->metaHelper();
 		}
 
 		$this->globalValues();
+
 		return $this->metaHelper();
 	}
 
@@ -212,11 +237,11 @@ class Robots {
 	 * @return void
 	 */
 	private function archives() {
-		$options  = aioseo()->options->noConflict();
-		$postType = get_queried_object();
+		$dynamicOptions = aioseo()->dynamicOptions->noConflict();
+		$postType       = get_queried_object();
 
-		if ( $options->searchAppearance->dynamic->archives->has( $postType->name ) ) {
-			$this->globalValues( [ 'dynamic', 'archives', $postType->name ] );
+		if ( $dynamicOptions->searchAppearance->archives->has( $postType->name ) ) {
+			$this->globalValues( [ 'archives', $postType->name ], true );
 		}
 	}
 
@@ -225,13 +250,14 @@ class Robots {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param  array $optionOrder The order in which the options need to be called to get the relevant robots meta settings.
+	 * @param  array   $optionOrder     The order in which the options need to be called to get the relevant robots meta settings.
+	 * @param  boolean $isDynamicOption Whether this is for a dynamic option.
 	 * @return void
 	 */
-	protected function globalValues( $optionOrder = [] ) {
+	protected function globalValues( $optionOrder = [], $isDynamicOption = false ) {
 		$robotsMeta = [];
 		if ( count( $optionOrder ) ) {
-			$options = aioseo()->options->noConflict()->searchAppearance;
+			$options = $isDynamicOption ? aioseo()->dynamicOptions->noConflict()->searchAppearance : aioseo()->options->noConflict()->searchAppearance;
 			foreach ( $optionOrder as $option ) {
 				if ( ! $options->has( $option, false ) ) {
 					return;
@@ -252,6 +278,8 @@ class Robots {
 			$robotsMeta = aioseo()->options->searchAppearance->advanced->globalRobotsMeta->all();
 		}
 
+		$this->attributes['max-image-preview'] = 'max-image-preview:large';
+
 		if ( $robotsMeta['default'] ) {
 			return;
 		}
@@ -269,10 +297,6 @@ class Robots {
 		if ( $noSnippet ) {
 			$this->attributes['nosnippet'] = 'nosnippet';
 		}
-		$noImageIndex = $robotsMeta['noimageindex'];
-		if ( $noImageIndex ) {
-			$this->attributes['noimageindex'] = 'noimageindex';
-		}
 		if ( $robotsMeta['noodp'] ) {
 			$this->attributes['noodp'] = 'noodp';
 		}
@@ -284,12 +308,19 @@ class Robots {
 			$this->attributes['max-snippet'] = "max-snippet:$maxSnippet";
 		}
 		$maxImagePreview = $robotsMeta['maxImagePreview'];
+		$noImageIndex    = $robotsMeta['noimageindex'];
 		if ( ! $noImageIndex && $maxImagePreview && in_array( $maxImagePreview, [ 'none', 'standard', 'large' ], true ) ) {
 			$this->attributes['max-image-preview'] = "max-image-preview:$maxImagePreview";
 		}
 		$maxVideoPreview = $robotsMeta['maxVideoPreview'];
 		if ( $maxVideoPreview && intval( $maxVideoPreview ) ) {
 			$this->attributes['max-video-preview'] = "max-video-preview:$maxVideoPreview";
+		}
+
+		// Check this last so that we can prevent max-image-preview from being output if noimageindex is enabled.
+		if ( $noImageIndex ) {
+			$this->attributes['max-image-preview'] = '';
+			$this->attributes['noimageindex']      = 'noimageindex';
 		}
 	}
 
@@ -314,9 +345,6 @@ class Robots {
 		if ( $metaData->robots_nosnippet ) {
 			$this->attributes['nosnippet'] = 'nosnippet';
 		}
-		if ( $metaData->robots_noimageindex ) {
-			$this->attributes['noimageindex'] = 'noimageindex';
-		}
 		if ( $metaData->robots_noodp ) {
 			$this->attributes['noodp'] = 'noodp';
 		}
@@ -332,6 +360,12 @@ class Robots {
 		if ( $metaData->robots_max_videopreview && intval( $metaData->robots_max_videopreview ) ) {
 			$this->attributes['max-video-preview'] = "max-video-preview:$metaData->robots_max_videopreview";
 		}
+
+		// Check this last so that we can prevent max-image-preview from being output if noimageindex is enabled.
+		if ( $metaData->robots_noimageindex ) {
+			$this->attributes['max-image-preview'] = '';
+			$this->attributes['noimageindex']      = 'noimageindex';
+		}
 	}
 
 	/**
@@ -343,29 +377,7 @@ class Robots {
 	 */
 	private function isPasswordProtected() {
 		$post = aioseo()->helpers->getPost();
+
 		return is_object( $post ) && $post->post_password;
-	}
-
-	/**
-	 * Checks whether the current page is a noindexed WooCommerce page.
-	 *
-	 * WooCommerce noindexes the Cart, Checkout and My Account pages by default. In this case, we don't need to output another robots meta tag.
-	 *
-	 * @since 4.0.0
-	 *
-	 * @return boolean Whether the current page is an noindexed WooCommerce page.
-	 */
-	private function isNoindexedWooCommercePage() {
-		$post = aioseo()->helpers->getPost();
-		if (
-			! aioseo()->helpers->isWooCommerceActive() ||
-			! is_object( $post ) ||
-			'page' !== $post->post_type ||
-			! has_action( 'wp_head', 'wc_page_noindex' )
-		) {
-			return false;
-		}
-
-		return in_array( get_permalink(), aioseo()->helpers->getNoindexedWooCommercePages(), true );
 	}
 }

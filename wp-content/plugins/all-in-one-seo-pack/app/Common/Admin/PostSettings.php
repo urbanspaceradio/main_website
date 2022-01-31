@@ -23,16 +23,16 @@ class PostSettings {
 	 */
 	public function __construct() {
 		if ( is_admin() ) {
-			// Load Vue APP
+			// Load Vue APP.
 			add_action( 'admin_enqueue_scripts', [ $this, 'enqueuePostSettingsAssets' ] );
 
-			// Add metabox
+			// Add metabox.
 			add_action( 'add_meta_boxes', [ $this, 'addPostSettingsMetabox' ] );
 
-			// Add metabox to terms on init hook
+			// Add metabox to terms on init hook.
 			add_action( 'init', [ $this, 'init' ], 1000 );
 
-			// Save metabox
+			// Save metabox.
 			add_action( 'save_post', [ $this, 'saveSettingsMetabox' ] );
 			add_action( 'edit_attachment', [ $this, 'saveSettingsMetabox' ] );
 			add_action( 'add_attachment', [ $this, 'saveSettingsMetabox' ] );
@@ -71,6 +71,10 @@ class PostSettings {
 				aioseo()->helpers->getVueData( $page )
 			);
 
+			if ( 'post' === $page ) {
+				$this->enqueuePublishPanelAssets();
+			}
+
 			$rtl = is_rtl() ? '.rtl' : '';
 			aioseo()->helpers->enqueueStyle(
 				'aioseo-post-settings-metabox',
@@ -85,6 +89,26 @@ class PostSettings {
 	}
 
 	/**
+	 * Enqueues the JS/CSS for the Block Editor integrations.
+	 *
+	 * @since 4.1.4
+	 *
+	 * @return void
+	 */
+	private function enqueuePublishPanelAssets() {
+		aioseo()->helpers->enqueueScript(
+			'aioseo-publish-panel',
+			'js/publish-panel.js'
+		);
+
+		$rtl = is_rtl() ? '.rtl' : '';
+		aioseo()->helpers->enqueueStyle(
+			'aioseo-publish-panel',
+			"css/publish-panel$rtl.css"
+		);
+	}
+
+	/**
 	 * Adds a meta box to page/posts screens.
 	 *
 	 * @since 4.0.0
@@ -92,24 +116,26 @@ class PostSettings {
 	 * @return void
 	 */
 	public function addPostSettingsMetabox() {
-		$options  = aioseo()->options->noConflict();
-		$screen   = get_current_screen();
-		$postType = $screen->post_type;
+		$dynamicOptions = aioseo()->dynamicOptions->noConflict();
+		$screen         = get_current_screen();
+		$postType       = $screen->post_type;
 
 		$pageAnalysisSettingsCapability = aioseo()->access->hasCapability( 'aioseo_page_analysis' );
 		$generalSettingsCapability      = aioseo()->access->hasCapability( 'aioseo_page_general_settings' );
 		$socialSettingsCapability       = aioseo()->access->hasCapability( 'aioseo_page_social_settings' );
 		$schemaSettingsCapability       = aioseo()->access->hasCapability( 'aioseo_page_schema_settings' );
+		$linkAssistantCapability        = aioseo()->access->hasCapability( 'aioseo_page_link_assistant_settings' );
 		$advancedSettingsCapability     = aioseo()->access->hasCapability( 'aioseo_page_advanced_settings' );
 
 		if (
-			$options->searchAppearance->dynamic->postTypes->has( $postType ) &&
-			$options->searchAppearance->dynamic->postTypes->$postType->advanced->showMetaBox &&
+			$dynamicOptions->searchAppearance->postTypes->has( $postType ) &&
+			$dynamicOptions->searchAppearance->postTypes->$postType->advanced->showMetaBox &&
 			! (
 				empty( $pageAnalysisSettingsCapability ) &&
 				empty( $generalSettingsCapability ) &&
 				empty( $socialSettingsCapability ) &&
 				empty( $schemaSettingsCapability ) &&
+				empty( $linkAssistantCapability ) &&
 				empty( $advancedSettingsCapability )
 			)
 		) {
@@ -133,21 +159,33 @@ class PostSettings {
 	 * @since 4.0.0
 	 *
 	 * @param  WP_Post $post The current post.
-	 * @return string
+	 * @return void
 	 */
 	public function postSettingsMetabox() {
+		$this->postSettingsHiddenField();
+		?>
+		<div id="aioseo-post-settings-metabox">
+			<?php aioseo()->templates->getTemplate( 'parts/loader.php' ); ?>
+		</div>
+		<?php
+	}
+
+	/**
+	 * Adds the hidden field where all the metabox data goes.
+	 *
+	 * @since 4.0.17
+	 *
+	 * @return void
+	 */
+	public function postSettingsHiddenField() {
+		if ( isset( $this->postSettingsHiddenFieldExists ) ) {
+			return;
+		}
+		$this->postSettingsHiddenFieldExists = true;
 		?>
 		<div id="aioseo-post-settings-field">
-			<input type="hidden" name="aioseo-post-settings" id="aioseo-post-settings" value="" />
+			<input type="hidden" name="aioseo-post-settings" id="aioseo-post-settings" value=""/>
 			<?php wp_nonce_field( 'aioseoPostSettingsNonce', 'PostSettingsNonce' ); ?>
-		</div>
-		<div id="aioseo-post-settings-metabox">
-			<div style="height:50px">
-				<div class="aioseo-loading-spinner dark" style="top:calc( 50% - 17px);left:calc( 50% - 17px);">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-			</div>
 		</div>
 		<?php
 	}
@@ -182,6 +220,12 @@ class PostSettings {
 		}
 
 		$currentPost = json_decode( stripslashes( $_POST['aioseo-post-settings'] ), true ); // phpcs:ignore HM.Security.ValidatedSanitizedInput
+
+		// If there is no data, there likely was an error, e.g. if the hidden field wasn't populated on load and the user saved the post without making changes in the metabox.
+		// In that case we should return to prevent a complete reset of the data.
+		if ( empty( $currentPost ) ) {
+			return;
+		}
 
 		Models\Post::savePost( $postId, $currentPost );
 

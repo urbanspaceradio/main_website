@@ -371,34 +371,55 @@ class MonsterInsights_Notifications {
 	public function add( $notification ) {
 
 		if ( empty( $notification['id'] ) ) {
-			return;
+			return false;
 		}
 
 		$option = $this->get_option();
 
 		foreach ( $option['dismissed'] as $item ) {
 			if ( $item['id'] === $notification['id'] ) {
-				return;
+				return false;
 			}
 		}
 
-		foreach ( $option['events'] as $item ) {
+        $current_notifications = $option['events'];
+
+		foreach ( $current_notifications as $item ) {
 			if ( $item['id'] === $notification['id'] ) {
-				return;
+				return false;
 			}
 		}
 
-		$notification = $this->verify( array( $notification ) );
+        //  Show maximum 5 notifications to user, except if new one has priority 1
+		if (sizeof( $current_notifications ) >= 5 && $notification['priority'] != 1) {
+		    return false;
+        }
+
+        $notification = $this->verify( array( $notification ) );
+
+        $notifications = array_merge( $notification, $current_notifications );
+
+        //  Sort notifications by priority
+		usort( $notifications, function( $a, $b ) {
+            if ( $a['priority'] == $b['priority'] ) {
+                return 0;
+            }
+
+            return $a['priority'] < $b['priority'] ? -1 : 1;
+        });
 
 		update_option(
 			$this->option_name,
 			array(
 				'update'    => $option['update'],
 				'feed'      => $option['feed'],
-				'events'    => array_merge( $notification, $option['events'] ),
+				'events'    => $notifications,
 				'dismissed' => $option['dismissed'],
-			)
+			),
+			false
 		);
+
+		return true;
 	}
 
 	/**
@@ -420,7 +441,8 @@ class MonsterInsights_Notifications {
 				'feed'      => $feed,
 				'events'    => $option['events'],
 				'dismissed' => array_slice( $option['dismissed'], 0, 30 ), // Limit dismissed notifications to last 30.
-			)
+			),
+			false
 		);
 	}
 
@@ -472,7 +494,7 @@ class MonsterInsights_Notifications {
 			}
 		}
 
-		update_option( $this->option_name, $option );
+		update_option( $this->option_name, $option, false );
 
 		wp_send_json_success();
 	}
@@ -558,5 +580,19 @@ class MonsterInsights_Notifications {
 		}
 
 		return $url;
+	}
+
+	/**
+	 * Delete the notification options.
+	 */
+	public function delete_notifications_data() {
+
+		delete_option( $this->option_name );
+
+		// Delete old notices option.
+		delete_option( 'monsterinsights_notices' );
+
+		monsterinsights_notification_event_runner()->delete_data();
+
 	}
 }
