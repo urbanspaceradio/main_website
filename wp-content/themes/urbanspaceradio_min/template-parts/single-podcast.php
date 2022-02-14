@@ -34,7 +34,7 @@ $episodes = get_episode($series[0]->term_id);
               <?php echo $series[0]->description; ?>
               <?php if ($term_apple_url || $term_google_url) : ?>
 					  <div class="episode-slider_podcastsBtn">
-						  <p>Обрери свою платформу для прослуховування</p>
+						  <p>Обери свою платформу для прослуховування</p>
                    <?php if ($term_google_url) : ?>
 							 <a class="google" href="<?php echo $term_google_url ?>" target="_blank"></a>
                    <?php endif; ?>
