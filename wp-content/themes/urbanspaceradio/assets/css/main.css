@@ -692,6 +692,8 @@ img {
     z-index: -1;
 }
 
+
+
 .aboutUSR-header {
     display: flex;
     flex-wrap: wrap;
@@ -1406,6 +1408,12 @@ audio {
     padding: 0;
 }
 
+.single-event .new-img{
+    border: 1px solid #000300;
+    background-color: #FFFDFB;
+    border-radius: 10px;
+}
+
 .partners-items {
     display: flex;
     flex-wrap: wrap;
@@ -1883,9 +1891,32 @@ audio {
     padding: 20px 30px!important;
 }
 
-page_partres_header-block {
+.page_partres_header-block {
     margin: 70px auto;
 }
+
+.sharedaddy h3.sd-title{
+    font-size: 14px !important;
+}
+.events-items .sharedaddy h3.sd-title{
+    display: none;
+}
+.single-event a, .single-event a:visited  {
+    color: black;
+    text-decoration: none;
+}
+
+.single-event .sharedaddy h3.sd-title:before {
+    display: none;
+}
+.single-event .sharedaddy h3.sd-title {
+    margin: 1em 0 1em 0;
+}
+
+.single-event .sharedaddy .sd-block {
+    margin-bottom: 2em;
+}
+
 
 @media screen and (max-width: 1300px) {
     .new-photos_slider {
