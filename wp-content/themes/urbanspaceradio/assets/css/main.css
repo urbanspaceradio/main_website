@@ -1898,7 +1898,7 @@ audio {
 .sharedaddy h3.sd-title{
     font-size: 14px !important;
 }
-.events-items .sharedaddy h3.sd-title{
+.events-items .sharedaddy {
     display: none;
 }
 .single-event a, .single-event a:visited  {
