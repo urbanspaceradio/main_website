@@ -1917,6 +1917,35 @@ audio {
     margin-bottom: 2em;
 }
 
+.share-button {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.share-button span, .share-button a {
+    margin-right: 10px;
+    margin-bottom: 10%;
+}
+.share-button a{
+    width: 100% ;
+    max-width: 30px;
+}
+
+.share-button a svg {
+    width: 30px;
+    height: 30px;
+}
+.share-button a svg:hover {
+    fill: #459799;
+}
+.share-button .share-linkedin{
+    width: 30px;
+}
+.single-event a {
+    color: #459799 !important;
+}
 
 @media screen and (max-width: 1300px) {
     .new-photos_slider {

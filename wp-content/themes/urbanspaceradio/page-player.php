@@ -33,8 +33,8 @@
 					<div class="pause"></div>
 				</div>
 				<div class="playerPage-container_info activeInfo">
-					<div class="js-singer">Loading...</div>
-					<div class="js-song">Loading...</div>
+					<div class="js-singer">URBAN SPACE RADIO</div>
+					<div class="js-song">СЛУХАЙ УКРАЇНСЬКЕ</div>
 					<div class="now">зараз в ефірі</div>
 				</div>
 			</div>

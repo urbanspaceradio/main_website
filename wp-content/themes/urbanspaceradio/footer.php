@@ -91,7 +91,8 @@ $block_contactPage = getBlock_contactPage();
 </footer>
 
 <?php wp_footer(); ?>
-
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/uk_UA/sdk.js#xfbml=1&version=v13.0" nonce="9JEDWN4t"></script>
 <script>
 	$(window).load(function () {
 		$(".preLoader").fadeOut("slow");

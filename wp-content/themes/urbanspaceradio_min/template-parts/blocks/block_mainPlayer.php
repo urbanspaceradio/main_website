@@ -12,8 +12,8 @@ $Block_mainPlayer_1 = getBlock_mainPlayer();
 						onclick="window.open('<?php echo site_url('/player'); ?>','popup','width=960,height=1080'); return false;"></a>
 				</div>
 				<div class="mainPlayer-container_info activeInfo">
-					<div class="js-singer">Loading...</div>
-					<div class="js-song">Loading...</div>
+          <div class="js-singer">URBAN SPACE RADIO</div>
+          <div class="js-song">СЛУХАЙ УКРАЇНСЬКЕ</div>
 					<div class="now">зараз в ефірі</div>
 				</div>
 			</div>

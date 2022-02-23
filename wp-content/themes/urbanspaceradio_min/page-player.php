@@ -33,8 +33,8 @@
 					<div class="pause"></div>
 				</div>
 				<div class="playerPage-container_info activeInfo">
-					<div class="js-singer">Loading...</div>
-					<div class="js-song">Loading...</div>
+					<div class="js-singer">URBAN SPACE RADIO</div>
+					<div class="js-song">СЛУХАЙ УКРАЇНСЬКЕ</div>
 					<div class="now">зараз в ефірі</div>
 				</div>
 			</div>
@@ -45,7 +45,6 @@
 	crossorigin="anonymous"
 	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.jplayer.min.js"
 		  type="text/javascript"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/player.js" type="text/javascript"></script>
