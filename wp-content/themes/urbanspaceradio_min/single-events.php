@@ -15,14 +15,20 @@ $postUrl = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['
           <span>Поділітися цим:</span>
           <a target="_blank" class="share-button share-facebook"
              href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" title="Share on Facebook">
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-              <title>01</title>
-              <path class="st0" d="M478.4,6H33.6C18.3,6,6,18.4,6,33.6v444.8C6,493.7,18.4,506,33.6,506h239.5V312.6h-64.9V237h64.9v-55.7
-	c0-64.6,39.4-99.8,97-99.8c27.6,0,51.3,2.1,58.2,3V152h-39.7c-31.3,0-37.4,14.9-37.4,36.8V237h75l-9.8,75.7h-65.2V506h127.2
-	c15.2,0,27.6-12.4,27.6-27.6V33.6C506,18.3,493.6,6,478.4,6z"/>
-</svg>
+            <svg  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+              <title>Facebook</title>
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Social-Icons---Rounded-Black" transform="translate(-152.000000, -43.000000)">
+                  <g id="Facebook" transform="translate(152.000000, 43.000000)">
+                    <rect id="Rounded" fill="#000000" x="0" y="0" width="72" height="72" rx="8"></rect>
+                    <path d="M60.4641463,13.4173171 L60.4641463,22.7278049 L54.9382927,22.7421951 C50.6068293,22.7421951 49.7721951,24.8 49.7721951,27.807561 L49.7721951,34.4702439 L60.09,34.4702439 L58.7517073,44.8887805 L49.7721951,44.8887805 L49.7721951,72 L39.0097317,72 L39.0097317,44.8887805 L30,44.8887805 L30,34.4702439 L39.0097317,34.4702439 L39.0097317,26.7858537 C39.0097317,17.8639024 44.4478049,13 52.42,13 C56.2204634,13 59.5,13.2878049 60.4641463,13.4173171 Z" fill="#FFFFFF"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
           </a>
           <a target="_blank" class="share-button share-twitter"
              href="https://twitter.com/intent/tweet?url=<?php echo $postUrl; ?>&text=<?php echo the_title(); ?>&via=<?php the_author_meta('twitter'); ?>"
@@ -34,50 +40,24 @@ $postUrl = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['
           </a>
           <a target="_blank" class="share-button share-linkedin "
              href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo $postUrl; ?>&text=<?php echo the_title(); ?>&via=<?php the_author_meta('twitter'); ?>">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="linkedin">
-              <path
-                d="M0 0v24h24v-24h-24zm8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.397-2.586 7-2.777 7 2.476v6.759z"/>
+            <svg  viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+              <title>Linkedin</title>
+              <desc>Created with Sketch.</desc>
+              <defs></defs>
+              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Social-Icons---Rounded-Black" transform="translate(-376.000000, -267.000000)">
+                  <g id="Linkedin" transform="translate(376.000000, 267.000000)">
+                    <path d="M8,72 L64,72 C68.418278,72 72,68.418278 72,64 L72,8 C72,3.581722 68.418278,-8.11624501e-16 64,0 L8,0 C3.581722,8.11624501e-16 -5.41083001e-16,3.581722 0,8 L0,64 C5.41083001e-16,68.418278 3.581722,72 8,72 Z" id="Rounded" fill="#000000"></path>
+                    <path d="M62,62 L51.315625,62 L51.315625,43.8021149 C51.315625,38.8127542 49.4197917,36.0245323 45.4707031,36.0245323 C41.1746094,36.0245323 38.9300781,38.9261103 38.9300781,43.8021149 L38.9300781,62 L28.6333333,62 L28.6333333,27.3333333 L38.9300781,27.3333333 L38.9300781,32.0029283 C38.9300781,32.0029283 42.0260417,26.2742151 49.3825521,26.2742151 C56.7356771,26.2742151 62,30.7644705 62,40.051212 L62,62 Z M16.349349,22.7940133 C12.8420573,22.7940133 10,19.9296567 10,16.3970067 C10,12.8643566 12.8420573,10 16.349349,10 C19.8566406,10 22.6970052,12.8643566 22.6970052,16.3970067 C22.6970052,19.9296567 19.8566406,22.7940133 16.349349,22.7940133 Z M11.0325521,62 L21.769401,62 L21.769401,27.3333333 L11.0325521,27.3333333 L11.0325521,62 Z" fill="#FFFFFF"></path>
+                  </g>
+                </g>
+              </g>
             </svg>
           </a>
           <a target="_blank" class="share-button share-telegram"
              href="https://t.me/share/url?url=<?php echo $postUrl; ?>&text=<?php echo the_title(); ?>&via=<?php the_author_meta('twitter'); ?>">
-            <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 viewBox="0 0 455 455" style="enable-background:new 0 0 455 455;" xml:space="preserve">
-<g>
-  <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M0,0v455h455V0H0z M384.814,100.68l-53.458,257.136
-		c-1.259,6.071-8.378,8.822-13.401,5.172l-72.975-52.981c-4.43-3.217-10.471-3.046-14.712,0.412l-40.46,32.981
-		c-4.695,3.84-11.771,1.7-13.569-4.083l-28.094-90.351l-72.583-27.089c-7.373-2.762-7.436-13.171-0.084-16.003L373.36,90.959
-		C379.675,88.517,386.19,94.049,384.814,100.68z"/>
-  <path style="fill-rule:evenodd;clip-rule:evenodd;" d="M313.567,147.179l-141.854,87.367c-5.437,3.355-7.996,9.921-6.242,16.068
-		l15.337,53.891c1.091,3.818,6.631,3.428,7.162-0.517l3.986-29.553c0.753-5.564,3.406-10.693,17.522-14.522l117.069-108.822
-		C318.739,149.061,316.115,145.614,313.567,147.179z"/>
-</g>
-              <g></g><g></g><g></g><g></g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-              <g>
-              </g>
-</svg>
-
+            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 854 852" width="854" height="852"><style>.s0{fill:#f7f6f5}.s1{fill:#000000}.s2{fill:#ffffff}</style><path class="s0" d="m1027 1028h-1200v-1200h1200z" /><path class="s1" d="m852 218.8l-0.1 418.5c0 4.7-0.1 14.7-0.4 22.5c-0.7 19.1-2.2 43.7-4.5 54.9c-3.4 16.9-8.6 32.8-15.4 46.1c-8 15.6-18.2 29.7-30.3 41.8c-12.1 12-26.1 22.2-41.8 30.2c-13.3 6.8-29.3 12-46.2 15.4c-11.1 2.2-35.6 3.7-54.5 4.4c-7.8 0.3-17.9 0.4-22.6 0.4l-418.5-0.1c-4.7 0-14.7-0.1-22.5-0.4c-19.1-0.7-43.7-2.2-55-4.5c-16.8-3.4-32.7-8.6-46-15.4c-15.6-8-29.7-18.2-41.8-30.3c-12-12.1-22.2-26.1-30.2-41.8c-6.8-13.3-12-29.3-15.4-46.2c-2.2-11.1-3.7-35.6-4.4-54.5c-0.3-7.8-0.4-17.9-0.4-22.6l0.1-418.5c0-4.7 0.1-14.7 0.4-22.5c0.7-19.1 2.2-43.7 4.5-54.9c3.4-16.9 8.6-32.8 15.4-46.1c8-15.6 18.2-29.7 30.3-41.8c12.1-12 26.1-22.2 41.8-30.2c13.3-6.8 29.3-12 46.2-15.4c11.1-2.2 35.6-3.7 54.5-4.4c7.8-0.3 17.9-0.4 22.6-0.4l418.5 0.1c4.7 0 14.7 0.1 22.5 0.4c19.1 0.7 43.7 2.2 55 4.5c16.8 3.4 32.7 8.6 46 15.4c15.6 8 29.6 18.2 41.8 30.3c12 12.1 22.2 26.1 30.2 41.8c6.8 13.3 12 29.3 15.4 46.2c2.2 11.1 3.7 35.6 4.4 54.5c0.3 7.8 0.4 17.9 0.4 22.6z" /><path class="s2" d="m713.4 205.5c0 3.5-0.5 6.8-0.8 11.9q-3.3 52.6-100.7 445q-5.9 22.9-26.8 23.7c-7.6 0.3-16.9-1.2-27.9-10.8c-22-18.9-73.1-55.1-120.5-87.8c-14.3 12-42.9 36.7-72.5 66.3q-41.9 41.9-36.5 0l12.9-136.8l0.3 0.2q0.6-1.4 1.6-2.5q246.8-219.5 253.4-242.5c0.5-1.8-1.4-2.7-4-1.9c-16.4 6-300.6 185.5-332 205.3q-1.8 1.2-7 0.5l-137.9-45q-16.4-6.7-11.1-21.8c1.1-3.2 3.3-5.8 9.8-10.4q30.6-21.3 565.6-213.6q15.1-5.1 24-1.7c4.1 1.6 6.7 3.3 8.9 9.7c0.8 2.3 1.3 7.2 1.2 12.2z" /></svg>
           </a>
 
         </div>
