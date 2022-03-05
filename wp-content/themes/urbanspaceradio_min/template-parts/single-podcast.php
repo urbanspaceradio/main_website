@@ -8,6 +8,7 @@ $term_id_img = get_term_meta($series[0]->term_id)['podcast_series_image_settings
 $term_google_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_google_podcasts'][0];
 $term_apple_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_apple_podcasts'][0];
 $term_youtube_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_youtube_podcasts'][0];
+$term_spotify_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_spotify_podcasts'][0];
 
 $partner_title_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_title'][0];
 $partner_img_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_img'][0];
@@ -33,7 +34,7 @@ $episodes = get_episode($series[0]->term_id);
 				<div class="episode-slider_description">
 					<h2><?php echo $series[0]->name; ?></h2>
               <?php echo $series[0]->description; ?>
-              <?php if ($term_apple_url || $term_youtube_url || $term_google_url) : ?>
+              <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url) : ?>
 					  <div class="episode-slider_podcastsBtn">
 						  <p>Обери свою платформу для прослуховування</p>
                    <?php if ($term_google_url) : ?>
@@ -42,9 +43,11 @@ $episodes = get_episode($series[0]->term_id);
                    <?php if ($term_apple_url) : ?>
 							 <a class="apple" href="<?php echo $term_apple_url ?>" target="_blank"></a>
                    <?php endif; ?>
-
               <?php if ($term_youtube_url) : ?>
 							 <a class="youtube" href="<?php echo $term_youtube_url ?>" target="_blank"></a>
+                   <?php endif; ?>
+              <?php if ($term_spotify_url) : ?>
+							 <a class="spotify" href="<?php echo $term_spotify_url ?>" target="_blank"></a>
                    <?php endif; ?>
 					  </div>
               <?php endif; ?>
@@ -55,7 +58,7 @@ $episodes = get_episode($series[0]->term_id);
 					</div>
 				</div>
 			</section>
-        <?php if ($term_apple_url || $term_youtube_url || $term_google_url) : ?>
+        <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url) : ?>
 			  <div class="episode-slider_podcastsBtn podcastBtn">
 				  <p>Обрери свою платформу для прослуховування</p>
              <?php if ($term_google_url) : ?>
@@ -66,6 +69,9 @@ $episodes = get_episode($series[0]->term_id);
              <?php endif; ?>
           <?php if ($term_youtube_url) : ?>
             <a class="youtube" href="<?php echo $term_youtube_url ?>" target="_blank"></a>
+          <?php endif; ?>
+          <?php if ($term_spotify_url) : ?>
+            <a class="spotify" href="<?php echo $term_spotify_url ?>" target="_blank"></a>
           <?php endif; ?>
 			  </div>
         <?php endif; ?>

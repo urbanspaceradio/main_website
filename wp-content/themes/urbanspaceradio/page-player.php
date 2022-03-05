@@ -19,7 +19,7 @@
 <header class="headerWrapper playerPage-header">
 	<div class="siteWrapper header">
 		<div class="header-logo">
-			<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logo-uxr_white.svg">
+			<img alt="USR" src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/logoLight.svg">
 		</div>
 	</div>
 </header>

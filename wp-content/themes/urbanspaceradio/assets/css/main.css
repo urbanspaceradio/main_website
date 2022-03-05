@@ -1100,6 +1100,7 @@ img {
 
 .episode-slider_podcastsBtn .google,
 .episode-slider_podcastsBtn .apple,
+.episode-slider_podcastsBtn .spotify,
 .episode-slider_podcastsBtn .youtube{
     margin-top: 15px;
     width: 60px;
@@ -1120,6 +1121,11 @@ img {
     background: url('../img/podcasts_img/apple_black.png') no-repeat center;
 }
 
+.episode-slider_podcastsBtn .spotify {
+    display: inline-block;
+    background: url('../img/podcasts_img/spotify-black.svg') no-repeat center;
+}
+
 .episode-slider_podcastsBtn .google:hover {
     background: url('../img/podcasts_img/google_color.png') no-repeat center;
 }
@@ -1130,6 +1136,10 @@ img {
 
 .episode-slider_podcastsBtn .youtube:hover {
     background: url('../img/podcasts_img/YouTube_color_icon.svg') no-repeat center;
+}
+
+.episode-slider_podcastsBtn .spotify:hover {
+    background: url('../img/podcasts_img/spotify-color.svg') no-repeat center;
 }
 
 .episode-slider_img {
