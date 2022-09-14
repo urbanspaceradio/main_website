@@ -1085,7 +1085,7 @@ img {
 }
 
 .episode-slider_podcastsBtn {
-    max-width: 287px;
+    max-width: 400px;
     margin-top: 50px;
     font-size: 20px;
 }
@@ -1101,7 +1101,8 @@ img {
 .episode-slider_podcastsBtn .google,
 .episode-slider_podcastsBtn .apple,
 .episode-slider_podcastsBtn .spotify,
-.episode-slider_podcastsBtn .youtube{
+.episode-slider_podcastsBtn .youtube,
+.episode-slider_podcastsBtn .amazon {
     margin-top: 15px;
     width: 60px;
     height: 60px;
@@ -1113,7 +1114,7 @@ img {
 }
 .episode-slider_podcastsBtn .youtube {
     display: inline-block;
-    background: url('../img/podcasts_img/YouTube_dark_icon.svg') no-repeat center;
+    background: url('../img/podcasts_img/you-dark.svg') no-repeat center;
 }
 
 .episode-slider_podcastsBtn .apple {
@@ -1125,6 +1126,10 @@ img {
     display: inline-block;
     background: url('../img/podcasts_img/spotify-black.svg') no-repeat center;
 }
+.episode-slider_podcastsBtn .amazon {
+    display: inline-block;
+    background: url('../img/podcasts_img/amazon-music.svg') no-repeat center;
+}
 
 .episode-slider_podcastsBtn .google:hover {
     background: url('../img/podcasts_img/google_color.png') no-repeat center;
@@ -1135,11 +1140,14 @@ img {
 }
 
 .episode-slider_podcastsBtn .youtube:hover {
-    background: url('../img/podcasts_img/YouTube_color_icon.svg') no-repeat center;
+    background: url('../img/podcasts_img/you-color.svg') no-repeat center;
 }
 
 .episode-slider_podcastsBtn .spotify:hover {
     background: url('../img/podcasts_img/spotify-color.svg') no-repeat center;
+}
+.episode-slider_podcastsBtn .amazon:hover {
+    background: url('../img/podcasts_img/amazon-music-color.svg') no-repeat center;
 }
 
 .episode-slider_img {

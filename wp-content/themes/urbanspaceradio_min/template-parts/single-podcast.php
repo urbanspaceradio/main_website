@@ -9,6 +9,7 @@ $term_google_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_google
 $term_apple_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_apple_podcasts'][0];
 $term_youtube_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_youtube_podcasts'][0];
 $term_spotify_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_spotify_podcasts'][0];
+$term_amazon_url = get_term_meta($series[0]->term_id)['podcasts_meta_info_amazon_podcasts'][0];
 
 $partner_title_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_title'][0];
 $partner_img_1 = get_term_meta($series[0]->term_id)['podcasts_meta_info_partners_1_img'][0];
@@ -34,7 +35,7 @@ $episodes = get_episode($series[0]->term_id);
 				<div class="episode-slider_description">
 					<h2><?php echo $series[0]->name; ?></h2>
               <?php echo $series[0]->description; ?>
-              <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url) : ?>
+              <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url || $term_amazon_url) : ?>
 					  <div class="episode-slider_podcastsBtn">
 						  <p>Обери свою платформу для прослуховування</p>
                    <?php if ($term_google_url) : ?>
@@ -49,6 +50,9 @@ $episodes = get_episode($series[0]->term_id);
               <?php if ($term_spotify_url) : ?>
 							 <a class="spotify" href="<?php echo $term_spotify_url ?>" target="_blank"></a>
                    <?php endif; ?>
+              <?php if ($term_amazon_url) : ?>
+							 <a class="amazon" href="<?php echo $term_amazon_url ?>" target="_blank"></a>
+                   <?php endif; ?>
 					  </div>
               <?php endif; ?>
 				</div>
@@ -58,7 +62,7 @@ $episodes = get_episode($series[0]->term_id);
 					</div>
 				</div>
 			</section>
-        <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url) : ?>
+        <?php if ($term_apple_url || $term_youtube_url || $term_spotify_url || $term_google_url || $term_amazon_url) : ?>
 			  <div class="episode-slider_podcastsBtn podcastBtn">
 				  <p>Обери свою платформу для прослуховування</p>
              <?php if ($term_google_url) : ?>
@@ -72,6 +76,9 @@ $episodes = get_episode($series[0]->term_id);
           <?php endif; ?>
           <?php if ($term_spotify_url) : ?>
             <a class="spotify" href="<?php echo $term_spotify_url ?>" target="_blank"></a>
+          <?php endif; ?>
+          <?php if ($term_amazon_url) : ?>
+            <a class="amazon" href="<?php echo $term_amazon_url ?>" target="_blank"></a>
           <?php endif; ?>
 			  </div>
         <?php endif; ?>
